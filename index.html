@@ -68,6 +68,32 @@ body {
   overflow-x: hidden;
 }
 
+/* Luz radial que acompanha o mouse */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 50vw) var(--mouse-y, 20vh),
+    rgba(45, 212, 191, 0.11),
+    rgba(56, 189, 248, 0.04) 40%,
+    transparent 75%
+  );
+  transition: opacity 0.4s ease;
+}
+
+/* Garante que o conteúdo fique acima da camada de luz */
+header.top, main, footer {
+  position: relative;
+  z-index: 2;
+}
+
+@media (hover: none) {
+  body::before { display: none; }
+}
+  
 h1, h2, h3, .brand {
   font-family: "Montserrat", system-ui, sans-serif;
   line-height: 1.12;
@@ -813,5 +839,22 @@ footer .links a:hover { color: var(--accent-teal); }
   up();
 })();
 </script>
+
+<script>
+(function(){
+  var ticking = false;
+  window.addEventListener('mousemove', function(e) {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        document.body.style.setProperty('--mouse-x', e.clientX + 'px');
+        document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>
+  
 </body>
 </html>
