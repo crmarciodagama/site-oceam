@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hidroazul | Linha Completa de Piscinas para Lojistas da Zona da Mata</title>
-  <meta name="description" content="Sua loja vende a obra. A Hidroazul faz o cliente voltar. Linha completa de tratamento de piscinas com a credibilidade do Grupo Bauminas para lojistas de material de construção." />
+  <title>Hidroazul | Linha Completa de Tratamento de Piscinas para Lojistas da Zona da Mata</title>
+  <meta name="description" content="Sua loja vende a obra. A Hidroazul faz o cliente voltar. Linha completa de tratamento de piscinas com a credibilidade do Grupo Bauminas para lojas de material de construção." />
 
-  <!-- Google Fonts: Inter (Digital & Títulos) e Montserrat (Institucional & Assinatura) -->
+  <!-- Google Fonts: Inter & Montserrat (Manual de Identidade Visual Hidroazul Out/2026) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,24 +19,24 @@
         extend: {
           colors: {
             hidro: {
-              blue: '#251163',      /* Pantone 273C Oficial */
-              blueDark: '#190B47',
-              orange: '#D8601E',    /* Pantone 1595C Oficial */
-              orangeDark: '#BD4F14',
-              light: '#F8F9FB',
+              blue: '#251163',      /* Pantone 273C */
+              blueDark: '#190a47',
+              blueLight: '#381e8c',
+              orange: '#D8601E',    /* Pantone 1595C */
+              orangeDark: '#b84c12',
+              orangeLight: '#ef7632',
+              surface: '#F7F8FC',
               whatsapp: '#25D366',
               whatsappDark: '#1EBE5D'
             }
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
-            display: ['Inter', 'sans-serif'],
-            inst: ['Montserrat', 'sans-serif'],
-            script: ['Caveat', 'cursive']
+            display: ['Montserrat', 'Inter', 'sans-serif'],
           },
           boxShadow: {
             'card': '0 10px 30px -5px rgba(37, 17, 99, 0.08)',
-            'cta': '0 12px 28px -6px rgba(37, 211, 102, 0.45)'
+            'cta': '0 12px 28px -6px rgba(37, 211, 102, 0.45)',
           }
         }
       }
@@ -44,220 +44,180 @@
   </script>
 
   <style>
-    /* Pattern Oficial "Onda Laranja" (Manual de Identidade Visual p. 27 - tom sobre tom) */
-    .bg-onda-laranja {
-      background-color: #D8601E;
-      background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-20 40 C 10 40, 20 10, 50 10 C 80 10, 90 40, 120 40 C 150 40, 160 10, 190 10' fill='none' stroke='%23C85315' stroke-width='6' stroke-linecap='round' opacity='0.55'/%3E%3Cpath d='M-20 70 C 10 70, 20 40, 50 40 C 80 40, 90 70, 120 70 C 150 70, 160 40, 190 40' fill='none' stroke='%23E36E2D' stroke-width='2.5' stroke-linecap='round' opacity='0.45'/%3E%3Cpath d='M-20 100 C 10 100, 20 70, 50 70 C 80 70, 90 100, 120 100 C 150 100, 160 70, 190 70' fill='none' stroke='%23C85315' stroke-width='6' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E");
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1E1B2E;
+      background-color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Pattern Silhuetas / Ondas Sutis no Azul Institucional */
-    .bg-onda-azul {
-      background-color: #251163;
-      background-image: url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-20 50 C 15 50, 25 15, 60 15 C 95 15, 105 50, 140 50' fill='none' stroke='%23321982' stroke-width='5' opacity='0.6'/%3E%3Cpath d='M-20 110 C 15 110, 25 75, 60 75 C 95 75, 105 110, 140 110' fill='none' stroke='%23321982' stroke-width='5' opacity='0.6'/%3E%3C/svg%3E");
-    }
-
-    /* Ajuste fino da tipografia Inter conforme Manual p. 21 (letter-spacing -0.03em) */
-    .headline-hidro {
-      letter-spacing: -0.03em;
+    .headline-tight {
+      letter-spacing: -0.033em;
       line-height: 1.08;
     }
 
-    /* Micro-animação sutil no botão WhatsApp */
-    @keyframes pulse-soft {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
+    /* Degradê Principal Laranja Hidroazul */
+    .bg-gradient-orange {
+      background: linear-gradient(135deg, #D8601E 0%, #c44f12 55%, #a83e09 100%);
     }
-    .animate-pulse-soft {
-      animation: pulse-soft 2.6s infinite ease-in-out;
+
+    /* Degradê Institucional Azul Hidroazul */
+    .bg-gradient-blue {
+      background: linear-gradient(145deg, #251163 0%, #1d0d52 60%, #13073b 100%);
+    }
+
+    /* Degradê Suave para Seções Claras */
+    .bg-gradient-soft {
+      background: linear-gradient(180deg, #F7F8FC 0%, #FFFFFF 100%);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F8FC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #251163;
+      border-radius: 4px;
     }
   </style>
 </head>
-<body class="bg-white text-slate-800 font-sans antialiased selection:bg-hidro-orange selection:text-white">
+<body class="antialiased selection:bg-hidro-orange selection:text-white">
 
-  <!-- Barra Superior Institucional (Sede Regional) -->
-  <div class="bg-hidro-blue text-white text-xs py-2 px-4 text-center font-medium tracking-tight border-b border-white/10">
-    <span class="inline-flex items-center gap-1.5 justify-center flex-wrap">
-      <span class="w-2 h-2 rounded-full bg-hidro-whatsapp inline-block"></span>
-      <span>Atendimento B2B Exclusivo para Lojistas da <strong>Zona da Mata Mineira</strong> • Fábrica em Cataguases/MG</span>
+  <!-- Barra Superior de Confiança -->
+  <div class="bg-hidro-blueDark text-white text-xs py-2 px-4 text-center font-medium border-b border-white/10">
+    <span class="inline-flex items-center gap-1.5">
+      <span class="w-2 h-2 rounded-full bg-hidro-orange animate-pulse"></span>
+      Fábrica em <strong>Cataguases/MG</strong> • Atendimento direto para lojistas da <strong>Zona da Mata</strong>
     </span>
   </div>
 
-  <!-- 1. HEADER & HERO SECTION (Espelhamento direto com o criativo Meta Ads) -->
-  <header class="bg-onda-laranja relative overflow-hidden pt-6 pb-12 md:pt-10 md:pb-16 text-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <!-- HERO SECTION -->
+  <header class="relative bg-gradient-orange text-white overflow-hidden">
+    <!-- Brilho sutil de profundidade no degradê -->
+    <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-32 -left-24 w-96 h-96 rounded-full bg-hidro-blue/25 blur-3xl"></div>
 
-      <!-- Topo: Logotipo Oficial Hidroazul (Elipse #251163 + Borda Branca + Wordmark + "Nada Melhor!") -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 md:mb-10">
-        <a href="#" aria-label="Hidroazul - Nada Melhor!" class="inline-block focus:outline-none">
-          <!-- SVG Fiel ao Manual de Identidade Visual (p. 8-10) e logo.svg anexo -->
-          <svg width="210" height="86" viewBox="0 0 260 108" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-44 sm:w-52 h-auto drop-shadow-sm">
-            <!-- Elipse Horizontal Azul Pantone 273C com Borda Branca Fina -->
-            <ellipse cx="130" cy="36" rx="122" ry="31" fill="#251163" stroke="#FFFFFF" stroke-width="3.5" />
-            <!-- Wordmark Hidroazul em Branco Itálico Bold -->
-            <text x="130" y="45" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat, Inter, sans-serif" font-weight="900" font-style="italic" font-size="33" letter-spacing="-1">Hidroazul</text>
-            <!-- Assinatura Cursiva "Nada Melhor!" com sublinhado em arco -->
-            <text x="130" y="88" text-anchor="middle" fill="#FFFFFF" font-family="Caveat, cursive" font-weight="700" font-size="29" letter-spacing="0.5">Nada Melhor!</text>
-            <path d="M72 96 Q 130 89 188 96" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" fill="none" />
-          </svg>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-14 lg:py-16">
+      
+      <!-- Top Bar com Logotipo SVG Original + CTA Rápido -->
+      <nav class="flex items-center justify-between mb-10 lg:mb-14">
+        <a href="#" class="inline-flex flex-col items-center group" aria-label="Hidroazul - Nada Melhor!">
+          <img src="img/logo-hidroazul.svg" alt="Hidroazul" class="h-10 sm:h-11 w-auto drop-shadow-sm" />
+          <span class="font-display italic font-bold text-white text-xs sm:text-sm tracking-tight mt-0.5">Nada Melhor!</span>
         </a>
 
-        <!-- Selo Grupo Bauminas -->
-        <div class="bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold flex items-center gap-2">
-          <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
-          <span>Uma empresa do <strong>Grupo Bauminas</strong></span>
-        </div>
-      </div>
+        <a href="#contato-whatsapp" class="hidden sm:inline-flex items-center gap-2 bg-hidro-blue hover:bg-hidro-blueDark text-white font-semibold text-sm px-5 py-2.5 rounded-full transition shadow-md">
+          <span>Falar com Consultor</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </nav>
 
-      <!-- Grid Principal do Hero: Copy do Criativo + Formulário de Pré-Qualificação -->
+      <!-- Grid Principal do Hero -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-
-        <!-- Coluna Esquerda: Mensagem Central do Anúncio -->
-        <div class="lg:col-span-7 text-left">
-          <div class="inline-flex items-center gap-2 bg-hidro-blue/90 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-5 shadow-sm">
+        
+        <!-- Coluna Esquerda: Headline do Anúncio + Proposta de Valor -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
             <span>Para Lojas de Material de Construção</span>
           </div>
 
-          <!-- Headline espelhando exatamente a arte do anúncio -->
-          <h1 class="headline-hidro font-black text-4xl sm:text-5xl lg:text-[54px] text-white mb-6">
-            Sua loja vende a obra. <br class="hidden sm:inline" />
-            A Hidroazul <br class="sm:hidden" />
-            <span class="inline-block bg-hidro-blue text-white px-3.5 py-1 rounded-xl mt-1 shadow-md">
-              faz o cliente voltar.
+          <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-[54px] headline-tight tracking-tight">
+            Sua loja vende a obra.<br />
+            <span class="inline-block bg-hidro-blue text-white px-3.5 py-1.5 rounded-xl mt-2 shadow-lg">
+              A Hidroazul faz o cliente voltar.
             </span>
           </h1>
 
-          <!-- Subheadline -->
-          <p class="text-base sm:text-lg lg:text-xl text-white/95 font-medium leading-relaxed mb-6 max-w-2xl">
-            Linha completa de tratamento de piscinas com a credibilidade do <strong>Grupo Bauminas</strong>. Da obra à manutenção mensal, aumente o giro e a recompra na sua loja de material de construção.
+          <p class="text-base sm:text-lg text-white/95 max-w-xl leading-relaxed font-medium">
+            Quem vende piscina não vende uma vez só. Coloque a linha completa de tratamento no mix da sua loja e transforme a obra em <strong>venda recorrente o ano inteiro</strong> — com a credibilidade do <strong>Grupo Bauminas</strong>.
           </p>
 
-          <!-- Bullets rápidos de prova de valor -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-3 border border-white/20 flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-lg bg-hidro-blue flex items-center justify-center shrink-0">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm font-semibold leading-tight">Recompra recorrente todo mês</span>
+          <!-- Pilares Rápidos -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <div class="bg-black/15 backdrop-blur-xs rounded-xl p-3.5 border border-white/15">
+              <p class="font-display font-extrabold text-sm">O que está no rótulo</p>
+              <p class="text-xs text-white/90 mt-0.5">Está no balde. Teor ativo comprovado sem reclamação.</p>
             </div>
-            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-3 border border-white/20 flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-lg bg-hidro-blue flex items-center justify-center shrink-0">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm font-semibold leading-tight">Teor ativo comprovado e ANVISA</span>
+            <div class="bg-black/15 backdrop-blur-xs rounded-xl p-3.5 border border-white/15">
+              <p class="font-display font-extrabold text-sm">Recompra mensal</p>
+              <p class="text-xs text-white/90 mt-0.5">Cloro, algicida e clarificante giram todo mês na prateleira.</p>
             </div>
-            <div class="bg-white/15 backdrop-blur-sm rounded-xl p-3 border border-white/20 flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-lg bg-hidro-blue flex items-center justify-center shrink-0">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              </div>
-              <span class="text-xs sm:text-sm font-semibold leading-tight">Fábrica próxima em Cataguases/MG</span>
+            <div class="bg-black/15 backdrop-blur-xs rounded-xl p-3.5 border border-white/15">
+              <p class="font-display font-extrabold text-sm">Perto da sua loja</p>
+              <p class="text-xs text-white/90 mt-0.5">Fábrica em Cataguases/MG com atendimento regional.</p>
             </div>
           </div>
         </div>
 
-        <!-- Coluna Direita: Card de Formulário Rápido de Pré-Qualificação (3 campos) -->
-        <div class="lg:col-span-5">
-          <div id="formulario-whatsapp" class="bg-white text-slate-800 rounded-2xl p-6 sm:p-7 shadow-2xl border-2 border-white/40">
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <span class="text-xs font-extrabold uppercase tracking-wider text-hidro-orange bg-hidro-orange/10 px-2.5 py-1 rounded-md">
-                Catálogo + Condições B2B
+        <!-- Coluna Direita: Card de Pré-Qualificação + Conversão WhatsApp -->
+        <div id="contato-whatsapp" class="lg:col-span-5">
+          <div class="bg-white text-gray-900 rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/40">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-hidro-orange bg-hidro-orange/10 px-3 py-1 rounded-full">
+                Atendimento Comercial
               </span>
-              <span class="text-xs font-semibold text-emerald-600 flex items-center gap-1">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                Equipe Online
+              <span class="text-xs text-emerald-700 font-semibold flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Online agora
               </span>
             </div>
 
-            <h2 class="text-xl sm:text-2xl font-black text-hidro-blue tracking-tight mb-1.5">
-              Receba o Catálogo Digital e Condições para sua Loja
+            <h2 class="font-display font-extrabold text-xl sm:text-2xl text-hidro-blue leading-snug">
+              Receba o catálogo 2026 e condições para lojistas
             </h2>
-            <p class="text-xs sm:text-sm text-slate-600 mb-5">
-              Preencha em 15 segundos para iniciarmos o atendimento no WhatsApp com o mix ideal para a sua região.
+            <p class="text-sm text-gray-600 mt-1.5 mb-5">
+              Preencha rápido para abrir a conversa no WhatsApp já com o consultor da sua região:
             </p>
 
-            <!-- Formulário de 3 Campos conforme Plano de Tráfego -->
-            <form id="leadForm" class="space-y-3.5" novalidate>
+            <form id="leadForm" class="space-y-3.5">
               <div>
-                <label for="leadName" class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">
-                  Seu Nome *
-                </label>
-                <input
-                  type="text"
-                  id="leadName"
-                  name="name"
-                  required
-                  placeholder="Ex: Carlos Silva"
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-hidro-blue focus:border-hidro-blue transition"
-                />
+                <label for="nome" class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Seu nome *</label>
+                <input type="text" id="nome" name="nome" required placeholder="Ex: Carlos Andrade"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-hidro-blue focus:border-transparent transition" />
               </div>
 
               <div>
-                <label for="leadStore" class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">
-                  Nome da Loja *
-                </label>
-                <input
-                  type="text"
-                  id="leadStore"
-                  name="store"
-                  required
-                  placeholder="Ex: Constrular Materiais"
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-hidro-blue focus:border-hidro-blue transition"
-                />
+                <label for="loja" class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Nome da loja *</label>
+                <input type="text" id="loja" name="loja" required placeholder="Ex: Constrular Materiais"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-hidro-blue focus:border-transparent transition" />
               </div>
 
               <div>
-                <label for="leadCity" class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">
-                  Cidade da Loja *
-                </label>
-                <select
-                  id="leadCity"
-                  name="city"
-                  required
-                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-hidro-blue focus:border-hidro-blue transition"
-                >
-                  <option value="" disabled selected>Selecione sua cidade...</option>
-                  <option value="Cataguases">Cataguases</option>
-                  <option value="Juiz de Fora">Juiz de Fora</option>
-                  <option value="Ubá">Ubá</option>
-                  <option value="Muriaé">Muriaé</option>
-                  <option value="Leopoldina">Leopoldina</option>
-                  <option value="Viçosa">Viçosa</option>
-                  <option value="Ponte Nova">Ponte Nova</option>
-                  <option value="Manhuaçu">Manhuaçu</option>
-                  <option value="Carangola">Carangola</option>
-                  <option value="Visconde do Rio Branco">Visconde do Rio Branco</option>
-                  <option value="Além Paraíba">Além Paraíba</option>
-                  <option value="Santos Dumont">Santos Dumont</option>
-                  <option value="Outra cidade">Outra cidade da região</option>
-                </select>
+                <label for="cidade" class="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1">Cidade (Zona da Mata) *</label>
+                <input type="text" id="cidade" name="cidade" list="cidades-zm" required placeholder="Ex: Juiz de Fora, Cataguases, Ubá..."
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-hidro-blue focus:border-transparent transition" />
+                <datalist id="cidades-zm">
+                  <option value="Cataguases">
+                  <option value="Juiz de Fora">
+                  <option value="Ubá">
+                  <option value="Muriaé">
+                  <option value="Leopoldina">
+                  <option value="Viçosa">
+                  <option value="Ponte Nova">
+                  <option value="Manhuaçu">
+                  <option value="Carangola">
+                  <option value="Visconde do Rio Branco">
+                  <option value="Além Paraíba">
+                  <option value="Santos Dumont">
+                  <option value="Astolfo Dutra">
+                </datalist>
               </div>
 
-              <!-- Mensagem de validação inline (sem alert) -->
-              <p id="formFeedback" class="hidden text-xs font-semibold text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2"></p>
-
-              <button
-                type="submit"
-                class="w-full bg-hidro-whatsapp hover:bg-hidro-whatsappDark text-white font-extrabold text-sm sm:text-base py-3.5 px-5 rounded-xl shadow-cta transition transform active:scale-[0.99] flex items-center justify-center gap-2.5 cursor-pointer"
-              >
-                <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
-                </svg>
-                <span>Receber Catálogo no WhatsApp</span>
+              <button type="submit"
+                class="w-full bg-hidro-whatsapp hover:bg-hidro-whatsappDark text-white font-display font-extrabold text-base py-4 px-5 rounded-xl shadow-cta transition transform active:scale-[0.99] flex items-center justify-center gap-2.5 cursor-pointer mt-2">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/></svg>
+                <span>Falar com a Hidroazul no WhatsApp</span>
               </button>
             </form>
 
-            <!-- Opção direta para quem prefere pular o formulário -->
-            <div class="mt-4 pt-3.5 border-t border-slate-100 text-center">
-              <a
-                href="https://wa.me/5532999025943"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-whatsapp-direct="hero_skip_form"
-                class="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm font-bold text-hidro-blue hover:text-hidro-orange transition underline underline-offset-4"
-              >
-                <span>Prefere ir direto? Chamar no WhatsApp agora</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            <!-- Opção Direta sem Formulário -->
+            <div class="mt-4 pt-3.5 border-t border-gray-100 text-center">
+              <a href="#" data-wa-direct="true"
+                class="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-hidro-blue hover:text-hidro-orange transition">
+                <span>Prefere pular o formulário? Clique aqui e chame direto</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
@@ -267,793 +227,530 @@
     </div>
   </header>
 
-  <!-- 2. SEÇÃO DOR X SOLUÇÃO: Por que colocar piscinas no mix da sua loja? -->
-  <section class="py-14 sm:py-20 bg-hidro-light">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-hidro-orange block mb-2">
-          Mais Giro e Rentabilidade no Balcão
-        </span>
-        <h2 class="headline-hidro text-3xl sm:text-4xl font-black text-hidro-blue mb-4">
-          Por que colocar piscinas no mix da sua loja?
+  <!-- SEÇÃO 2: POR QUE PISCINA NO MIX DA LOJA -->
+  <section class="py-14 sm:py-20 bg-gradient-soft">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-hidro-orange">Da construção à manutenção</span>
+        <h2 class="font-display font-black text-2xl sm:text-4xl text-hidro-blue mt-2 headline-tight">
+          A obra de piscina acaba. A venda de tratamento continua.
         </h2>
-        <p class="text-slate-600 text-base sm:text-lg">
-          Cimento, piso e hidráulica são vendidos uma vez na obra. O tratamento da piscina gera <strong>fluxo mensal garantido</strong> o ano inteiro.
+        <p class="text-gray-600 text-sm sm:text-base mt-3">
+          Muitas lojas vendem cimento, revestimento e hidráulica na construção, mas deixam o cliente comprar cloro e auxiliares no concorrente todo mês.
         </p>
       </div>
 
-      <!-- Cards das 3 Personas do Plano Comercial -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        <!-- Persona 1: Lojista de Obra Completa -->
-        <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-card border border-slate-100 flex flex-col justify-between hover:-translate-y-1 transition duration-200">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-hidro-blue/10 text-hidro-blue flex items-center justify-center mb-5">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-            </div>
-            <span class="text-xs font-bold uppercase tracking-wider text-hidro-orange">Para Lojista de Obra Completa</span>
-            <h3 class="text-xl font-black text-hidro-blue mt-1 mb-3 tracking-tight">
-              A obra da piscina acaba, a venda continua
-            </h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4">
-              Você já vende o pacote da construção para o pedreiro e o proprietário. Não deixe esse cliente ir para a loja especializada depois da piscina pronta: capture a manutenção recorrente na sua loja.
-            </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-7 shadow-card border border-gray-100 hover:border-hidro-orange/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-hidro-orange/15 to-hidro-orange/5 text-hidro-orange flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
           </div>
-          <div class="pt-4 border-t border-slate-100 text-xs font-bold text-hidro-blue flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-hidro-orange"></span>
-            <span>Fidelização pós-obra garantida</span>
-          </div>
+          <h3 class="font-display font-extrabold text-lg text-hidro-blue">Giro Recorrente no Balcão</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Quem tem piscina precisa tratar a água toda semana. O cliente volta à sua loja para repor cloro, clarificante, algicida e limpa-bordas — e aproveita para levar outros itens.
+          </p>
         </div>
 
-        <!-- Persona 2: Lojista Sem Piscina no Mix -->
-        <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-card border-2 border-hidro-orange/30 flex flex-col justify-between hover:-translate-y-1 transition duration-200 relative">
-          <div class="absolute -top-3 right-5 bg-hidro-orange text-white text-[11px] font-extrabold uppercase px-3 py-0.5 rounded-full shadow-sm">
-            Entrada Facilitada
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl p-7 shadow-card border border-gray-100 hover:border-hidro-orange/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-hidro-blue/15 to-hidro-blue/5 text-hidro-blue flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-hidro-orange/15 text-hidro-orange flex items-center justify-center mb-5">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
-            </div>
-            <span class="text-xs font-bold uppercase tracking-wider text-hidro-orange">Para Lojista Sem Piscina no Mix</span>
-            <h3 class="text-xl font-black text-hidro-blue mt-1 mb-3 tracking-tight">
-              Mix enxuto e de giro rápido
-            </h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4">
-              Sem medo de estoque parado ou dúvida técnica no balcão. Comece com os itens campeões de saída e conte com suporte técnico humano direto para orientar seus vendedores e clientes.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-100 text-xs font-bold text-hidro-blue flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-hidro-orange"></span>
-            <span>Produtos que voltam à prateleira todo mês</span>
-          </div>
+          <h3 class="font-display font-extrabold text-lg text-hidro-blue">Mix Enxuto para Começar</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Não precisa imobilizar capital com dezenas de itens parados. Nosso atendimento comercial indica os produtos de maior saída para o perfil da sua loja e da sua cidade.
+          </p>
         </div>
 
-        <!-- Persona 3: Lojista com Mix Curto -->
-        <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-card border border-slate-100 flex flex-col justify-between hover:-translate-y-1 transition duration-200">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-hidro-blue/10 text-hidro-blue flex items-center justify-center mb-5">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
-            </div>
-            <span class="text-xs font-bold uppercase tracking-wider text-hidro-orange">Para Lojista com Mix Curto</span>
-            <h3 class="text-xl font-black text-hidro-blue mt-1 mb-3 tracking-tight">
-              Recompra sem reclamação
-            </h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-4">
-              Cansado de cliente reclamando que o cloro não rende ou deixou a água turva? Com teor ativo rigoroso e linha completa de auxiliares, o consumidor vê resultado real e volta na sua prateleira.
-            </p>
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-7 shadow-card border border-gray-100 hover:border-hidro-orange/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-hidro-orange/15 to-hidro-orange/5 text-hidro-orange flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
           </div>
-          <div class="pt-4 border-t border-slate-100 text-xs font-bold text-hidro-blue flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-hidro-orange"></span>
-            <span>Qualidade química que protege sua reputação</span>
-          </div>
+          <h3 class="font-display font-extrabold text-lg text-hidro-blue">Treinamento para sua Equipe</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            Seu balcão não precisa ser especialista em química. Oferecemos apoio técnico humano direto por telefone/WhatsApp e capacitação gratuita na <strong>Universidade da Piscina</strong>.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. PROVA TÉCNICA & CREDIBILIDADE ("O que está no rótulo está no balde") -->
-  <section class="bg-onda-azul text-white py-14 sm:py-20 relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <!-- SEÇÃO 3: QUALIDADE COMPROVADA ("O QUE ESTÁ NO RÓTULO ESTÁ NO BALDE") -->
+  <section class="py-14 sm:py-20 bg-white border-y border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        <!-- Texto Principal de Autoridade Química -->
-        <div class="lg:col-span-7">
-          <div class="inline-block bg-hidro-orange text-white text-xs font-extrabold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
+        
+        <div class="lg:col-span-6 space-y-5">
+          <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-hidro-blue bg-hidro-blue/10 px-3 py-1 rounded-full">
             Rigor Técnico & Segurança
-          </div>
-          <h2 class="headline-hidro text-3xl sm:text-4xl lg:text-5xl font-black mb-5">
+          </span>
+          <h2 class="font-display font-black text-3xl sm:text-4xl text-hidro-blue headline-tight">
             “O que está no rótulo está no balde.”
           </h2>
-          <p class="text-white/90 text-base sm:text-lg leading-relaxed mb-6">
-            Há mais de <strong>35 anos</strong> a Hidroazul desenvolve soluções químicas de alta performance com matérias-primas selecionadas e controle laboratorial rigoroso. Parte do <strong>Grupo Bauminas</strong> — referência nacional há mais de 60 anos no tratamento de águas e efluentes — entregamos eficiência comprovada do primeiro uso à manutenção.
+          <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+            No mercado de piscinas, produto com teor ativo abaixo do prometido gera água verde, reclamação no balcão e perda de cliente. Na Hidroazul, cada lote passa por controle técnico rigoroso dentro do padrão industrial do <strong>Grupo Bauminas</strong>.
           </p>
 
-          <!-- Selos de Conformidade do Manual (p. 4) -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div class="bg-white/10 border border-white/15 rounded-xl p-4 flex items-start gap-3">
-              <div class="w-9 h-9 rounded-lg bg-hidro-orange flex items-center justify-center shrink-0 font-black text-sm">✓</div>
-              <div>
-                <h4 class="font-bold text-sm sm:text-base">Registro na ANVISA</h4>
-                <p class="text-xs text-white/80 mt-0.5">Total conformidade sanitária e teor de cloro ativo garantido em cada lote.</p>
-              </div>
-            </div>
-            <div class="bg-white/10 border border-white/15 rounded-xl p-4 flex items-start gap-3">
-              <div class="w-9 h-9 rounded-lg bg-hidro-orange flex items-center justify-center shrink-0 font-black text-sm">✓</div>
-              <div>
-                <h4 class="font-bold text-sm sm:text-base">Baldes Homologados INMETRO</h4>
-                <p class="text-xs text-white/80 mt-0.5">Embalagens seguras com tampas de proteção pensadas para famílias e armazenagem na loja.</p>
-              </div>
-            </div>
-          </div>
-
-          <a
-            href="#formulario-whatsapp"
-            class="inline-flex items-center justify-center gap-2.5 bg-hidro-whatsapp hover:bg-hidro-whatsappDark text-white font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-cta transition"
-          >
-            <span>Solicitar Tabela Comercial no WhatsApp</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-          </a>
+          <ul class="space-y-3 pt-2">
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">✓</span>
+              <span class="text-sm text-gray-700"><strong>Registro na ANVISA:</strong> Produtos formulados e registrados dentro das normas sanitárias vigentes.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">✓</span>
+              <span class="text-sm text-gray-700"><strong>Baldes homologados pelo INMETRO:</strong> Embalagens resistentes com tampas de segurança pensadas para proteger famílias e evitar vazamentos na loja.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">✓</span>
+              <span class="text-sm text-gray-700"><strong>QR Code explicativo nas embalagens:</strong> O consumidor final escaneia com o celular e vê como aplicar cada produto sem erro.</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Card Suporte Técnico Humano & Universidade da Piscina (Folder p. 7 e 10) -->
-        <div class="lg:col-span-5 space-y-5">
-          <div class="bg-white text-slate-800 rounded-2xl p-6 shadow-xl">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-11 h-11 rounded-xl bg-hidro-orange/15 text-hidro-orange flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+        <!-- Quadro de Destaques Técnicos -->
+        <div class="lg:col-span-6">
+          <div class="bg-gradient-blue text-white rounded-3xl p-7 sm:p-9 relative overflow-hidden shadow-xl">
+            <div class="pointer-events-none absolute -top-16 -right-16 w-64 h-64 rounded-full bg-hidro-orange/20 blur-2xl"></div>
+            <div class="relative space-y-6">
+              <div class="flex items-center justify-between border-b border-white/15 pb-4">
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-hidro-orange font-bold">Linha Completa de Cloros</p>
+                  <p class="font-display font-extrabold text-xl mt-0.5">Concentração real para cada necessidade</p>
+                </div>
+                <span class="bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-lg">1kg a 50kg</span>
               </div>
-              <div>
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-hidro-orange">Pós-Venda Próximo</span>
-                <h3 class="text-lg font-black text-hidro-blue leading-tight">Suporte Técnico Humano</h3>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Seu balconista ou cliente final teve dúvida na dosagem ou recuperação de água verde? Nossa equipe técnica atende pessoas de verdade pelo WhatsApp, sem robôs engessados.
-            </p>
-          </div>
 
-          <div class="bg-white text-slate-800 rounded-2xl p-6 shadow-xl border-l-4 border-hidro-orange">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-11 h-11 rounded-xl bg-hidro-blue/10 text-hidro-blue flex items-center justify-center shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /></svg>
+              <div class="grid grid-cols-2 gap-3.5">
+                <div class="bg-white/10 backdrop-blur-xs rounded-xl p-4 border border-white/15">
+                  <span class="text-hidro-orange font-display font-black text-2xl">70%</span>
+                  <p class="font-bold text-sm mt-1">Premium 70</p>
+                  <p class="text-xs text-white/80 mt-0.5">Hipoclorito de cálcio para supercloração.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-xs rounded-xl p-4 border border-white/15">
+                  <span class="text-hidro-orange font-display font-black text-2xl">56%</span>
+                  <p class="font-bold text-sm mt-1">Dicloro Orgânico</p>
+                  <p class="text-xs text-white/80 mt-0.5">Cloro estabilizado superconcentrado.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-xs rounded-xl p-4 border border-white/15">
+                  <span class="text-hidro-orange font-display font-black text-2xl">45%</span>
+                  <p class="font-bold text-sm mt-1">Multiação 8 em 1</p>
+                  <p class="text-xs text-white/80 mt-0.5">O multifuncional com maior teor ativo.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-xs rounded-xl p-4 border border-white/15">
+                  <span class="text-hidro-orange font-display font-black text-2xl">30%</span>
+                  <p class="font-bold text-sm mt-1">Faz! 30</p>
+                  <p class="text-xs text-white/80 mt-0.5">Dicloro estabilizado de alto giro e custo-benefício.</p>
+                </div>
               </div>
-              <div>
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-hidro-orange">Capacitação Gratuita</span>
-                <h3 class="text-lg font-black text-hidro-blue leading-tight">Universidade da Piscina</h3>
-              </div>
-            </div>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Treinamento online com certificação gratuita para proprietários, lojistas e tratadores venderem com segurança técnica:
-            </p>
-            <div class="grid grid-cols-2 gap-2.5 text-xs">
-              <div class="bg-hidro-light rounded-lg p-2.5 border border-slate-200">
-                <strong class="text-hidro-blue block">Curso Básico (10h)</strong>
-                <span class="text-slate-600">Ideal para lojistas e equipes de balcão</span>
-              </div>
-              <div class="bg-hidro-light rounded-lg p-2.5 border border-slate-200">
-                <strong class="text-hidro-blue block">Curso Avançado (90h)</strong>
-                <span class="text-slate-600">Especialização técnica e gestão</span>
+
+              <div class="pt-1">
+                <a href="#" data-wa-direct="true" class="w-full inline-flex items-center justify-center gap-2 bg-hidro-orange hover:bg-hidro-orangeDark text-white font-display font-bold text-sm py-3.5 px-5 rounded-xl transition shadow-md">
+                  <span>Solicitar tabela e folder completo no WhatsApp</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 4. CATÁLOGO DE GIRO RÁPIDO (Abas interativas baseadas no Folder 2026) -->
-  <section id="catalogo" class="py-14 sm:py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-hidro-orange block mb-2">
-          Portfólio Oficial 2026
-        </span>
-        <h2 class="headline-hidro text-3xl sm:text-4xl font-black text-hidro-blue mb-3">
-          Catálogo Completo de Alto Giro
-        </h2>
-        <p class="text-slate-600 text-sm sm:text-base">
-          Do tratamento inicial da obra à manutenção semanal. Navegue pelas linhas abaixo e peça o folder digital completo no WhatsApp.
-        </p>
-      </div>
-
-      <!-- Abas de Filtro por Categoria -->
-      <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8" role="tablist" aria-label="Categorias de Produtos Hidroazul">
-        <button
-          type="button"
-          data-tab="cloros"
-          class="catalog-tab active px-4 sm:px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition cursor-pointer bg-hidro-blue text-white shadow-md"
-        >
-          Cloros de Alta Performance
-        </button>
-        <button
-          type="button"
-          data-tab="auxiliares"
-          class="catalog-tab px-4 sm:px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition cursor-pointer bg-hidro-light text-slate-700 hover:bg-slate-200"
-        >
-          Solução Rápida & Auxiliares
-        </button>
-        <button
-          type="button"
-          data-tab="algicidas"
-          class="catalog-tab px-4 sm:px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition cursor-pointer bg-hidro-light text-slate-700 hover:bg-slate-200"
-        >
-          Algicidas & Equilíbrio
-        </button>
-      </div>
-
-      <!-- Grid Dinâmico de Produtos -->
-      <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-        <!-- Populado via JavaScript com os dados exatos do Folder 2026 -->
-      </div>
-
-      <!-- Banner de Destaque: Folder Digital Completo (PDF) + Condições -->
-      <div class="bg-onda-laranja rounded-2xl p-6 sm:p-8 lg:p-10 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6">
-        <div class="text-center lg:text-left max-w-2xl">
-          <span class="inline-block bg-hidro-blue text-white text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
-            Material Comercial B2B
-          </span>
-          <h3 class="headline-hidro text-2xl sm:text-3xl font-black mb-2">
-            Receba o Folder Digital Completo (PDF) + Condições para Lojistas
-          </h3>
-          <p class="text-sm sm:text-base text-white/95">
-            Veja todas as embalagens (1 kg a 50 kg), dosagens, especificações técnicas e monte seu pedido inicial com o nosso atendimento regional.
-          </p>
-        </div>
-        <div class="shrink-0 w-full sm:w-auto">
-          <a
-            href="https://wa.me/5532999025943?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20lojistas%20e%20quero%20receber%20o%20Folder%20Digital%20Completo%20e%20as%20condi%C3%A7%C3%B5es%20comerciais%20da%20Hidroazul."
-            target="_blank"
-            rel="noopener noreferrer"
-            data-whatsapp-direct="catalog_banner"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-hidro-whatsapp hover:bg-hidro-whatsappDark text-white font-extrabold text-sm sm:text-base px-6 py-4 rounded-xl shadow-lg transition"
-          >
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
-            <span>Baixar Folder no WhatsApp</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. GRUPO BAUMINAS & PROXIMIDADE REGIONAL ("De Cataguases e Zona da Mata para todo o Brasil") -->
-  <section class="py-14 sm:py-20 bg-hidro-light border-y border-slate-200/70">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        <!-- Card Visual Regional -->
-        <div class="lg:col-span-5">
-          <div class="bg-hidro-blue rounded-2xl p-7 sm:p-8 text-white shadow-xl relative overflow-hidden">
-            <div class="inline-flex items-center gap-2 bg-hidro-orange text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full mb-4">
-              Fornecedor Regional
-            </div>
-            <h3 class="headline-hidro text-2xl sm:text-3xl font-black mb-3">
-              De Cataguases e Zona da Mata para todo o Brasil
-            </h3>
-            <p class="text-sm text-white/85 leading-relaxed mb-6">
-              Nossa unidade fabril está sediada em <strong>Cataguases/MG</strong>, no coração da Zona da Mata. Isso significa proximidade real com a sua loja, reposição ágil e relacionamento direto com a indústria.
-            </p>
-            <div class="grid grid-cols-2 gap-3 pt-4 border-t border-white/15">
-              <div>
-                <span class="text-2xl sm:text-3xl font-black text-hidro-orange block">+3.000</span>
-                <span class="text-xs text-white/80">Clientes atendidos no Brasil</span>
-              </div>
-              <div>
-                <span class="text-2xl sm:text-3xl font-black text-hidro-orange block">100%</span>
-                <span class="text-xs text-white/80">Indústria nacional (Grupo Bauminas)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cidades Atendidas e Força do Grupo -->
-        <div class="lg:col-span-7">
-          <span class="text-xs font-extrabold uppercase tracking-widest text-hidro-orange block mb-2">
-            Logística & Atendimento Próximo
-          </span>
-          <h2 class="headline-hidro text-3xl sm:text-4xl font-black text-hidro-blue mb-4">
-            Parceria sólida com a força do Grupo Bauminas
-          </h2>
-          <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-            Fundado em 1961 em Cataguases, o Grupo Bauminas é líder nacional em química para saneamento e tratamento de água, com 26 unidades produtivas em 15 estados. Ao colocar Hidroazul na prateleira, sua loja oferece uma marca confiável e próxima do varejo mineiro.
-          </p>
-
-          <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-            <p class="text-xs font-extrabold uppercase tracking-wider text-hidro-blue mb-3">
-              Cidades prioritárias com atendimento comercial dedicado:
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-full text-xs font-bold bg-hidro-orange/15 text-hidro-orange">Cataguases</span>
-              <span class="px-3 py-1 rounded-full text-xs font-bold bg-hidro-orange/15 text-hidro-orange">Juiz de Fora</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Ubá</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Muriaé</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Leopoldina</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Viçosa</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Ponte Nova</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Manhuaçu</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Carangola</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Visconde do Rio Branco</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Além Paraíba</span>
-              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Santos Dumont</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. COMO FUNCIONA (3 Passos Simples) -->
-  <section class="py-14 sm:py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-hidro-orange block mb-2">
-          Processo Ágil e Sem Burocracia
-        </span>
-        <h2 class="headline-hidro text-3xl sm:text-4xl font-black text-hidro-blue">
-          Como levar a Hidroazul para sua loja
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-        <!-- Passo 1 -->
-        <div class="bg-hidro-light rounded-2xl p-6 border border-slate-200/70 text-center">
-          <div class="w-12 h-12 rounded-full bg-hidro-orange text-white font-black text-lg flex items-center justify-center mx-auto mb-4 shadow-md">
-            1
-          </div>
-          <h3 class="text-lg font-black text-hidro-blue mb-2">Fale no WhatsApp</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Clique no botão e envie sua mensagem. Nossa equipe comercial responde rapidamente em horário comercial.
-          </p>
-        </div>
-
-        <!-- Passo 2 -->
-        <div class="bg-hidro-light rounded-2xl p-6 border border-slate-200/70 text-center">
-          <div class="w-12 h-12 rounded-full bg-hidro-orange text-white font-black text-lg flex items-center justify-center mx-auto mb-4 shadow-md">
-            2
-          </div>
-          <h3 class="text-lg font-black text-hidro-blue mb-2">Receba Catálogo e Condições</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Enviamos o folder digital completo e apresentamos as condições de entrada ideais para o perfil da sua loja.
-          </p>
-        </div>
-
-        <!-- Passo 3 -->
-        <div class="bg-hidro-light rounded-2xl p-6 border border-slate-200/70 text-center">
-          <div class="w-12 h-12 rounded-full bg-hidro-blue text-white font-black text-lg flex items-center justify-center mx-auto mb-4 shadow-md">
-            3
-          </div>
-          <h3 class="text-lg font-black text-hidro-blue mb-2">Monte seu Mix Inicial</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Faça seu primeiro pedido com os produtos de maior giro e comece a vender da obra à manutenção.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. FAQ INTERATIVO PARA LOJISTAS -->
-  <section class="py-14 sm:py-20 bg-hidro-light border-t border-slate-200/70">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-hidro-orange block mb-2">
-          Dúvidas Frequentes
-        </span>
-        <h2 class="headline-hidro text-3xl sm:text-4xl font-black text-hidro-blue">
-          Perguntas de Lojistas Parceiros
-        </h2>
-      </div>
-
-      <div class="space-y-3.5" id="faqAccordion">
-        <!-- FAQ 1 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button type="button" class="faq-btn w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-hidro-blue text-sm sm:text-base cursor-pointer">
-            <span>Qual o mix inicial recomendado para quem nunca vendeu piscina?</span>
-            <span class="faq-icon text-hidro-orange font-black text-xl transition-transform duration-200">+</span>
-          </button>
-          <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Recomendamos começar com uma curva A enxuta e de giro imediato: Cloro Multiação 8 em 1 (baldes de 2,5 kg e 10 kg), Cloro Faz!30, Pastilhas Tricloro 200 g, Algicida Manutenção e Choque, Floc Plus 2 em 1, Limpa Bordas, Kit Teste e o Kit Weekend (recuperação rápida de água verde). Nosso time ajuda a dimensionar conforme o tamanho da sua loja.
-          </div>
-        </div>
-
-        <!-- FAQ 2 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button type="button" class="faq-btn w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-hidro-blue text-sm sm:text-base cursor-pointer">
-            <span>Como funciona a entrega na Zona da Mata mineira?</span>
-            <span class="faq-icon text-hidro-orange font-black text-xl transition-transform duration-200">+</span>
-          </button>
-          <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Como nossa fábrica fica sediada em Cataguases/MG, atendemos as rotas da Zona da Mata (Cataguases, Juiz de Fora, Ubá, Muriaé, Leopoldina, Viçosa, Ponte Nova, Manhuaçu, Carangola, Visconde do Rio Branco, Além Paraíba, Santos Dumont e região) com logística ágil e acompanhamento comercial próximo.
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button type="button" class="faq-btn w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-hidro-blue text-sm sm:text-base cursor-pointer">
-            <span>A Hidroazul oferece treinamento para meus vendedores?</span>
-            <span class="faq-icon text-hidro-orange font-black text-xl transition-transform duration-200">+</span>
-          </button>
-          <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Sim! Além do suporte técnico direto pelo WhatsApp para tirar dúvidas no dia a dia do balcão, sua equipe tem acesso gratuito à <strong>Universidade da Piscina Hidroazul</strong>, com o Curso Básico de Tratamento de Piscinas (10h) pensado especialmente para lojistas e equipes de vendas, com material didático e certificado.
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button type="button" class="faq-btn w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-hidro-blue text-sm sm:text-base cursor-pointer">
-            <span>Os produtos têm registro na ANVISA e teor ativo garantido?</span>
-            <span class="faq-icon text-hidro-orange font-black text-xl transition-transform duration-200">+</span>
-          </button>
-          <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Sim. Todos os saneantes da linha Hidroazul possuem registro regular na ANVISA, controle rigoroso de teor de cloro ativo ("o que está no rótulo está no balde") e embalagens homologadas pelo INMETRO com tampas de segurança, respaldados pela engenharia química do Grupo Bauminas.
-          </div>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-          <button type="button" class="faq-btn w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-hidro-blue text-sm sm:text-base cursor-pointer">
-            <span>Como solicitar a tabela comercial e condições de pagamento?</span>
-            <span class="faq-icon text-hidro-orange font-black text-xl transition-transform duration-200">+</span>
-          </button>
-          <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Basta clicar em qualquer botão de WhatsApp desta página ou preencher os 3 campos no topo. Nosso atendimento comercial envia o catálogo completo e verifica as condições de cadastro e pagamento disponíveis para o CNPJ da sua loja.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. CHAMADA FINAL + RODAPÉ INSTITUCIONAL (Conforme Manual p. 49 & LGPD) -->
-  <section class="bg-onda-laranja text-white py-14 sm:py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="headline-hidro text-3xl sm:text-4xl lg:text-5xl font-black mb-4">
-        Pronto para transformar obra em venda recorrente?
-      </h2>
-      <p class="text-base sm:text-lg text-white/95 mb-8 max-w-2xl mx-auto">
-        Fale agora com o time comercial da Hidroazul no WhatsApp e receba o catálogo completo de 2026 para a sua loja.
-      </p>
-      <a
-        href="https://wa.me/5532999025943?text=Ol%C3%A1%2C%20sou%20lojista%20e%20quero%20conhecer%20a%20linha%20Hidroazul%20e%20receber%20o%20cat%C3%A1logo%20completo."
-        target="_blank"
-        rel="noopener noreferrer"
-        data-whatsapp-direct="footer_cta"
-        class="inline-flex items-center justify-center gap-3 bg-hidro-whatsapp hover:bg-hidro-whatsappDark text-white font-black text-base sm:text-lg px-8 py-4 rounded-2xl shadow-xl transition transform hover:-translate-y-0.5"
-      >
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
-        <span>Falar com a Hidroazul no WhatsApp</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- Rodapé Institucional (Manual de Identidade Visual p. 49: Montserrat Regular + Bold, ordem exata dos canais) -->
-  <footer class="bg-hidro-blue text-white pt-12 pb-24 sm:pb-12 font-inst">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-white/15">
-        <!-- Logotipo Negativo / Padrão -->
-        <div class="text-center md:text-left">
-          <svg width="175" height="72" viewBox="0 0 260 108" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-40 h-auto mx-auto md:mx-0">
-            <ellipse cx="130" cy="36" rx="122" ry="31" fill="#251163" stroke="#FFFFFF" stroke-width="3.5" />
-            <text x="130" y="45" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat, Inter, sans-serif" font-weight="900" font-style="italic" font-size="33" letter-spacing="-1">Hidroazul</text>
-            <text x="130" y="88" text-anchor="middle" fill="#FFFFFF" font-family="Caveat, cursive" font-weight="700" font-size="29" letter-spacing="0.5">Nada Melhor!</text>
-            <path d="M72 96 Q 130 89 188 96" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" fill="none" />
-          </svg>
-          <p class="text-xs text-white/80 mt-2">
-            Uma empresa do <strong>Grupo BAUMINAS</strong>
-          </p>
-        </div>
-
-        <!-- Canais Oficiais na Ordem Exata do Manual (p. 49) -->
-        <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5 text-xs sm:text-sm">
-          <a href="https://www.hidroazul.com.br" target="_blank" rel="noopener noreferrer" class="hover:text-hidro-orange transition">
-            www.<strong>hidroazul</strong>.com.br
-          </a>
-          <span class="text-white/30">•</span>
-          <span>YouTube: /<strong>Hidroazul</strong> Brasil</span>
-          <span class="text-white/30">•</span>
-          <span>Instagram: @<strong>hidroazul</strong>brasil</span>
-          <span class="text-white/30">•</span>
-          <span>Facebook: /<strong>Hidroazul</strong> Brasil</span>
-          <span class="text-white/30">•</span>
-          <span>LinkedIn: <strong>Hidroazul</strong> Brasil</span>
-        </div>
-      </div>
-
-      <!-- Dados Cadastrais & LGPD -->
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-white/75 text-center sm:text-left">
+  <!-- SEÇÃO 4: CATÁLOGO COMPLETO (DO TRATAMENTO FÍSICO À CLORAÇÃO) -->
+  <section class="py-14 sm:py-20 bg-gradient-soft">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <p class="font-bold text-white/90">Bauminas Hidroazul Indústria e Comércio Ltda.</p>
-          <p>Sede Fabril: Cataguases – Minas Gerais | WhatsApp Comercial B2B: (32) 9902-5943</p>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-hidro-orange">Portfólio Hidroazul 2026</span>
+          <h2 class="font-display font-black text-2xl sm:text-4xl text-hidro-blue mt-1.5 headline-tight">
+            Solução completa para todas as 8 etapas do tratamento
+          </h2>
         </div>
-        <p class="max-w-md">
-          Privacidade (LGPD): Seus dados informados no formulário são utilizados exclusivamente para atendimento comercial B2B e envio do catálogo digital solicitado.
+        <p class="text-xs sm:text-sm text-gray-600 max-w-md">
+          O folder digital completo com todas as embalagens (1L, 2kg, 5L, 10kg, 25kg, 40kg e 50kg) é enviado imediatamente no nosso atendimento via WhatsApp.
         </p>
+      </div>
+
+      <!-- Abas de Categorias -->
+      <div class="flex flex-wrap gap-2 mb-8" role="tablist">
+        <button type="button" class="tab-btn active px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-hidro-blue text-white transition cursor-pointer" data-tab="cloros">
+          Cloros & Pastilhas
+        </button>
+        <button type="button" class="tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:border-hidro-blue transition cursor-pointer" data-tab="rapidos">
+          Solução Rápida & Clarificantes
+        </button>
+        <button type="button" class="tab-btn px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:border-hidro-blue transition cursor-pointer" data-tab="equilibrio">
+          Algicidas, Equilíbrio & Limpeza
+        </button>
+      </div>
+
+      <!-- Conteúdo Tab 1: Cloros -->
+      <div id="tab-cloros" class="tab-panel grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-blue/10 text-hidro-blue px-2.5 py-0.5 rounded-md">45% Cloro Ativo</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Cloro Multiação 8 em 1</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Desinfetante, algicida, clarificante, oxidante, fungicida e estabilizador de pH e alcalinidade em um só produto. Embalagens de 1kg, 2,5kg, 5kg, 10kg e 50kg.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-orange">Carro-chefe de venda no varejo</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-orange/15 text-hidro-orange px-2.5 py-0.5 rounded-md">30% Cloro Ativo</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Cloro Faz! 30</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Dicloro estabilizado com excelente relação custo-benefício para manutenção residencial e institucional. Balde de 10kg de alto giro.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-blue">Alta competitividade no balcão</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-blue/10 text-hidro-blue px-2.5 py-0.5 rounded-md">56% / 65% / 70%</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Dicloro 56% & Linha Premium</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Linha profissional com Dicloro Orgânico 56%, Dicloro Granulado 42% e Hipoclorito de Cálcio Premium 65% e 70% para supercloração.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-blue">Atende tratadores e condomínios</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-orange/15 text-hidro-orange px-2.5 py-0.5 rounded-md">90% Tricloro</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Pastilhas & Flutuador</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Pastilha Premium 100% Tricloro e Pastilha Multiação (200g, 800g e 40kg) para cloração contínua em flutuadores e cloradores.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-orange">Venda casada com flutuador</div>
+        </div>
+      </div>
+
+      <!-- Conteúdo Tab 2: Solução Rápida & Clarificantes -->
+      <div id="tab-rapidos" class="tab-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white rounded-2xl p-5 border-2 border-hidro-orange shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-orange text-white px-2.5 py-0.5 rounded-md">Pronta em 8 horas</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Hidroazul Weekend</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Solução única de ação rápida para recuperar piscinas verdes: entrega a água limpa, clorada e pronta para uso em até 8 horas (2,4kg e 4kg).</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-orange">Campeão de venda na sexta-feira</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-blue/10 text-hidro-blue px-2.5 py-0.5 rounded-md">Ultra Clarificante</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">FlocGel em Cubos</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Gel clarificante prático que elimina micropartículas suspensas e devolve brilho cristalino à água sem complicação na dosagem.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-blue">Alta margem e fácil explicação</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-blue/10 text-hidro-blue px-2.5 py-0.5 rounded-md">2 em 1</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Floc Plus & Sulfato de Alumínio</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Floc Plus 2 em 1 (1L e 5L) que clarifica e decanta, além de Sulfato de Alumínio isento de ferro (2kg e 25kg) de rápida dissolução.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-blue">Essencial para decantação</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-orange/15 text-hidro-orange px-2.5 py-0.5 rounded-md">Oxidação em 15 min</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">PoderOX & Elim. Oleosidade</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">PoderOX (3kg) elimina matéria orgânica e odores liberando a piscina em 15 min; Eliminador de Oleosidade remove resíduos de protetor solar.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-orange">Para piscinas muito usadas</div>
+        </div>
+      </div>
+
+      <!-- Conteúdo Tab 3: Algicidas & Equilíbrio -->
+      <div id="tab-equilibrio" class="tab-panel hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-blue/10 text-hidro-blue px-2.5 py-0.5 rounded-md">Não deixa cabelo verde</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Linha de Algicidas</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Algicida Manutenção (1L e 5L), Algicida Choque (1L e 5L) e Algicida Multiação 2 em 1 isento de cobre — ideal inclusive para água de poço.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-blue">Prevenção e combate às algas</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-orange/15 text-hidro-orange px-2.5 py-0.5 rounded-md">100% Puro</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Correção de pH e Alcalinidade</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Elevador de Alcalinidade (2kg e 25kg), Barrilha (2kg e 25kg), Elevador de pH Líquido (1L) e Diminuidor de pH e Alcalinidade (1L).</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-orange">Base para o cloro render mais</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-blue/10 text-hidro-blue px-2.5 py-0.5 rounded-md">Tratamento Físico</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Limpa Bordas Concentrado</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Remove gorduras e oleosidade das bordas sem alterar o pH da água (1L). Também limpa móveis plásticos e infláveis.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-blue">Recompra constante no verão</div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="inline-block text-[11px] font-extrabold bg-hidro-orange/15 text-hidro-orange px-2.5 py-0.5 rounded-md">Análise & Poço</span>
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mt-3">Kits Teste, Fitas & Metais</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Fita Teste AquaChek® (4 parâmetros em 15s), Kits Cloro/pH e Alcalinidade, além de Controlador de Metais para água de poço ou mina.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-xs font-bold text-hidro-orange">Porta de entrada no balcão</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 5: GRUPO BAUMINAS + SUPORTE AO LOJISTA -->
+  <section class="py-14 sm:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="bg-gradient-to-br from-hidro-blue/5 via-hidro-surface to-hidro-orange/5 rounded-3xl p-7 sm:p-12 border border-hidro-blue/10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-3">
+              <img src="img/logo-hidroazul.svg" alt="Hidroazul" class="h-9 sm:h-10 w-auto" />
+              <span class="text-gray-300">|</span>
+              <span class="font-display font-black text-sm tracking-widest text-hidro-blue uppercase">GRUPO BAUMINAS</span>
+            </div>
+
+            <h2 class="font-display font-black text-2xl sm:text-3xl text-hidro-blue headline-tight pt-1">
+              Mais de 35 anos de tradição em tratamento de água, nascida em Cataguases/MG.
+            </h2>
+            <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+              A Hidroazul faz parte do <strong>Grupo Bauminas</strong>, referência nacional 100% brasileira em química para saneamento e tratamento de águas, com 26 unidades produtivas pelo país e mais de 3.000 clientes atendidos. Para o lojista da Zona da Mata, isso significa <strong>segurança de fornecimento, suporte técnico humano e proximidade real</strong>.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-xs">
+                <p class="font-display font-extrabold text-sm text-hidro-blue">Suporte Técnico Humano</p>
+                <p class="text-xs text-gray-600 mt-1">Linha direta com especialistas para tirar dúvidas da sua equipe ou do seu cliente na hora da venda.</p>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-xs">
+                <p class="font-display font-extrabold text-sm text-hidro-blue">Universidade da Piscina</p>
+                <p class="text-xs text-gray-600 mt-1">Curso Básico (10h) e Avançado (90h) online e gratuitos com certificado para capacitar lojistas e tratadores.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Como funciona em 3 passos -->
+          <div class="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-7 shadow-card border border-gray-100">
+            <h3 class="font-display font-extrabold text-lg text-hidro-blue mb-5">Como levar a Hidroazul para sua loja:</h3>
+            <ol class="space-y-4">
+              <li class="flex items-start gap-3.5">
+                <span class="w-7 h-7 rounded-full bg-gradient-orange text-white font-display font-black text-sm flex items-center justify-center shrink-0">1</span>
+                <div>
+                  <p class="font-bold text-sm text-gray-900">Chame nosso atendimento no WhatsApp</p>
+                  <p class="text-xs text-gray-600 mt-0.5">Conversa rápida com o time comercial que atende a sua cidade.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3.5">
+                <span class="w-7 h-7 rounded-full bg-gradient-orange text-white font-display font-black text-sm flex items-center justify-center shrink-0">2</span>
+                <div>
+                  <p class="font-bold text-sm text-gray-900">Receba o catálogo digital e o mix ideal</p>
+                  <p class="text-xs text-gray-600 mt-0.5">Indicamos os itens de maior giro para sua loja começar sem estoque parado.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3.5">
+                <span class="w-7 h-7 rounded-full bg-gradient-orange text-white font-display font-black text-sm flex items-center justify-center shrink-0">3</span>
+                <div>
+                  <p class="font-bold text-sm text-gray-900">Feche o pedido e receba apoio de venda</p>
+                  <p class="text-xs text-gray-600 mt-0.5">Entrega ágil na Zona da Mata + suporte técnico e treinamento para o balcão.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 6: PERGUNTAS FREQUENTES (FAQ) -->
+  <section class="py-12 sm:py-16 bg-gradient-soft border-t border-gray-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="font-display font-black text-2xl sm:text-3xl text-hidro-blue text-center mb-8">
+        Dúvidas frequentes de lojistas
+      </h2>
+
+      <div class="space-y-3">
+        <details class="group bg-white rounded-xl border border-gray-200 p-5 open:border-hidro-blue transition">
+          <summary class="flex items-center justify-between font-bold text-sm sm:text-base text-hidro-blue cursor-pointer list-none">
+            <span>Minha loja ainda não vende produtos para piscina. Preciso comprar um volume muito alto?</span>
+            <span class="text-hidro-orange font-black text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 mt-3 leading-relaxed">
+            Não. Montamos uma sugestão de mix inicial enxuto focada nos itens de giro rápido (como Cloro Multiação, Faz! 30, Weekend, Clarificante e Algicida), adequada ao espaço e ao fluxo da sua loja.
+          </p>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-gray-200 p-5 open:border-hidro-blue transition">
+          <summary class="flex items-center justify-between font-bold text-sm sm:text-base text-hidro-blue cursor-pointer list-none">
+            <span>Como funciona a entrega para cidades da Zona da Mata?</span>
+            <span class="text-hidro-orange font-black text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 mt-3 leading-relaxed">
+            Nossa unidade fabril fica em Cataguases/MG, no coração da Zona da Mata, o que garante rotas frequentes e agilidade na reposição para Juiz de Fora, Ubá, Muriaé, Leopoldina, Viçosa, Ponte Nova, Manhuaçu e cidades vizinhas.
+          </p>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-gray-200 p-5 open:border-hidro-blue transition">
+          <summary class="flex items-center justify-between font-bold text-sm sm:text-base text-hidro-blue cursor-pointer list-none">
+            <span>Meus vendedores não dominam tratamento de piscina. Vocês ajudam?</span>
+            <span class="text-hidro-orange font-black text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 mt-3 leading-relaxed">
+            Sim. Além dos QR Codes nas embalagens com vídeos curtos de aplicação, sua loja tem acesso ao nosso Suporte Técnico humano por WhatsApp e pode inscrever a equipe gratuitamente na Universidade da Piscina Hidroazul.
+          </p>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-gray-200 p-5 open:border-hidro-blue transition">
+          <summary class="flex items-center justify-between font-bold text-sm sm:text-base text-hidro-blue cursor-pointer list-none">
+            <span>Quais são as condições de pagamento para primeira compra?</span>
+            <span class="text-hidro-orange font-black text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-gray-600 mt-3 leading-relaxed">
+            Trabalhamos com condições comerciais específicas para abertura de cadastro de lojistas. Chame nosso atendimento no WhatsApp para consultar prazos e condições para o seu CNPJ.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-14 sm:py-16 bg-gradient-orange text-white text-center relative overflow-hidden">
+    <div class="pointer-events-none absolute -top-20 right-10 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 space-y-6">
+      <h2 class="font-display font-black text-3xl sm:text-4xl headline-tight">
+        Pronto para aumentar o giro da sua loja nesta temporada?
+      </h2>
+      <p class="text-white/95 text-sm sm:text-base max-w-xl mx-auto">
+        Fale agora com o atendimento comercial da Hidroazul e receba o folder digital completo e as condições para lojistas da Zona da Mata.
+      </p>
+      <div class="pt-1">
+        <a href="#" data-wa-direct="true"
+          class="inline-flex items-center justify-center gap-3 bg-hidro-whatsapp hover:bg-hidro-whatsappDark text-white font-display font-extrabold text-base sm:text-lg px-8 py-4 rounded-2xl shadow-cta transition transform hover:-translate-y-0.5">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/></svg>
+          <span>Conversar no WhatsApp Agora</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ INSTITUCIONAL (LGPD + DADOS DA EMPRESA) -->
+  <footer class="bg-gradient-blue text-white/80 py-10 text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <div class="inline-flex flex-col items-center">
+          <img src="img/logo-hidroazul.svg" alt="Hidroazul" class="h-8 w-auto" />
+          <span class="font-display italic font-bold text-white text-[11px] mt-0.5">Nada Melhor!</span>
+        </div>
+        <div class="space-y-1">
+          <p class="font-bold text-white">Bauminas Hidroazul Indústria e Comércio Ltda • Grupo Bauminas</p>
+          <p>Sede em Cataguases/MG • www.hidroazul.com.br</p>
+          <p class="text-white/60">Privacidade (LGPD): Seus dados informados nesta página são utilizados exclusivamente para atendimento comercial pela equipe Hidroazul.</p>
+        </div>
+      </div>
+
+      <div class="text-center md:text-right space-y-1 shrink-0">
+        <p class="text-white font-semibold">Canais Oficiais</p>
+        <p>@hidroazulbrasil • /Hidroazul Brasil</p>
       </div>
     </div>
   </footer>
 
-  <!-- Botão Flutuante Fixo no Canto Inferior Direito (WhatsApp +55 32 9902-5943) -->
-  <a
-    id="floatingWhatsappBtn"
-    href="https://wa.me/5532999025943?text=Ol%C3%A1%2C%20vim%20pelo%20an%C3%BAncio%20da%20Hidroazul%20e%20quero%20conhecer%20as%20condi%C3%A7%C3%B5es%20para%20lojistas."
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Falar com a Hidroazul no WhatsApp"
-    class="fixed bottom-5 right-5 z-50 bg-hidro-whatsapp hover:bg-hidro-whatsappDark text-white font-extrabold text-xs sm:text-sm px-4 py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 animate-pulse-soft transition"
-  >
-    <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24">
-      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
-    </svg>
-    <span>WhatsApp Comercial</span>
+  <!-- Botão Flutuante de WhatsApp no Mobile -->
+  <a href="#" data-wa-direct="true" aria-label="Falar com a Hidroazul no WhatsApp"
+    class="fixed bottom-4 right-4 z-50 sm:hidden bg-hidro-whatsapp hover:bg-hidro-whatsappDark text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center">
+    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/></svg>
   </a>
 
+  <!-- SCRIPT DE CONVERSÃO WHATSAPP, UTMs E ABAS -->
   <script>
     (function () {
-      const WHATSAPP_NUMBER = '5532999025943';
+      const WHATSAPP_NUMBER = '5532999025943'; // +55 32 9902-5943
 
-      // 1. Captura de parâmetros UTM da URL para rastreamento da campanha
-      const urlParams = new URLSearchParams(window.location.search);
+      // Captura UTMs da URL para rastreamento de origem (Meta Ads)
+      const params = new URLSearchParams(window.location.search);
       const utmData = {
-        utm_source: urlParams.get('utm_source') || 'meta_ads',
-        utm_medium: urlParams.get('utm_medium') || 'cpc',
-        utm_campaign: urlParams.get('utm_campaign') || 'lojistas_zona_da_mata',
-        utm_content: urlParams.get('utm_content') || ''
+        utm_source: params.get('utm_source') || 'meta_ads',
+        utm_medium: params.get('utm_medium') || 'cpc',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || ''
       };
 
-      // Disparo seguro de evento de conversão (Pixel Meta / dataLayer)
-      function trackLeadEvent(sourceLabel, extraData) {
-        try {
-          if (typeof window.fbq === 'function') {
-            window.fbq('track', 'Lead', {
-              content_name: sourceLabel,
-              ...utmData,
-              ...extraData
-            });
-          }
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'whatsapp_lead',
-            lead_source: sourceLabel,
+      function trackLeadEvent(method, extraData = {}) {
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Lead', {
+            content_name: 'Hidroazul Lojistas Zona da Mata',
+            method: method,
             ...utmData,
             ...extraData
           });
-        } catch (err) {
-          // Falha silenciosa para nunca bloquear o redirecionamento
         }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead',
+          lead_method: method,
+          ...utmData,
+          ...extraData
+        });
       }
 
-      // Monta URL oficial wa.me com texto codificado
       function buildWhatsAppUrl(message) {
         return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       }
 
-      // 2. Dados do Catálogo Oficial 2026 (extraídos do Folder 2026)
-      const catalogProducts = {
-        cloros: [
-          {
-            badge: '70% Cloro Ativo',
-            badgeColor: 'bg-emerald-600 text-white',
-            title: 'Premium 70 — Hipoclorito de Cálcio',
-            desc: 'Maior concentração de cloro ativo do mercado. Alto poder desinfetante, ideal para supercloração e piscinas de grande uso.',
-            sizes: 'Embalagens: 1 kg • 10 kg • 40 kg'
-          },
-          {
-            badge: '56% Cloro Ativo',
-            badgeColor: 'bg-hidro-blue text-white',
-            title: 'Dicloro Orgânico Concentrado',
-            desc: 'Cloro estabilizado superconcentrado que rende até 2x mais. Dissolução rápida para todos os tipos de piscinas.',
-            sizes: 'Embalagens: 10 kg • 50 kg'
-          },
-          {
-            badge: '45% Cloro Ativo • Campeão de Giro',
-            badgeColor: 'bg-hidro-orange text-white',
-            title: 'Multiação 8 em 1',
-            desc: 'Único multifuncional com 45% de teor ativo. Reúne 8 funções em um só balde: desinfeta, clarifica, estabiliza pH e previne algas.',
-            sizes: 'Embalagens: 1 kg • 2,5 kg • 5 kg • 10 kg • 50 kg'
-          },
-          {
-            badge: '30% Cloro Ativo • Custo-Benefício',
-            badgeColor: 'bg-amber-500 text-slate-900',
-            title: 'Cloro Faz!30 (Dicloro Estabilizado)',
-            desc: 'Excelente relação custo-benefício para giro rápido no balcão, mantendo estabilidade e eficiência na desinfecção.',
-            sizes: 'Embalagem: 10 kg'
-          },
-          {
-            badge: '90% Cloro Ativo • Tricloro',
-            badgeColor: 'bg-hidro-blue text-white',
-            title: 'Pastilha Premium & Multiação 90%',
-            desc: '100% tricloro de dissolução lenta para cloradores e flutuadores. Cloração contínua e prática para o consumidor.',
-            sizes: 'Embalagens: 200 g • 800 g • 40 kg'
-          }
-        ],
-        auxiliares: [
-          {
-            badge: 'Solução Única em até 8h',
-            badgeColor: 'bg-hidro-orange text-white',
-            title: 'Kit Weekend — Recuperação Rápida',
-            desc: 'Recupera piscinas verdes deixando a água limpa, clorada e pronta para uso em até 8 horas. Alto apelo de venda no verão.',
-            sizes: 'Embalagens: 2,4 kg • 4 kg'
-          },
-          {
-            badge: '2 Funções em 1',
-            badgeColor: 'bg-hidro-blue text-white',
-            title: 'Floc Plus 2 em 1 (Clarifica e Decanta)',
-            desc: 'Fórmula concentrada que previne água turva e decanta sujeiras acumuladas com praticidade e economia.',
-            sizes: 'Embalagens: 1 L • 5 L'
-          },
-          {
-            badge: 'Brilho Incomparável',
-            badgeColor: 'bg-indigo-600 text-white',
-            title: 'FlocGel Ultra Clarificante',
-            desc: 'Cubos em gel que retêm micropartículas no filtro e devolvem a cristalinidade da água sem complicação.',
-            sizes: 'Embalagem: Blister 2 cubos'
-          },
-          {
-            badge: 'Não Altera o pH',
-            badgeColor: 'bg-hidro-orange text-white',
-            title: 'Limpa Bordas Concentrado',
-            desc: 'Remove óleos, protetor solar e gorduras das bordas sem fazer espuma excessiva e melhora o rendimento do cloro.',
-            sizes: 'Embalagem: 1 L'
-          },
-          {
-            badge: 'Liberação em 15 Minutos',
-            badgeColor: 'bg-sky-600 text-white',
-            title: 'PoderOX — Oxidante Sem Cloro',
-            desc: 'Elimina matéria orgânica (suor, bronzeador) e odores desagradáveis, liberando a piscina em apenas 15 minutos.',
-            sizes: 'Embalagem: 3 kg'
-          }
-        ],
-        algicidas: [
-          {
-            badge: 'Ação Prolongada',
-            badgeColor: 'bg-pink-600 text-white',
-            title: 'Algicida Manutenção',
-            desc: 'Previne o surgimento de algas e limo nas paredes sem alterar o pH nem a alcalinidade da água.',
-            sizes: 'Embalagens: 1 L • 5 L'
-          },
-          {
-            badge: 'Isento de Cobre',
-            badgeColor: 'bg-hidro-blue text-white',
-            title: 'Algicida Multiação 2 em 1',
-            desc: 'Não deixa cabelo verde e não mancha revestimentos. Pode ser usado junto com o cloro, ideal também para água de poço.',
-            sizes: 'Embalagem: 1 L'
-          },
-          {
-            badge: 'Eliminação Rápida',
-            badgeColor: 'bg-red-600 text-white',
-            title: 'Algicida Choque',
-            desc: 'Combate infestações de algas com rapidez e alta eficiência sem desbalancear o pH da piscina.',
-            sizes: 'Embalagens: 1 L • 5 L'
-          },
-          {
-            badge: '100% Puro',
-            badgeColor: 'bg-hidro-blue text-white',
-            title: 'Elevador de Alcalinidade & Barrilha',
-            desc: 'Bicarbonato e Carbonato de Sódio 100% puros para estabilizar alcalinidade (80–120 ppm) e pH (7,4–7,6).',
-            sizes: 'Embalagens: 2 kg • 25 kg'
-          },
-          {
-            badge: 'Resultado em 15s',
-            badgeColor: 'bg-emerald-600 text-white',
-            title: 'Fita Teste AquaChek® & Kits pH/Cloro',
-            desc: 'Análise rápida e precisa de cloro livre, pH, alcalinidade e ácido cianúrico para orientar a dosagem exata.',
-            sizes: 'Frasco com 50 fitas / Estojo teste'
-          }
-        ]
-      };
+      // Envio via formulário de pré-qualificação
+      const leadForm = document.getElementById('leadForm');
+      if (leadForm) {
+        leadForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const nome = document.getElementById('nome').value.trim();
+          const loja = document.getElementById('loja').value.trim();
+          const cidade = document.getElementById('cidade').value.trim();
 
-      const catalogGrid = document.getElementById('catalogGrid');
-      const tabButtons = document.querySelectorAll('.catalog-tab');
-
-      function renderCatalog(categoryKey) {
-        const items = catalogProducts[categoryKey] || catalogProducts.cloros;
-        catalogGrid.innerHTML = items.map(item => {
-          const itemMsg = `Olá! Vim pela página da Hidroazul para lojistas e gostaria de consultar condições para o item: ${item.title}.`;
-          const itemUrl = buildWhatsAppUrl(itemMsg);
-          return `
-            <article class="bg-hidro-light rounded-2xl p-5 sm:p-6 border border-slate-200/80 flex flex-col justify-between hover:border-hidro-blue/40 hover:shadow-md transition">
-              <div>
-                <span class="inline-block ${item.badgeColor} text-[11px] font-extrabold uppercase tracking-wide px-2.5 py-1 rounded-md mb-3">
-                  ${item.badge}
-                </span>
-                <h3 class="text-lg font-black text-hidro-blue leading-snug mb-2">
-                  ${item.title}
-                </h3>
-                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                  ${item.desc}
-                </p>
-              </div>
-              <div class="pt-3.5 border-t border-slate-200/80 flex items-center justify-between gap-2">
-                <span class="text-[11px] font-bold text-slate-500">${item.sizes}</span>
-                <a
-                  href="${itemUrl}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-product-name="${item.title}"
-                  class="product-wa-link text-xs font-extrabold text-hidro-orange hover:text-hidro-blue transition inline-flex items-center gap-1 shrink-0"
-                >
-                  <span>Consultar item</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-          `;
-        }).join('');
-
-        // Bind tracking nos links recém-renderizados
-        document.querySelectorAll('.product-wa-link').forEach(link => {
-          link.addEventListener('click', function () {
-            trackLeadEvent('catalog_item_click', { product: this.dataset.productName });
-          });
+          const msg = `Olá, sou ${nome} da ${loja}, de ${cidade}. Vim pelo anúncio e quero conhecer a linha Hidroazul e o catálogo para lojistas.`;
+          trackLeadEvent('form_whatsapp', { city: cidade, store: loja });
+          window.open(buildWhatsAppUrl(msg), '_blank', 'noopener,noreferrer');
         });
       }
 
-      tabButtons.forEach(btn => {
+      // Cliques diretos nos botões de WhatsApp
+      document.querySelectorAll('[data-wa-direct="true"]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const msg = 'Olá! Vim pelo anúncio da Hidroazul e gostaria de receber o catálogo completo e as condições para minha loja.';
+          trackLeadEvent('direct_whatsapp_button');
+          window.open(buildWhatsAppUrl(msg), '_blank', 'noopener,noreferrer');
+        });
+      });
+
+      // Controle das abas do catálogo
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
+          const target = btn.getAttribute('data-tab');
+
           tabButtons.forEach(b => {
-            b.classList.remove('active', 'bg-hidro-blue', 'text-white', 'shadow-md');
-            b.classList.add('bg-hidro-light', 'text-slate-700');
+            b.classList.remove('bg-hidro-blue', 'text-white');
+            b.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
           });
-          this.classList.add('active', 'bg-hidro-blue', 'text-white', 'shadow-md');
-          this.classList.remove('bg-hidro-light', 'text-slate-700');
-          renderCatalog(this.dataset.tab);
-        });
-      });
+          btn.classList.add('bg-hidro-blue', 'text-white');
+          btn.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
 
-      // Render inicial
-      renderCatalog('cloros');
-
-      // 3. Submissão do Formulário de Pré-Qualificação no Hero
-      const leadForm = document.getElementById('leadForm');
-      const formFeedback = document.getElementById('formFeedback');
-
-      leadForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const name = document.getElementById('leadName').value.trim();
-        const store = document.getElementById('leadStore').value.trim();
-        const city = document.getElementById('leadCity').value.trim();
-
-        if (!name || !store || !city) {
-          formFeedback.textContent = 'Por favor, preencha seu nome, o nome da loja e selecione a cidade para continuarmos.';
-          formFeedback.classList.remove('hidden');
-          return;
-        }
-
-        formFeedback.classList.add('hidden');
-
-        // Mensagem pré-preenchida exata conforme plano de tráfego
-        const customMessage = `Olá, sou ${name} da ${store}, de ${city}. Vim pelo anúncio e quero conhecer a linha Hidroazul e receber o catálogo completo.`;
-        const targetUrl = buildWhatsAppUrl(customMessage);
-
-        trackLeadEvent('hero_form_submit', {
-          lead_name: name,
-          lead_store: store,
-          lead_city: city
-        });
-
-        window.open(targetUrl, '_blank', 'noopener,noreferrer');
-      });
-
-      // 4. Rastreamento nos botões diretos de WhatsApp + injeção de contexto UTM
-      document.querySelectorAll('[data-whatsapp-direct], #floatingWhatsappBtn').forEach(el => {
-        el.addEventListener('click', function () {
-          const origin = this.dataset.whatsappDirect || 'floating_button';
-          trackLeadEvent(origin, {});
-        });
-      });
-
-      // 5. Accordion do FAQ
-      document.querySelectorAll('.faq-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-          const content = this.nextElementSibling;
-          const icon = this.querySelector('.faq-icon');
-          const isOpen = !content.classList.contains('hidden');
-
-          // Fecha outros itens abertos para manter layout limpo no mobile
-          document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-          document.querySelectorAll('.faq-icon').forEach(i => {
-            i.textContent = '+';
-            i.classList.remove('rotate-45');
+          tabPanels.forEach(panel => {
+            if (panel.id === `tab-${target}`) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
           });
-
-          if (!isOpen) {
-            content.classList.remove('hidden');
-            icon.textContent = '−';
-          }
         });
       });
     })();
