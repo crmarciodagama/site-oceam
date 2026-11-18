@@ -450,6 +450,12 @@ footer {
   .photographer-box { padding: 1.65rem; }
   .inquiry { padding: 1.85rem; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
 </style>
 </head>
 <body>
@@ -658,7 +664,7 @@ footer {
     </div>
   </section>
 
-  <!-- FORMULÁRIO DE CONVERSÃO WHATSAPP -->
+  <!-- FORMULÁRIO DE CONVERSÃO WHATSAPP + CAPTURA DE LEAD -->
   <section id="consultar" class="reveal">
     <div class="wrap">
       <div class="inquiry">
@@ -713,28 +719,43 @@ footer {
             '. Formato de interesse: ' + f.value + '.';
     b.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(m);
   }
-  [n, d, p, f].forEach(function(el){ el.addEventListener('input', up); });
+  [n, d, p, f].forEach(function(el){
+    if (el) {
+      el.addEventListener('input', up);
+      el.addEventListener('change', up);
+    }
+  });
   up();
 
-  b.addEventListener('click', function() {
-    var payload = {
+  function enviarLeadSilencioso() {
+    var payload = JSON.stringify({
       tipo: 'lead',
       nome: n.value.trim() || 'Não informado',
       servico: 'Batizado · ' + f.value,
       dataEvento: d.value.trim() || 'Não informada',
       local: p.value.trim() || 'Não informado',
       origem: 'Landing Page Batizados'
-    };
+    });
+
     try {
-      fetch(WEBHOOK_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        keepalive: true,
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
-      });
+      if (navigator.sendBeacon) {
+        var blob = new Blob([payload], { type: 'text/plain;charset=utf-8' });
+        navigator.sendBeacon(WEBHOOK_URL, blob);
+      } else {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: payload
+        });
+      }
     } catch (err) {}
-  });
+  }
+
+  if (b) {
+    b.addEventListener('click', enviarLeadSilencioso);
+  }
 
   // 2. Animação suave de entrada na rolagem
   var items = document.querySelectorAll('.reveal');
