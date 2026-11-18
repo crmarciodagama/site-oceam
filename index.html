@@ -90,6 +90,19 @@ h1 .serif, h2 .serif {
 a { color: inherit; transition: all 0.25s ease; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
+/* Animação suave de entrada na rolagem (Scroll Reveal) */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Header */
 header.top {
   position: sticky;
@@ -562,6 +575,7 @@ footer .links a:hover { color: var(--accent-teal); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .reveal-section { opacity: 1 !important; transform: none !important; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 </style>
@@ -572,9 +586,9 @@ footer .links a:hover { color: var(--accent-teal); }
   <div class="wrap">
     <a class="brand" href="#inicio">oceam</a>
     <nav aria-label="Seções">
-      <a href="esporte.html">Esporte</a>
-      <a href="casamentos.html">Casamentos</a>
-      <a href="videos.html">Vídeo &amp; Lives</a>
+      <a href="/esporte">Esporte</a>
+      <a href="/casamentos">Casamentos</a>
+      <a href="/videos">Vídeo &amp; Lives</a>
       <a href="#sobre">Sobre</a>
     </nav>
     <a class="btn sm" href="#orcamento">Pedir orçamento</a>
@@ -600,8 +614,8 @@ footer .links a:hover { color: var(--accent-teal); }
     </div>
   </div>
 
-  <!-- 01. ESPORTE (Já populado com fotos reais e link para esporte.html) -->
-  <section id="esporte">
+  <!-- 01. ESPORTE -->
+  <section id="esporte" class="reveal-section">
     <div class="wrap">
       <div class="section-head-row">
         <div>
@@ -609,33 +623,33 @@ footer .links a:hover { color: var(--accent-teal); }
           <h2>Fotografia e vídeo <span class="serif">esportivo</span></h2>
           <p class="sub">Cobertura de futebol amador, torneios e campeonatos da região. Atletas encontram e compram suas fotos direto no Banlek; clubes e ligas podem fechar pacotes completos.</p>
         </div>
-        <a class="btn alt sm" href="esporte.html">Abrir portfólio de esporte →</a>
+        <a class="btn alt sm" href="/esporte">Abrir portfólio de esporte →</a>
       </div>
 
       <div class="slots">
-        <div class="slot wide filled" onclick="location.href='esporte.html'">
+        <div class="slot wide filled" onclick="location.href='/esporte'">
           <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQcjLnCpWw3tSrcx7MXc83mqp18W-HG9gyuclD1IDaPNURF2pxz5_AqDB-rS8DdZadmbwsbmwtVDj51YGVyrOKNd-aJDvoB_5wtaxlKOduany6RabyNRqOHxXziQgOPLwZLU8daMQsnvCNVk71ufz9zR58sF3nW5FiClgvKDuaJL7EkrrSxwAMekuaXFUn1n1uwoZ_jBnPe_Y1OfC--iOlno0OItVnOlhukGLi-J9Mo=w1280" alt="Fotografia esportiva · Oceam" loading="lazy">
         </div>
-        <div class="slot filled" onclick="location.href='esporte.html'">
+        <div class="slot filled" onclick="location.href='/esporte'">
           <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQfO3ozSGB1tbk_QED_MoaVhuWN5XQ8SrDL0iAnQbAs17sSbMAwPw62vAqphDRdpVfk6oy0mJwVMhBSKIzt_bfrlBl8taTF5GjR6ilDTgR0ONrvK3WcD1I9eqqe_nqJVZAJ4ybvoOEw0TMsoVfloU4yC78g9rodES1c8CihYENXJIR9agxRqRgaQL4fT33YclhGyaVTe8Gm7wygi9B3LIfwknXW3vib3en2-9gLldnI=w1280" alt="Lance de jogo · Oceam" loading="lazy">
         </div>
-        <div class="slot filled" onclick="location.href='esporte.html'">
+        <div class="slot filled" onclick="location.href='/esporte'">
           <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQewBuufUM-BR3AIfSqkV4dMEA0Ryij8VgkEv86og46qyJXEmLT-oee2-m8w3CWQ1FJgM4C6y4yOJKkgCsefIRnEA05onvF8Ml3hk454lGVh5lG1xKG1LbsmED157bRwgLdZCAFXHvkKvv1q4h6_FVDEScHK_OYqFiFy-CFzibb8NI0bHXNIIB3omvA19SdPF9ndZTQ_FSN28BeOaH_QOBy5FySWA9SGGL6IlC1OkM0=w1280" alt="Comemoração no gramado · Oceam" loading="lazy">
         </div>
-        <div class="slot filled" onclick="location.href='esporte.html'">
+        <div class="slot filled" onclick="location.href='/esporte'">
           <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQfgjottqM4vNwYMCqNG4ZAHESpqXmGOu7BBO6ivX0Kenl-nTnVw3yZ8UDX3OgUjUXzOeqlhVxra2PaKW86l-C2xExiArn9yTCbDJr7pc2Oiqji3twdh61dKWlPZa_jiU6sp_l0tEMBFtl2yEKXbcLk5WkRmDefxbJEcA8E_5zj-oNdQcTs91K1iE4j4pRx5S_a0GVYsXoqdXSbQbUb0qpoN2gINqOt9Mq8FNn8mic4=w1280" alt="Partida de futebol · Oceam" loading="lazy">
         </div>
       </div>
 
       <div class="btns" style="margin-top:1.75rem">
         <a class="btn" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Ver e comprar minhas fotos no Banlek</a>
-        <a class="btn alt" href="esporte.html">Ver pacotes para clubes e ligas</a>
+        <a class="btn alt" href="/esporte">Ver pacotes para clubes e ligas</a>
       </div>
     </div>
   </section>
 
-  <!-- 02. CASAMENTOS E EVENTOS (Conectado a casamentos.html) -->
-  <section id="eventos">
+  <!-- 02. CASAMENTOS E EVENTOS -->
+  <section id="eventos" class="reveal-section">
     <div class="wrap">
       <div class="split">
         <div>
@@ -653,29 +667,29 @@ footer .links a:hover { color: var(--accent-teal); }
             <li>Ensaios fotográficos e retratos</li>
           </ul>
           <div class="btns">
-            <a class="btn" href="casamentos.html">Ver portfólio de casamentos →</a>
+            <a class="btn" href="/casamentos">Ver portfólio de casamentos →</a>
             <a class="btn alt" href="https://wa.me/5532999612204?text=Ol%C3%A1%2C%20M%C3%A1rcio!%20Quero%20um%20or%C3%A7amento%20para%20meu%20evento." target="_blank" rel="noopener">Orçamento para evento</a>
           </div>
           <p class="quote">“Espaço para depoimento de cliente, com nome e tipo de evento.”</p>
         </div>
         <div class="slots">
-          <div class="slot wide" onclick="location.href='casamentos.html'">
+          <div class="slot wide" onclick="location.href='/casamentos'">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
             <strong>Foto principal de casamento ou celebração</strong>
             <span>Horizontal</span>
           </div>
-          <div class="slot" onclick="location.href='casamentos.html'"><span>Momento litúrgico / altar</span></div>
-          <div class="slot filled" onclick="location.href='casamentos.html'">
+          <div class="slot" onclick="location.href='/casamentos'"><span>Momento litúrgico / altar</span></div>
+          <div class="slot filled" onclick="location.href='/casamentos'">
             <img src="img/fotos-impressas-recepcao-casamento.jpg" alt="Noiva vendo fotos reveladas na recepção" loading="lazy">
           </div>
-          <div class="slot" onclick="location.href='casamentos.html'"><span>Retrato / casal</span></div>
+          <div class="slot" onclick="location.href='/casamentos'"><span>Retrato / casal</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 03. VÍDEO, LIVES E DESIGN COMERCIAL (Conectado a videos.html) -->
-  <section id="audiovisual">
+  <!-- 03. VÍDEO, LIVES E DESIGN COMERCIAL -->
+  <section id="audiovisual" class="reveal-section">
     <div class="wrap">
       <div class="section-head-row">
         <div>
@@ -683,7 +697,7 @@ footer .links a:hover { color: var(--accent-teal); }
           <h2>Vídeo, <span class="serif">transmissões ao vivo</span> e design comercial</h2>
           <p class="sub">Estrutura completa para captar, transmitir e divulgar eventos, empresas e projetos da região com agilidade e qualidade visual.</p>
         </div>
-        <a class="btn alt sm" href="videos.html">Assistir vídeos e lives →</a>
+        <a class="btn alt sm" href="/videos">Assistir vídeos e lives →</a>
       </div>
 
       <div class="cards-grid">
@@ -722,13 +736,13 @@ footer .links a:hover { color: var(--accent-teal); }
       </div>
 
       <div class="btns">
-        <a class="btn" href="videos.html">Ver portfólio audiovisual e transmissões →</a>
+        <a class="btn" href="/videos">Ver portfólio audiovisual e transmissões →</a>
       </div>
     </div>
   </section>
 
   <!-- COMO FUNCIONA -->
-  <section>
+  <section class="reveal-section">
     <div class="wrap">
       <span class="section-label">Processo</span>
       <h2>Como <span class="serif">funciona</span></h2>
@@ -750,7 +764,7 @@ footer .links a:hover { color: var(--accent-teal); }
   </section>
 
   <!-- SOBRE -->
-  <section id="sobre">
+  <section id="sobre" class="reveal-section">
     <div class="wrap">
       <div class="about">
         <div>
@@ -758,6 +772,7 @@ footer .links a:hover { color: var(--accent-teal); }
           <h2>Quem está por trás da <span class="serif">Oceam</span></h2>
           <p>Sou Márcio Afonso Oliveira de Paula, fotógrafo, videomaker e designer gráfico. Trabalho com produção visual desde 2018 e hoje atuo no marketing de uma indústria, conciliando essa experiência com os projetos da Oceam.</p>
           <p>Minha trajetória une a prática de agência de marketing, a cobertura de mais de 100 jogos e eventos na região e anos de vivência como seminarista e na Pastoral da Comunicação (Pascom). Essa bagagem me permite unir técnica, agilidade e sensibilidade para registrar o que realmente importa em cada evento ou projeto.</p>
+          <a class="btn alt sm" href="/marcio" style="margin-top:0.5rem">Ver trajetória e currículo →</a>
         </div>
         <div class="slot" role="img" aria-label="Espaço para o retrato do Márcio">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -769,7 +784,7 @@ footer .links a:hover { color: var(--accent-teal); }
   </section>
 
   <!-- ORÇAMENTO -->
-  <section id="orcamento">
+  <section id="orcamento" class="reveal-section">
     <div class="wrap">
       <div class="quote-box">
         <div>
@@ -800,13 +815,14 @@ footer .links a:hover { color: var(--accent-teal); }
   </section>
 </main>
 
-<footer>
+<footer class="reveal-section">
   <div class="wrap">
     <h2>Vamos conversar sobre o seu <span class="serif">evento ou projeto?</span></h2>
     <div class="links">
-      <a href="esporte.html">Portfólio Esporte</a>
-      <a href="casamentos.html">Portfólio Casamentos</a>
-      <a href="videos.html">Portfólio Vídeo &amp; Lives</a>
+      <a href="/esporte">Portfólio Esporte</a>
+      <a href="/casamentos">Portfólio Casamentos</a>
+      <a href="/videos">Portfólio Vídeo &amp; Lives</a>
+      <a href="/marcio">Currículo &amp; Trajetória</a>
       <a href="mailto:marcioafonso4200@gmail.com">marcioafonso4200@gmail.com</a>
       <a href="https://instagram.com/oceamdesign" target="_blank" rel="noopener">@oceamdesign</a>
       <a href="https://instagram.com/omarcioafonso" target="_blank" rel="noopener">@omarcioafonso</a>
@@ -854,6 +870,23 @@ footer .links a:hover { color: var(--accent-teal); }
         ticking = true;
       }
     }, { passive: true });
+  }
+
+  // 3. Animação suave de entrada das seções na rolagem (Fade-in + Slide-up)
+  var sections = document.querySelectorAll('.reveal-section');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries, obs) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    sections.forEach(function(sec) { observer.observe(sec); });
+  } else {
+    sections.forEach(function(sec) { sec.classList.add('is-visible'); });
   }
 })();
 </script>
