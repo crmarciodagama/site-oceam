@@ -696,12 +696,15 @@ footer {
 
 <script>
 (function(){
-  // 1. Formulário WhatsApp focado em Batizado
+  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyUKU369Osmphzg7CDpt5NqL5L5oxaeU3uV8djUz8Y3rU8PQdH2r6KLP_5TpcFtnTXh/exec';
+
+  // 1. Formulário WhatsApp focado em Batizado + Captura silenciosa de Lead
   var n = document.getElementById('nomeResp'),
       d = document.getElementById('dataBat'),
       p = document.getElementById('paroquia'),
       f = document.getElementById('formatoBat'),
       b = document.getElementById('waBat');
+
   function up(){
     var m = 'Olá, Márcio! Tudo bem? Aqui é ' + (n.value.trim() || 'da família') +
             '. Vi sua página sobre fotografia de batizado e gostaria de verificar disponibilidade' +
@@ -712,6 +715,26 @@ footer {
   }
   [n, d, p, f].forEach(function(el){ el.addEventListener('input', up); });
   up();
+
+  b.addEventListener('click', function() {
+    var payload = {
+      tipo: 'lead',
+      nome: n.value.trim() || 'Não informado',
+      servico: 'Batizado · ' + f.value,
+      dataEvento: d.value.trim() || 'Não informada',
+      local: p.value.trim() || 'Não informado',
+      origem: 'Landing Page Batizados'
+    };
+    try {
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {}
+  });
 
   // 2. Animação suave de entrada na rolagem
   var items = document.querySelectorAll('.reveal');
