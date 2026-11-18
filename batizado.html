@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fotografia de Batizado · De Católico para Católico | Márcio Afonso</title>
+<meta name="description" content="Fotografia de batismo em Cataguases, Astolfo Dutra e região. Olhar documental, domínio da liturgia e respeito ao altar — de católico para católico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-warm: #f2ede6;
+  --surface: #ffffff;
+  --ink: #222624;
+  --mute: #616864;
+  --olive: #27362f;
+  --olive-light: #384d43;
+  --gold: #b08d57;
+  --gold-soft: rgba(176, 141, 87, 0.14);
+  --line: rgba(34, 38, 36, 0.1);
+  --line-gold: rgba(176, 141, 87, 0.38);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --shadow-soft: 0 18px 40px -15px rgba(34, 38, 36, 0.08);
+}
+
+html { scroll-padding-top: 5rem; scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.75 "Montserrat", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 0;
+  color: var(--olive);
+}
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+a { color: inherit; transition: all 0.25s ease; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Animação suave de entrada na rolagem */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header Focado em Conversão (Sem fugas de clique) */
+header.top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+header.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 4.4rem;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
+.brand {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  color: var(--olive);
+}
+
+.brand-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--gold);
+  border-left: 1px solid var(--line);
+  padding-left: 0.65rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.7rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--olive);
+  background: var(--olive);
+  color: #faf8f5;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.btn:hover {
+  background: var(--olive-light);
+  border-color: var(--olive-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(39, 54, 47, 0.35);
+}
+
+.btn.alt {
+  background: transparent;
+  color: var(--olive);
+  border-color: var(--line-gold);
+}
+
+.btn.alt:hover {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+}
+
+.btn.sm { padding: 0.52rem 1.1rem; min-height: 38px; font-size: 0.76rem; }
+
+/* Hero Landing Page */
+.hero {
+  padding: 4.5rem 0 4.5rem;
+  background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.25rem;
+  align-items: center;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.45rem, 5vw, 4rem);
+  margin-bottom: 1.15rem;
+}
+
+.hero p.lead {
+  color: var(--mute);
+  font-size: 1rem;
+  max-width: 37rem;
+  margin: 0 0 1.9rem;
+}
+
+.btns { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--olive);
+}
+
+.trust-strip span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.trust-strip span::before { content: "✦"; color: var(--gold); font-size: 0.75rem; }
+
+/* Slots de Fotografia */
+.slot {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--bg-warm);
+  border: 1px dashed var(--line-gold);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--mute);
+  padding: 1.25rem;
+  font-size: 0.82rem;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.slot:hover {
+  transform: translateY(-3px);
+  border-style: solid;
+  border-color: var(--gold);
+  box-shadow: var(--shadow-soft);
+}
+
+.slot svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  opacity: 0.75;
+  margin-bottom: 0.5rem;
+}
+
+.slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-frame {
+  aspect-ratio: 4/5;
+  border-radius: 190px 190px var(--radius-md) var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Sections */
+section { padding: 5rem 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: none; }
+
+.section-head {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto 3.25rem;
+}
+
+.section-head h2 { font-size: clamp(2.1rem, 4vw, 3.1rem); margin-bottom: 0.8rem; }
+.section-head p { color: var(--mute); font-size: 0.96rem; margin: 0; }
+
+/* Bloco "De Católico para Católico" */
+.faith-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.faith-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.85rem 1.65rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.faith-num {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.faith-card h3 { font-size: 1.55rem; margin-bottom: 0.55rem; }
+.faith-card p { margin: 0; color: var(--mute); font-size: 0.9rem; }
+
+/* Momentos do Rito + Galeria */
+.moments-bg { background: var(--bg-warm); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.1rem;
+}
+
+.g-4 { grid-column: span 4; aspect-ratio: 4/5; }
+.g-6 { grid-column: span 6; aspect-ratio: 3/2; }
+.g-8 { grid-column: span 8; aspect-ratio: 16/10; }
+
+/* Sobre Quem Fotografa (Conexão pessoal) */
+.photographer-box {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 3rem;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.photographer-box h2 { font-size: clamp(1.95rem, 3.6vw, 2.75rem); margin-bottom: 0.9rem; }
+.photographer-box p { color: var(--mute); font-size: 0.95rem; margin: 0 0 1rem; }
+
+/* Formatos / Opções */
+.packages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.pkg {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+}
+
+.pkg.featured {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, #ffffff 0%, #fcf9f4 100%);
+}
+
+.pkg-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.pkg h3 { font-size: 1.7rem; margin-bottom: 0.55rem; }
+.pkg p { color: var(--mute); font-size: 0.9rem; margin: 0 0 1.25rem; }
+.pkg ul { margin: 0 0 1.75rem; padding: 0; list-style: none; display: grid; gap: 0.55rem; font-size: 0.88rem; }
+.pkg ul li { display: flex; align-items: flex-start; gap: 0.55rem; color: var(--ink); }
+.pkg ul li::before { content: "✓"; color: var(--gold); font-weight: 700; }
+
+/* FAQ Rápido */
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.9rem;
+}
+
+details {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem 1.35rem;
+}
+
+summary {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--olive);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--gold); font-size: 1.25rem; font-weight: 700; }
+details[open] summary::after { content: "−"; }
+details p { margin: 0.75rem 0 0; color: var(--mute); font-size: 0.9rem; }
+
+/* Formulário Final de Conversão */
+.inquiry {
+  background: var(--olive);
+  color: #faf8f5;
+  border-radius: var(--radius-md);
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.inquiry h2 { color: #faf8f5; font-size: clamp(2rem, 3.8vw, 2.85rem); margin-bottom: 0.85rem; }
+.inquiry p { color: rgba(250, 248, 245, 0.82); font-size: 0.95rem; margin: 0; }
+
+.form-card {
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--radius-md);
+  padding: 1.85rem;
+}
+
+label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--olive); margin-bottom: 0.3rem; }
+input, select {
+  width: 100%;
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  min-height: 46px;
+  margin-bottom: 0.95rem;
+}
+input:focus, select:focus { border-color: var(--olive); outline: none; }
+.form-card .btn { width: 100%; margin-top: 0.25rem; }
+
+footer {
+  background: var(--bg-warm);
+  border-top: 1px solid var(--line);
+  padding: 2.25rem 0;
+  text-align: center;
+  font-size: 0.84rem;
+  color: var(--mute);
+}
+
+@media (max-width: 880px) {
+  .hero-grid, .faith-grid, .photographer-box, .packages, .inquiry { grid-template-columns: 1fr; }
+  .hero-frame { max-width: 340px; margin: 0 auto; aspect-ratio: 4/5; }
+  .g-4, .g-6, .g-8 { grid-column: span 12; aspect-ratio: 4/3; }
+  .g-4 { aspect-ratio: 4/5; max-width: 420px; width: 100%; margin: 0 auto; }
+  .photographer-box { padding: 1.65rem; }
+  .inquiry { padding: 1.85rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand-group" href="/">
+      <span class="brand">marcio afonso</span>
+      <span class="brand-sub">Batizados</span>
+    </a>
+    <a class="btn sm" href="#consultar">Consultar data</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO DE CHEGADA DE ANÚNCIO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="kicker">De católico para católico · Cataguases, Astolfo Dutra &amp; Região</span>
+          <h1>O primeiro sacramento do seu filho registrado com <em>fé, silêncio e reverência</em></h1>
+          <p class="lead">O Batismo é a porta da vida cristã — um momento único que passa rápido no altar. Como católico, ex-seminarista e comunicador da Igreja, fotografo cada gesto litúrgico com discrição absoluta, sem atrapalhar a oração da família ou o celebrante.</p>
+          <div class="btns">
+            <a class="btn" href="#consultar">Verificar data do batizado</a>
+            <a class="btn alt" href="#diferenciais">Por que de católico para católico?</a>
+          </div>
+          <div class="trust-strip">
+            <span>Domínio de todo o rito batismal</span>
+            <span>Respeito total ao presbitério</span>
+            <span>Opção com fotos impressas no almoço</span>
+          </div>
+        </div>
+        <div class="slot hero-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <strong>Foto destaque do Batismo</strong>
+          <span>Água na pia batismal ou família no altar (4:5)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIFERENCIAL: DE CATÓLICO PARA CATÓLICO -->
+  <section id="diferenciais" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Diferencial Litúrgico</span>
+        <h2>Por que escolher um olhar <em>de católico para católico?</em></h2>
+        <p>Quem não vive a Igreja muitas vezes trata o Batismo como uma festa comum — usando flash excessivo, subindo no presbitério ou perdendo os sinais mais sagrados do rito.</p>
+      </div>
+
+      <div class="faith-grid">
+        <div class="faith-card">
+          <span class="faith-num">01.</span>
+          <h3>Antecipação de cada sinal sagrado</h3>
+          <p>Por conhecer a fundo a liturgia, já estou posicionado no ângulo certo antes mesmo da unção com o óleo dos catecúmenos, do derramar da água na fonte batismal, da unção do Santo Crisma e da entrega da vela acesa no Círio Pascal.</p>
+        </div>
+
+        <div class="faith-card">
+          <span class="faith-num">02.</span>
+          <h3>Discrição e respeito ao templo</h3>
+          <p>Trabalho sem flashes invasivos e respeitando os limites do altar e do sacerdote. Vocês, os padrinhos e os avós vivem a celebração em estado de oração, sem precisar "posar" durante o rito.</p>
+        </div>
+
+        <div class="faith-card">
+          <span class="faith-num">03.</span>
+          <h3>Retratos de família com calma</h3>
+          <p>Antes ou logo após a bênção final, conduzo com leveza e carinho as fotos protocolares no altar e na nave da igreja com pais, padrinhos, avós e convidados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA DOS MOMENTOS DO RITO -->
+  <section class="moments-bg reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Memória da Fé</span>
+        <h2>Os gestos que contam o início da <em>caminhada cristã</em></h2>
+        <p>Uma memória visual feita para que, daqui a 15 ou 20 anos, seu filho veja o amor com que foi apresentado a Deus pela família e pelos padrinhos.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="slot g-8">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <strong>Foto 01 · O momento da água na pia batismal</strong>
+          <span>Horizontal (16:10)</span>
+        </div>
+        <div class="slot g-4">
+          <strong>Foto 02 · A vela acesa no Círio Pascal</strong>
+          <span>Vertical (4:5)</span>
+        </div>
+        <div class="slot g-4">
+          <strong>Foto 03 · Unção com o Santo Crisma</strong>
+          <span>Vertical (4:5)</span>
+        </div>
+        <div class="slot g-4">
+          <strong>Foto 04 · Olhar dos padrinhos e pais</strong>
+          <span>Vertical (4:5)</span>
+        </div>
+        <div class="slot g-4">
+          <strong>Foto 05 · Detalhes (concha, vestidinho, terço)</strong>
+          <span>Vertical (4:5)</span>
+        </div>
+        <div class="slot g-6">
+          <strong>Foto 06 · Retrato da família no altar</strong>
+          <span>Horizontal (3:2)</span>
+        </div>
+        <div class="slot g-6">
+          <strong>Foto 07 · Confraternização / Almoço em família</strong>
+          <span>Horizontal (3:2)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEM FOTOGRAFA (CONEXÃO PESSOAL) -->
+  <section class="reveal">
+    <div class="wrap">
+      <div class="photographer-box">
+        <div class="slot" style="aspect-ratio:4/5">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <strong>Retrato do Márcio</strong>
+          <span>Foto acolhedora (4:5)</span>
+        </div>
+        <div>
+          <span class="kicker">Quem vai registrar esse dia</span>
+          <h2>Prazer, sou o <em>Márcio Afonso</em></h2>
+          <p>Fotógrafo desde 2018, católico praticante, ex-seminarista e comunicador atuante na Pastoral da Comunicação (Pascom) aqui na nossa região (Cataguases, Astolfo Dutra e cidades vizinhas).</p>
+          <p>Sei exatamente o valor espiritual que o Batismo tem para uma família católica — porque não é apenas um "evento social", mas o nascimento para a graça. Meu compromisso é entregar fotografias atemporais, com cores naturais e luz suave, preservando a sacralidade de cada instante.</p>
+          <a class="btn alt sm" href="#consultar" style="margin-top:0.5rem">Falar diretamente comigo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATOS DE COBERTURA -->
+  <section class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Formatos</span>
+        <h2>Como podemos registrar o <em>Batismo</em></h2>
+        <p>Atendemos tanto batizados comunitários na paróquia quanto celebrações individuais, com ou sem cobertura da recepção da família.</p>
+      </div>
+
+      <div class="packages">
+        <div class="pkg">
+          <div>
+            <span class="pkg-tag">Celebração na Igreja</span>
+            <h3>Rito &amp; Retratos no Altar</h3>
+            <p>Ideal para famílias que desejam registrar toda a cerimônia na paróquia e os retratos com padrinhos e familiares.</p>
+            <ul>
+              <li>Chegada da família e detalhes antes da celebração</li>
+              <li>Cobertura documental completa do rito batismal</li>
+              <li>Retratos organizados no altar com pais, padrinhos e avós</li>
+              <li>Entrega em galeria online privada em alta resolução</li>
+            </ul>
+          </div>
+          <a class="btn alt sm" href="#consultar">Solicitar valores</a>
+        </div>
+
+        <div class="pkg featured">
+          <div>
+            <span class="pkg-tag">Igreja + Confraternização</span>
+            <h3>Batizado Completo + Fotos na Hora</h3>
+            <p>Acompanhamos a celebração na igreja e o almoço/recepção da família, com revelação térmica imediata.</p>
+            <ul>
+              <li>Tudo o que está incluído na cobertura da igreja</li>
+              <li>Cobertura espontânea do almoço ou recepção da família</li>
+              <li>Fotos reveladas/impressas na hora para presentear padrinhos e avós</li>
+              <li>Prévia rápida nos primeiros dias + galeria online completa</li>
+            </ul>
+          </div>
+          <a class="btn sm" href="#consultar">Consultar disponibilidade</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DÚVIDAS FREQUENTES -->
+  <section class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Dúvidas Comuns</span>
+        <h2>Perguntas <em>frequentes</em></h2>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>Vocês fotografam batizados comunitários (com várias crianças na mesma missa)?</summary>
+          <p>Sim! Como conheço o ritmo das celebrações paroquiais, acompanho de perto a família contratante desde a acolhida até a unção e o batismo na pia, garantindo total atenção ao seu filho e retratos exclusivos com vocês após a bênção.</p>
+        </details>
+        <details>
+          <summary>Em quais cidades você atende?</summary>
+          <p>Atendo em Cataguases, Astolfo Dutra, Dona Euzébia, Itamarati de Minas, Miraí, Leopoldina, Ubá e demais paróquias da região da Zona da Mata Mineira.</p>
+        </details>
+        <details>
+          <summary>Como funciona a entrega das fotos e o prazo?</summary>
+          <p>Você recebe uma prévia com as principais fotos já nos primeiros dias após o batizado para compartilhar com a família, e o álbum completo editado em alta resolução é entregue por meio de uma galeria online privada e fácil de baixar.</p>
+        </details>
+        <details>
+          <summary>Como funciona o diferencial das fotos impressas na recepção?</summary>
+          <p>Nos pacotes que incluem a confraternização, levo uma impressora térmica profissional de laboratório fotográfico. Fotografamos a família, os avós e os padrinhos e entregamos a foto revelada em papel fotográfico ali mesmo, como lembrança física do dia.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO DE CONVERSÃO WHATSAPP -->
+  <section id="consultar" class="reveal">
+    <div class="wrap">
+      <div class="inquiry">
+        <div>
+          <span class="kicker" style="color:#d8be92">Reserve sua data</span>
+          <h2>Vamos conversar sobre o batizado do <em>seu filho?</em></h2>
+          <p>Preencha os dados rápidos ao lado para verificar a disponibilidade da data na agenda e receber as opções de cobertura direto pelo WhatsApp.</p>
+        </div>
+        <div class="form-card">
+          <label for="nomeResp">Seu nome (mãe, pai ou madrinha/padrinho)</label>
+          <input id="nomeResp" placeholder="Ex.: Mariana">
+          <label for="dataBat">Data do batizado (ou mês previsto)</label>
+          <input id="dataBat" placeholder="Ex.: 14/12">
+          <label for="paroquia">Cidade e Paróquia / Igreja</label>
+          <input id="paroquia" placeholder="Ex.: Santuário de Santa Rita, Cataguases">
+          <label for="formatoBat">Formato desejado</label>
+          <select id="formatoBat">
+            <option>Apenas celebração na igreja e retratos no altar</option>
+            <option>Igreja + almoço/recepção da família</option>
+            <option>Igreja + recepção com fotos impressas na hora</option>
+            <option>Ainda estou decidindo, quero ver as opções</option>
+          </select>
+          <a class="btn" id="waBat" href="https://wa.me/5532999612204" target="_blank" rel="noopener">Consultar data no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Márcio Afonso Fotografia</strong> · De católico para católico · Cataguases, Astolfo Dutra &amp; Região (MG)
+  </div>
+</footer>
+
+<script>
+(function(){
+  // 1. Formulário WhatsApp focado em Batizado
+  var n = document.getElementById('nomeResp'),
+      d = document.getElementById('dataBat'),
+      p = document.getElementById('paroquia'),
+      f = document.getElementById('formatoBat'),
+      b = document.getElementById('waBat');
+  function up(){
+    var m = 'Olá, Márcio! Tudo bem? Aqui é ' + (n.value.trim() || 'da família') +
+            '. Vi sua página sobre fotografia de batizado e gostaria de verificar disponibilidade' +
+            (d.value.trim() ? ' para o dia ' + d.value.trim() : '') +
+            (p.value.trim() ? ', na ' + p.value.trim() : '') +
+            '. Formato de interesse: ' + f.value + '.';
+    b.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(m);
+  }
+  [n, d, p, f].forEach(function(el){ el.addEventListener('input', up); });
+  up();
+
+  // 2. Animação suave de entrada na rolagem
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    items.forEach(function(el) { obs.observe(el); });
+  } else {
+    items.forEach(function(el) { el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
