@@ -61,6 +61,17 @@ h1, h2, h3, .brand {
 a { color: inherit; transition: all 0.25s ease; }
 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
 
+/* Animação suave de entrada na rolagem */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Header */
 header.top {
   position: sticky;
@@ -478,20 +489,26 @@ footer .links a:hover { color: var(--pitch); }
   .sp-4 { aspect-ratio: 4/5; max-width: 420px; width: 100%; margin: 0 auto; }
   .quote-box { padding: 1.75rem; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand-group" href="index.html">
+    <a class="brand-group" href="/">
       <span class="brand">oceam</span>
       <span class="brand-sub">Esporte</span>
     </a>
     <nav aria-label="Navegação">
       <a href="#galeria">Portfólio</a>
       <a href="#clubes">Para Clubes e Ligas</a>
-      <a href="index.html">← Voltar ao site</a>
+      <a href="/">← Voltar ao site</a>
     </nav>
     <a class="btn sm" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Fotos no Banlek ↗</a>
   </div>
@@ -506,7 +523,7 @@ footer .links a:hover { color: var(--pitch); }
       <p class="lead">Cobertura fotográfica e audiovisual de futebol amador, torneios e campeonatos em Astolfo Dutra e região. Registros de alto impacto para atletas, torcedores, clubes e patrocinadores.</p>
       <div class="btns">
         <a class="btn" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Buscar minhas fotos no Banlek</a>
-        <a class="btn alt" href="https://wa.me/5532999612204?text=Oi!%20Quero%20garantir%20minhas%20fotos%20do%20jogo%20do%20fim%20de%20semana.%20Como%20funciona%3F" target="_blank" rel="noopener">Reservar cobertura individual</a>
+        <a class="btn alt" id="waAtletaHero" href="https://wa.me/5532999612204?text=Oi!%20Quero%20garantir%20minhas%20fotos%20do%20jogo%20do%20fim%20de%20semana.%20Como%20funciona%3F" target="_blank" rel="noopener">Reservar cobertura individual</a>
       </div>
 
       <!-- Conquistas Reais na Plataforma Banlek -->
@@ -532,7 +549,7 @@ footer .links a:hover { color: var(--pitch); }
   </div>
 
   <!-- AÇÕES RÁPIDAS + GALERIA REAL -->
-  <section id="galeria">
+  <section id="galeria" class="reveal">
     <div class="wrap">
       <div class="action-cards">
         <div class="action-box">
@@ -551,7 +568,7 @@ footer .links a:hover { color: var(--pitch); }
             <p>Garanta cobertura focada nos seus lances em campo e tenha os melhores registros da partida para suas redes sociais.</p>
           </div>
           <div>
-            <a class="btn alt" href="https://wa.me/5532999612204?text=Oi!%20Quero%20garantir%20minhas%20fotos%20do%20jogo%20do%20fim%20de%20semana.%20Como%20funciona%3F" target="_blank" rel="noopener">Reservar minhas fotos agora</a>
+            <a class="btn alt" id="waAtletaCard" href="https://wa.me/5532999612204?text=Oi!%20Quero%20garantir%20minhas%20fotos%20do%20jogo%20do%20fim%20de%20semana.%20Como%20funciona%3F" target="_blank" rel="noopener">Reservar minhas fotos agora</a>
           </div>
         </div>
       </div>
@@ -615,7 +632,7 @@ footer .links a:hover { color: var(--pitch); }
   </section>
 
   <!-- FORMATOS PARA CLUBES E LIGAS -->
-  <section id="clubes">
+  <section id="clubes" class="reveal">
     <div class="wrap">
       <span class="section-label">Para Organizadores, Clubes e Patrocinadores</span>
       <h2>Bora melhorar as mídias do <span class="serif">seu time?</span></h2>
@@ -668,8 +685,8 @@ footer .links a:hover { color: var(--pitch); }
     </div>
   </section>
 
-  <!-- ORÇAMENTO -->
-  <section id="orcamento">
+  <!-- ORÇAMENTO + CAPTURA DE LEAD -->
+  <section id="orcamento" class="reveal">
     <div class="wrap">
       <div class="quote-box">
         <div>
@@ -702,9 +719,9 @@ footer .links a:hover { color: var(--pitch); }
   <div class="wrap">
     <span><strong>Oceam</strong> · Márcio Oliveira · Fotografia e Vídeo Esportivo em Astolfo Dutra e região</span>
     <div class="links">
-      <a href="index.html">Site Principal</a>
-      <a href="casamentos.html">Casamentos</a>
-      <a href="videos.html">Vídeo &amp; Drone</a>
+      <a href="/">Site Principal</a>
+      <a href="/casamentos">Casamentos</a>
+      <a href="/videos">Vídeo &amp; Drone</a>
       <a href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Banlek</a>
     </div>
   </div>
@@ -712,11 +729,15 @@ footer .links a:hover { color: var(--pitch); }
 
 <script>
 (function(){
+  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyUKU369Osmphzg7CDpt5NqL5L5oxaeU3uV8djUz8Y3rU8PQdH2r6KLP_5TpcFtnTXh/exec';
+
+  // 1. Formulário WhatsApp (Clubes/Ligas) + Captura silenciosa de Lead
   var c = document.getElementById('clube'),
       t = document.getElementById('tipoEsp'),
       d = document.getElementById('dataEsp'),
       l = document.getElementById('cidEsp'),
       b = document.getElementById('waEsp');
+
   function up(){
     var m = 'Olá, Márcio! Vim pela página de esporte da Oceam' +
             (c.value.trim() ? ' (' + c.value.trim() + ')' : '') +
@@ -725,8 +746,77 @@ footer .links a:hover { color: var(--pitch); }
             (l.value.trim() ? ', em ' + l.value.trim() : '') + '.';
     b.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(m);
   }
-  [c, t, d, l].forEach(function(el){ el.addEventListener('input', up); });
+  [c, t, d, l].forEach(function(el){
+    if (el) {
+      el.addEventListener('input', up);
+      el.addEventListener('change', up);
+    }
+  });
   up();
+
+  function enviarLead(dadosObj) {
+    var payload = JSON.stringify(dadosObj);
+    try {
+      if (navigator.sendBeacon) {
+        var blob = new Blob([payload], { type: 'text/plain;charset=utf-8' });
+        navigator.sendBeacon(WEBHOOK_URL, blob);
+      } else {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: payload
+        });
+      }
+    } catch (err) {}
+  }
+
+  if (b) {
+    b.addEventListener('click', function() {
+      enviarLead({
+        tipo: 'lead',
+        nome: c.value.trim() || 'Organizador / Clube (Página Esporte)',
+        servico: 'Esporte · ' + t.value,
+        dataEvento: d.value.trim() || 'Não informada',
+        local: l.value.trim() || 'Não informado',
+        origem: 'Página Esporte (Clubes/Ligas)'
+      });
+    });
+  }
+
+  // Captura também quando um atleta clica para reservar cobertura individual
+  ['waAtletaHero', 'waAtletaCard'].forEach(function(id) {
+    var btnAtleta = document.getElementById(id);
+    if (btnAtleta) {
+      btnAtleta.addEventListener('click', function() {
+        enviarLead({
+          tipo: 'lead',
+          nome: 'Atleta Individual',
+          servico: 'Esporte · Reserva Cobertura Individual',
+          dataEvento: 'Fim de semana',
+          local: 'Não informado',
+          origem: 'Página Esporte (Atleta)'
+        });
+      });
+    }
+  });
+
+  // 2. Animação suave de entrada na rolagem
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    items.forEach(function(el) { obs.observe(el); });
+  } else {
+    items.forEach(function(el) { el.classList.add('is-visible'); });
+  }
 })();
 </script>
 </body>
