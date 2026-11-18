@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fotografia e Vídeo Esportivo · Márcio Oliveira | Oceam</title>
+<meta name="description" content="Fotografia esportiva profissional em Astolfo Dutra (MG) e região. Mais de 2.000 vendas e 100 álbuns publicados no Banlek. Garanta suas fotos ou contrate para seu clube ou campeonato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060908;
+  --bg-elevated: #0b110e;
+  --surface: #101915;
+  --surface-hover: #16231d;
+  --ink: #f2f7f4;
+  --mute: #93a69c;
+  --pitch: #22c55e;
+  --pitch-dark: #15803d;
+  --pitch-soft: rgba(34, 197, 94, 0.14);
+  --gold: #eab308;
+  --gold-soft: rgba(234, 179, 8, 0.14);
+  --grad: linear-gradient(135deg, #22c55e 0%, #4ade80 100%);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-pitch: rgba(34, 197, 94, 0.35);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --shadow: 0 22px 45px -15px rgba(0, 0, 0, 0.75);
+}
+
+html { scroll-padding-top: 5rem; scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.68 "Montserrat", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .brand {
+  font-family: "Montserrat", system-ui, sans-serif;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.serif {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-size: 1.16em;
+  color: var(--pitch);
+}
+
+a { color: inherit; transition: all 0.25s ease; }
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Header */
+header.top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(6, 9, 8, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+header.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 4.5rem;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.brand-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--pitch);
+  border-left: 1px solid var(--line);
+  padding-left: 0.75rem;
+}
+
+nav { display: flex; gap: 1.75rem; font-size: 0.88rem; font-weight: 500; }
+nav a { text-decoration: none; color: var(--mute); }
+nav a:hover { color: #fff; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.88rem 1.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--grad);
+  color: #041309;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 46px;
+  box-shadow: 0 8px 22px -6px rgba(34, 197, 94, 0.35);
+}
+
+.btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(34, 197, 94, 0.5);
+}
+
+.btn.alt {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ink);
+  border-color: var(--line-pitch);
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.btn.alt:hover {
+  background: var(--pitch-soft);
+  border-color: var(--pitch);
+  color: #fff;
+}
+
+.btn.sm { padding: 0.52rem 1.15rem; min-height: 38px; font-size: 0.84rem; }
+
+/* Hero */
+.hero {
+  padding: 5.5rem 0 4.5rem;
+  background:
+    radial-gradient(850px 450px at 85% 5%, rgba(34, 197, 94, 0.15), transparent 65%),
+    linear-gradient(180deg, #09100c 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  background: var(--pitch-soft);
+  border: 1px solid var(--line-pitch);
+  color: var(--pitch);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.35rem;
+}
+
+.hero h1 { font-size: clamp(2.35rem, 5.4vw, 4.1rem); font-weight: 800; max-width: 17ch; color: #fff; }
+.hero p.lead { color: var(--mute); max-width: 42rem; font-size: 1.04rem; margin: 1.25rem 0 2.1rem; }
+.btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+/* Conquistas Reais Banlek */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.stat b {
+  display: block;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.stat span {
+  font-size: 0.84rem;
+  color: var(--mute);
+  display: block;
+}
+
+/* Sections */
+section { padding: 5.25rem 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: none; }
+
+.section-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--pitch);
+  margin-bottom: 0.6rem;
+}
+
+h2 { font-size: clamp(1.85rem, 3.8vw, 2.7rem); font-weight: 800; margin-bottom: 0.85rem; color: #fff; }
+.sub { color: var(--mute); max-width: 44rem; font-size: 1rem; margin: 0 0 2.5rem; }
+
+/* Dupla Ação: Comprar no Banlek ou Reservar Cobertura Individual */
+.action-cards {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.35rem;
+  margin-bottom: 3.5rem;
+}
+
+.action-box {
+  background: linear-gradient(135deg, #102418 0%, #0b1610 100%);
+  border: 1px solid var(--line-pitch);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.action-box.secondary {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+.action-box h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.action-box p {
+  margin: 0;
+  color: var(--mute);
+  font-size: 0.92rem;
+}
+
+/* Galeria Esportiva com Fotos Reais e Animação Hover */
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.1rem;
+}
+
+.photo-card {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pitch);
+  box-shadow: var(--shadow);
+}
+
+.photo-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+}
+
+.photo-card:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.06);
+}
+
+.sp-8 { grid-column: span 8; aspect-ratio: 16/10; }
+.sp-4 { grid-column: span 4; aspect-ratio: 4/5; }
+.sp-6 { grid-column: span 6; aspect-ratio: 3/2; }
+
+/* Avaliações Reais dos Atletas */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.review {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+
+.review p {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.review span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mute);
+  display: block;
+}
+
+/* Formatos para Clubes e Ligas */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.35rem;
+}
+
+.plan-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-pitch);
+}
+
+.plan-card.highlight {
+  border-color: var(--pitch);
+  background: linear-gradient(180deg, #13221b 0%, var(--surface) 100%);
+}
+
+.plan-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pitch);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.plan-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.55rem;
+}
+
+.plan-card p {
+  margin: 0 0 1.25rem;
+  color: var(--mute);
+  font-size: 0.91rem;
+}
+
+.plan-card ul {
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+}
+
+.plan-card ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--ink);
+}
+
+.plan-card ul li::before {
+  content: "✓";
+  color: var(--pitch);
+  font-weight: 800;
+}
+
+/* Orçamento Box */
+.quote-box {
+  background: var(--surface);
+  border: 1px solid var(--line-pitch);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.form {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+}
+
+label { display: block; font-size: 0.83rem; font-weight: 600; color: var(--ink); margin-bottom: 0.32rem; }
+input, select {
+  width: 100%;
+  font: inherit;
+  font-size: 0.94rem;
+  color: #fff;
+  background: var(--bg);
+  border: 1px solid var(--line-pitch);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  min-height: 46px;
+  margin-bottom: 1rem;
+}
+input:focus, select:focus { border-color: var(--pitch); outline: none; }
+.form .btn { width: 100%; margin-top: 0.25rem; }
+
+/* Footer */
+footer {
+  background: #030504;
+  border-top: 1px solid var(--line);
+  padding: 3rem 0 2.5rem;
+  font-size: 0.88rem;
+  color: var(--mute);
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+footer .links { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 500; }
+footer .links a:hover { color: var(--pitch); }
+
+@media (max-width: 900px) {
+  nav { display: none; }
+  .stats-strip { grid-template-columns: 1fr 1fr; }
+  .action-cards, .reviews-grid, .plans-grid, .quote-box { grid-template-columns: 1fr; }
+  .sp-8, .sp-4, .sp-6 { grid-column: span 12; aspect-ratio: 4/3; }
+  .sp-4 { aspect-ratio: 4/5; max-width: 420px; width: 100%; margin: 0 auto; }
+  .quote-box { padding: 1.75rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand-group" href="index.html">
+      <span class="brand">oceam</span>
+      <span class="brand-sub">Esporte</span>
+    </a>
+    <nav aria-label="Navegação">
+      <a href="#galeria">Portfólio</a>
+      <a href="#clubes">Para Clubes e Ligas</a>
+      <a href="index.html">← Voltar ao site</a>
+    </nav>
+    <a class="btn sm" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Fotos no Banlek ↗</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Fotografia Esportiva Profissional · Zona da Mata MG</span>
+      <h1>A fotografia do seu esporte com a <span class="serif">qualidade</span> que você merece</h1>
+      <p class="lead">Cobertura fotográfica e audiovisual de futebol amador, torneios e campeonatos em Astolfo Dutra e região. Registros de alto impacto para atletas, torcedores, clubes e patrocinadores.</p>
+      <div class="btns">
+        <a class="btn" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Buscar minhas fotos no Banlek</a>
+        <a class="btn alt" href="https://wa.me/5532999612204?text=Oi!%20Quero%20garantir%20minhas%20fotos%20do%20jogo%20do%20fim%20de%20semana.%20Como%20funciona%3F" target="_blank" rel="noopener">Reservar cobertura individual</a>
+      </div>
+
+      <!-- Conquistas Reais na Plataforma Banlek -->
+      <div class="stats-strip">
+        <div class="stat">
+          <b>+2.000</b>
+          <span>Fotos vendidas no Banlek</span>
+        </div>
+        <div class="stat">
+          <b>+100</b>
+          <span>Álbuns e jogos publicados</span>
+        </div>
+        <div class="stat">
+          <b>+100.000</b>
+          <span>Cliques enviados aos atletas</span>
+        </div>
+        <div class="stat">
+          <b>★ 5.0</b>
+          <span>Avaliação máxima dos atletas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AÇÕES RÁPIDAS + GALERIA REAL -->
+  <section id="galeria">
+    <div class="wrap">
+      <div class="action-cards">
+        <div class="action-box">
+          <div>
+            <h3>Já jogou e quer baixar suas fotos?</h3>
+            <p>Acesse minha vitrine oficial no Banlek, filtre pelo seu jogo ou campeonato e garanta suas fotos em alta resolução sem marca d'água na hora.</p>
+          </div>
+          <div>
+            <a class="btn" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Acessar Galeria Banlek →</a>
+          </div>
+        </div>
+
+        <div class="action-box secondary">
+          <div>
+            <h3>Vai jogar no fim de semana?</h3>
+            <p>Garanta cobertura focada nos seus lances em campo e tenha os melhores registros da partida para suas redes sociais.</p>
+          </div>
+          <div>
+            <a class="btn alt" href="https://wa.me/5532999612204?text=Oi!%20Quero%20garantir%20minhas%20fotos%20do%20jogo%20do%20fim%20de%20semana.%20Como%20funciona%3F" target="_blank" rel="noopener">Reservar minhas fotos agora</a>
+          </div>
+        </div>
+      </div>
+
+      <span class="section-label">Portfólio em Campo</span>
+      <h2>Lances, raça e <span class="serif">comemoração</span></h2>
+      <p class="sub">Do aquecimento ao apito final. Cliques reais captados nos gramados da região.</p>
+
+      <div class="sports-grid">
+        <div class="photo-card sp-8">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQcjLnCpWw3tSrcx7MXc83mqp18W-HG9gyuclD1IDaPNURF2pxz5_AqDB-rS8DdZadmbwsbmwtVDj51YGVyrOKNd-aJDvoB_5wtaxlKOduany6RabyNRqOHxXziQgOPLwZLU8daMQsnvCNVk71ufz9zR58sF3nW5FiClgvKDuaJL7EkrrSxwAMekuaXFUn1n1uwoZ_jBnPe_Y1OfC--iOlno0OItVnOlhukGLi-J9Mo=w1280" alt="Fotografia esportiva em campo · Oceam" loading="lazy">
+        </div>
+        <div class="photo-card sp-4">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQc1IlXhvdkMwVumjRiZribN65xIFkC47bsQQqvB0gcf0TRVV8QH2Xib5DIQrMhQi3yfr6_wQAfW7cJ62sTo00jlBNAJVPlNgLvGT1cXbeNPJV9hWbPwSLsIZVXoSH0cCWAB0lNxQR8vPJPYxuXv2roylN9g8GYgXJMA_HyURHnq3yH4KFDm7GT5BfQHAw7hFZPYUpXu7I1tME2rUgtt2jp_AD_sWu8JR1Vs9_sW=w1280" alt="Atleta em ação · Fotografia Esportiva Oceam" loading="lazy">
+        </div>
+
+        <div class="photo-card sp-4">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQfO3ozSGB1tbk_QED_MoaVhuWN5XQ8SrDL0iAnQbAs17sSbMAwPw62vAqphDRdpVfk6oy0mJwVMhBSKIzt_bfrlBl8taTF5GjR6ilDTgR0ONrvK3WcD1I9eqqe_nqJVZAJ4ybvoOEw0TMsoVfloU4yC78g9rodES1c8CihYENXJIR9agxRqRgaQL4fT33YclhGyaVTe8Gm7wygi9B3LIfwknXW3vib3en2-9gLldnI=w1280" alt="Lance de futebol · Oceam" loading="lazy">
+        </div>
+        <div class="photo-card sp-4">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQecJW6UzUZYYAjQDI6oyfTrpJ7LL5BqnjTbPh8sOfLrNwQ_rh64YkqTf4gBVjpEANAYeP0C8BH7OE3-0zhQnHM_5Mmcm8GwlnvBm9PPY_OJJoKS-pIW1Xsq_lsVBjIT1hinMTvu2BPcABEYbP1D5LN8T_zThD3oFtYumz6a84N3J9-rxP9G4NxoT59Nz1Vhqy5ive0nuFePL8J2E35BZV6ywjtCJKQAHsAIz4VRjmU=w1280" alt="Disputa de bola · Fotografia Esportiva" loading="lazy">
+        </div>
+        <div class="photo-card sp-4">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQewBuufUM-BR3AIfSqkV4dMEA0Ryij8VgkEv86og46qyJXEmLT-oee2-m8w3CWQ1FJgM4C6y4yOJKkgCsefIRnEA05onvF8Ml3hk454lGVh5lG1xKG1LbsmED157bRwgLdZCAFXHvkKvv1q4h6_FVDEScHK_OYqFiFy-CFzibb8NI0bHXNIIB3omvA19SdPF9ndZTQ_FSN28BeOaH_QOBy5FySWA9SGGL6IlC1OkM0=w1280" alt="Comemoração no gramado · Oceam" loading="lazy">
+        </div>
+
+        <div class="photo-card sp-6">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQfgjottqM4vNwYMCqNG4ZAHESpqXmGOu7BBO6ivX0Kenl-nTnVw3yZ8UDX3OgUjUXzOeqlhVxra2PaKW86l-C2xExiArn9yTCbDJr7pc2Oiqji3twdh61dKWlPZa_jiU6sp_l0tEMBFtl2yEKXbcLk5WkRmDefxbJEcA8E_5zj-oNdQcTs91K1iE4j4pRx5S_a0GVYsXoqdXSbQbUb0qpoN2gINqOt9Mq8FNn8mic4=w1280" alt="Partida de futebol · Cobertura Oceam" loading="lazy">
+        </div>
+        <div class="photo-card sp-6">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQdc4LMQbaJxMhq4JloUZEq5132BNTAHokeRtLYl6zD04zGZVVl_6kHsoijvpLHeI85c2W0Rxw4wq4mKNr_HTN5Fcq6eAbV8PlhwhqhgAx9NGw9CkjAIKOAphEBDDFcYzd2BpVamXNPBwopHsJKhcfbp93RjajmDkZ9GggOCjgpFCGFD2Q89VH8VsxiDkvw=w1280" alt="Futebol amador na região · Oceam" loading="lazy">
+        </div>
+
+        <div class="photo-card sp-4">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQc3XATONSMDPhCW5cOSVNzFJGqzCDz06s869G1gYgclNgukeAXdz8TWDps6NCiEAawRF90kwN95NGA-G_evylYQmiBG0dPSYdsgusFwIJ-s9g_QT3A6_sBUi0VhE0rGqpRUiVrVpqas9RFws1T-RHgrQ3o0rJDG_NhT_91v5FqSUBtCoq6Bg8nY0lKXPuQ=w1280" alt="Retrato de atleta · Oceam" loading="lazy">
+        </div>
+        <div class="photo-card sp-8">
+          <img src="https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQdsX_J-0ztzPJ8xYxqdngBKb4fmUNl0L20KHNaPW4-xQVhW7lF125hGtp6M95SuMJGmcSIvK5U25flHa4je2ojXoeWP0EuPwYRNzbvRBLJlsYruE-8UQlrbPQYND2BRWEZdMEpF_USESTFu9mLIYco-epxwioTHUQjgkMa3ZahLy72-_vTxvo8RahgI42A=w1280" alt="Cobertura completa de jogo · Oceam" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Avaliações reais dos atletas no Banlek -->
+      <div class="reviews-grid">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Muito top a foto”</p>
+          <span>Douglas · Atleta avaliado no Banlek</span>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Ótimas fotos”</p>
+          <span>Layrent Rocha · Atleta avaliado no Banlek</span>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★☆</div>
+          <p>“Carinho na foto”</p>
+          <span>Matheus Ferreira · Atleta avaliado no Banlek</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATOS PARA CLUBES E LIGAS -->
+  <section id="clubes">
+    <div class="wrap">
+      <span class="section-label">Para Organizadores, Clubes e Patrocinadores</span>
+      <h2>Bora melhorar as mídias do <span class="serif">seu time?</span></h2>
+      <p class="sub">Valorize seu campeonato, entregue visibilidade aos patrocinadores e profissionalize as redes sociais do seu clube.</p>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div>
+            <span class="plan-tag">Por Jogo</span>
+            <h3>Cobertura de Partida</h3>
+            <p>Ideal para amistosos, jogos festivos (solteiros x casados) e rodadas decisivas.</p>
+            <ul>
+              <li>Cobertura fotográfica completa em campo</li>
+              <li>Fotos oficiais do elenco posado</li>
+              <li>Disponibilização rápida em galeria online</li>
+            </ul>
+          </div>
+          <a class="btn alt sm" href="#orcamento">Solicitar orçamento</a>
+        </div>
+
+        <div class="plan-card highlight">
+          <div>
+            <span class="plan-tag">Mais Completo</span>
+            <h3>Foto + Reels + Drone</h3>
+            <p>Pacote de alto impacto para finais de campeonato, abertura de torneios e divulgação de patrocinadores.</p>
+            <ul>
+              <li>Fotografia completa do jogo e premiação</li>
+              <li>Vídeo resumo dinâmico (Reels) para Instagram</li>
+              <li>Takes aéreos do estádio e da torcida com drone</li>
+              <li>Material pronto para valorizar marcas apoiadoras</li>
+            </ul>
+          </div>
+          <a class="btn sm" href="#orcamento">Fechar para meu evento</a>
+        </div>
+
+        <div class="plan-card">
+          <div>
+            <span class="plan-tag">Temporada / Liga</span>
+            <h3>Pacote Campeonato</h3>
+            <p>Acompanhamento contínuo durante toda a competição com identidade visual alinhada.</p>
+            <ul>
+              <li>Cobertura das rodadas e mata-mata</li>
+              <li>Artes de escalação, placar e divulgação (opcional)</li>
+              <li>Opção de transmissão ao vivo (Live) da final</li>
+            </ul>
+          </div>
+          <a class="btn alt sm" href="#orcamento">Falar sobre campeonato</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORÇAMENTO -->
+  <section id="orcamento">
+    <div class="wrap">
+      <div class="quote-box">
+        <div>
+          <span class="section-label">Reserve a data</span>
+          <h2>Quer levar a Oceam para o <span class="serif">seu campeonato?</span></h2>
+          <p class="sub" style="margin-bottom:0">Preencha os dados da partida ou torneio ao lado para receber uma proposta rápida direto no WhatsApp.</p>
+        </div>
+        <div class="form">
+          <label for="clube">Nome do clube, liga ou organizador</label>
+          <input id="clube" placeholder="Ex.: Esporte Clube Portuense">
+          <label for="tipoEsp">O que você precisa?</label>
+          <select id="tipoEsp">
+            <option>Cobertura fotográfica de jogo / amistoso</option>
+            <option>Pacote completo (Foto + Vídeo Reels + Drone)</option>
+            <option>Cobertura de campeonato / torneio</option>
+            <option>Transmissão ao vivo (Live) de partida</option>
+          </select>
+          <label for="dataEsp">Data do jogo ou início do torneio</label>
+          <input id="dataEsp" placeholder="Ex.: 13/12">
+          <label for="cidEsp">Cidade / Estádio</label>
+          <input id="cidEsp" placeholder="Ex.: Astolfo Dutra - MG">
+          <a class="btn" id="waEsp" href="https://wa.me/5532999612204" target="_blank" rel="noopener">Solicitar orçamento no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><strong>Oceam</strong> · Márcio Oliveira · Fotografia e Vídeo Esportivo em Astolfo Dutra e região</span>
+    <div class="links">
+      <a href="index.html">Site Principal</a>
+      <a href="casamentos.html">Casamentos</a>
+      <a href="videos.html">Vídeo &amp; Drone</a>
+      <a href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Banlek</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var c = document.getElementById('clube'),
+      t = document.getElementById('tipoEsp'),
+      d = document.getElementById('dataEsp'),
+      l = document.getElementById('cidEsp'),
+      b = document.getElementById('waEsp');
+  function up(){
+    var m = 'Olá, Márcio! Vim pela página de esporte da Oceam' +
+            (c.value.trim() ? ' (' + c.value.trim() + ')' : '') +
+            ' e quero um orçamento para: ' + t.value +
+            (d.value.trim() ? ' no dia ' + d.value.trim() : '') +
+            (l.value.trim() ? ', em ' + l.value.trim() : '') + '.';
+    b.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(m);
+  }
+  [c, t, d, l].forEach(function(el){ el.addEventListener('input', up); });
+  up();
+})();
+</script>
+</body>
+</html>

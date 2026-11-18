@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casamentos · Fotografia Documental por Márcio Oliveira | Oceam</title>
+<meta name="description" content="Fotografia de casamento em Astolfo Dutra (MG) e região. Olhar documental, respeito à celebração religiosa e fotos impressas na hora na recepção por Márcio Oliveira.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-warm: #f2ede6;
+  --surface: #ffffff;
+  --ink: #222624;
+  --mute: #646b67;
+  --olive: #27362f;
+  --olive-light: #384d43;
+  --gold: #b08d57;
+  --gold-soft: rgba(176, 141, 87, 0.14);
+  --line: rgba(34, 38, 36, 0.1);
+  --line-gold: rgba(176, 141, 87, 0.35);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --shadow-soft: 0 18px 40px -15px rgba(34, 38, 36, 0.08);
+}
+
+html { scroll-padding-top: 5rem; scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.75 "Montserrat", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 0;
+  color: var(--olive);
+}
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+a { color: inherit; transition: all 0.25s ease; }
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Header Editorial */
+header.top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 248, 245, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+header.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 4.5rem;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+  color: var(--olive);
+}
+
+.brand-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold);
+  border-left: 1px solid var(--line);
+  padding-left: 0.75rem;
+}
+
+nav { display: flex; gap: 1.75rem; font-size: 0.86rem; font-weight: 500; letter-spacing: 0.02em; }
+nav a { text-decoration: none; color: var(--mute); }
+nav a:hover { color: var(--olive); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--olive);
+  background: var(--olive);
+  color: #faf8f5;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.btn:hover {
+  background: var(--olive-light);
+  border-color: var(--olive-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(39, 54, 47, 0.35);
+}
+
+.btn.alt {
+  background: transparent;
+  color: var(--olive);
+  border-color: var(--line-gold);
+}
+
+.btn.alt:hover {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+}
+
+.btn.sm { padding: 0.55rem 1.15rem; min-height: 38px; font-size: 0.78rem; }
+
+/* Hero Editorial */
+.hero {
+  padding: 5.5rem 0 5rem;
+  background: linear-gradient(180deg, var(--bg-warm) 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 5.2vw, 4.3rem);
+  margin-bottom: 1.25rem;
+}
+
+.hero p.lead {
+  color: var(--mute);
+  font-size: 1.02rem;
+  max-width: 36rem;
+  margin: 0 0 2.1rem;
+}
+
+.btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+/* Slots de Fotografia com animação editorial */
+.slot {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--bg-warm);
+  border: 1px dashed var(--line-gold);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--mute);
+  padding: 1.25rem;
+  font-size: 0.82rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+.slot:hover {
+  transform: translateY(-4px);
+  border-style: solid;
+  border-color: var(--gold);
+  box-shadow: var(--shadow-soft);
+}
+
+.slot svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+  transition: transform 0.35s ease;
+}
+
+.slot:hover svg { transform: scale(1.12); }
+
+.slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slot:hover img { transform: scale(1.04); }
+
+.hero-frame {
+  aspect-ratio: 4/5;
+  border-radius: 200px 200px var(--radius-md) var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Sections */
+section { padding: 5.5rem 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: none; }
+
+.section-head {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto 3.5rem;
+}
+
+.section-head h2 { font-size: clamp(2.2rem, 4.2vw, 3.2rem); margin-bottom: 0.85rem; }
+.section-head p { color: var(--mute); font-size: 0.98rem; margin: 0; }
+
+/* Galeria Curada Única (Mosaico Editorial) */
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.15rem;
+}
+
+.g-span-4 { grid-column: span 4; aspect-ratio: 4/5; }
+.g-span-6 { grid-column: span 6; aspect-ratio: 3/2; }
+.g-span-8 { grid-column: span 8; aspect-ratio: 16/10; }
+.g-span-12 { grid-column: span 12; aspect-ratio: 21/9; }
+
+/* Diferencial / Essência */
+.essence {
+  background: var(--bg-warm);
+}
+
+.essence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.essence-list {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.essence-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.essence-item b {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.48rem;
+  color: var(--olive);
+  margin-bottom: 0.35rem;
+}
+
+.essence-item p { margin: 0; color: var(--mute); font-size: 0.92rem; }
+
+/* Formatos de Cobertura */
+.packages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.pkg {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+}
+
+.pkg.featured {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, #ffffff 0%, #fcf9f4 100%);
+}
+
+.pkg-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pkg h3 { font-size: 1.75rem; margin-bottom: 0.6rem; }
+.pkg p { color: var(--mute); font-size: 0.9rem; margin: 0 0 1.25rem; }
+.pkg ul { margin: 0 0 1.75rem; padding: 0; list-style: none; display: grid; gap: 0.55rem; font-size: 0.88rem; }
+.pkg ul li { display: flex; align-items: flex-start; gap: 0.55rem; color: var(--ink); }
+.pkg ul li::before { content: "•"; color: var(--gold); font-weight: 700; }
+
+/* Quote / Depoimento */
+.testimonial {
+  text-align: center;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+.testimonial blockquote {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1.4;
+  color: var(--olive);
+  margin: 0 0 1rem;
+}
+.testimonial cite {
+  font-style: normal;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+/* Formulário de Disponibilidade */
+.inquiry {
+  background: var(--olive);
+  color: #faf8f5;
+  border-radius: var(--radius-md);
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.inquiry h2 { color: #faf8f5; font-size: clamp(2rem, 3.8vw, 2.9rem); margin-bottom: 0.85rem; }
+.inquiry p { color: rgba(250, 248, 245, 0.78); font-size: 0.96rem; margin: 0; }
+
+.form-card {
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--radius-md);
+  padding: 1.85rem;
+}
+
+label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--olive); margin-bottom: 0.3rem; }
+input, select {
+  width: 100%;
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  min-height: 46px;
+  margin-bottom: 0.95rem;
+}
+input:focus, select:focus { border-color: var(--olive); outline: none; }
+.form-card .btn { width: 100%; margin-top: 0.25rem; }
+
+/* Footer */
+footer {
+  background: var(--bg-warm);
+  border-top: 1px solid var(--line);
+  padding: 3rem 0 2.5rem;
+  font-size: 0.88rem;
+  color: var(--mute);
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+footer .links { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 500; }
+footer .links a:hover { color: var(--olive); }
+
+@media (max-width: 900px) {
+  nav { display: none; }
+  .hero-grid, .essence-grid, .packages, .inquiry { grid-template-columns: 1fr; }
+  .hero-frame { max-width: 360px; margin: 0 auto; aspect-ratio: 4/5; }
+  .g-span-4, .g-span-6, .g-span-8, .g-span-12 { grid-column: span 12; aspect-ratio: 4/3; }
+  .g-span-4 { aspect-ratio: 4/5; max-width: 440px; width: 100%; margin: 0 auto; }
+  .inquiry { padding: 1.85rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand-group" href="index.html">
+      <span class="brand">oceam</span>
+      <span class="brand-sub">Casamentos</span>
+    </a>
+    <nav aria-label="Navegação">
+      <a href="#galeria">Galeria</a>
+      <a href="#olhar">Diferenciais</a>
+      <a href="#formatos">Formatos</a>
+      <a href="index.html">← Voltar ao site</a>
+    </nav>
+    <a class="btn sm" href="#consultar">Consultar data</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="kicker">Astolfo Dutra &amp; Região · MG</span>
+          <h1>Histórias reais contadas com <em>leveza, verdade e respeito</em></h1>
+          <p class="lead">Fotografia documental de casamento para casais que desejam viver cada segundo da celebração sem poses forçadas — com a tranquilidade de quem conhece profundamente o altar, os ritos e a emoção de cada família.</p>
+          <div class="btns">
+            <a class="btn" href="#consultar">Verificar disponibilidade</a>
+            <a class="btn alt" href="#galeria">Ver fotografias</a>
+          </div>
+        </div>
+        <div class="slot hero-frame">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <strong>Foto destaque de capa</strong>
+          <span>Retrato vertical do casal (4:5)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERIA CURADA ÚNICA -->
+  <section id="galeria">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Portfólio Selecionado</span>
+        <h2>Olhares, gestos e <em>momentos que permanecem</em></h2>
+        <p>Do silêncio emocionado no altar à saída da igreja e aos abraços da família. Uma seleção de registros reais em cerimônias e celebrações na região.</p>
+      </div>
+
+      <div class="gallery-mosaic">
+        <!-- Linha 1: Destaque horizontal + vertical -->
+        <div class="slot g-span-8">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <strong>Foto 01 · Destaque panorâmico</strong>
+          <span>Horizontal (Entrada, altar ou saída da igreja)</span>
+        </div>
+        <div class="slot g-span-4">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <strong>Foto 02 · Vertical</strong>
+          <span>Retrato da noiva ou do casal (4:5)</span>
+        </div>
+
+        <!-- Linha 2: Três verticais equilibradas -->
+        <div class="slot g-span-4">
+          <strong>Foto 03 · Vertical</strong>
+          <span>Bênção das alianças / Detalhe (4:5)</span>
+        </div>
+        <div class="slot g-span-4">
+          <strong>Foto 04 · Vertical</strong>
+          <span>Emoção / Troca de olhares (4:5)</span>
+        </div>
+        <div class="slot g-span-4">
+          <strong>Foto 05 · Vertical</strong>
+          <span>Momento litúrgico / Oração (4:5)</span>
+        </div>
+
+        <!-- Linha 3: Duas horizontais clássicas -->
+        <div class="slot g-span-6">
+          <strong>Foto 06 · Horizontal</strong>
+          <span>Cumprimentos / Pais e padrinhos (3:2)</span>
+        </div>
+        <div class="slot g-span-6">
+          <strong>Foto 07 · Horizontal</strong>
+          <span>Retrato externo pós-cerimônia (3:2)</span>
+        </div>
+
+        <!-- Linha 4: Vertical + Destaque horizontal -->
+        <div class="slot g-span-4">
+          <strong>Foto 08 · Vertical</strong>
+          <span>Detalhes / Buquê / Alianças (4:5)</span>
+        </div>
+        <div class="slot g-span-8">
+          <strong>Foto 09 · Destaque horizontal</strong>
+          <span>Celebração / Saída ou recepção (16:10)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAL / ESSÊNCIA -->
+  <section class="essence" id="olhar">
+    <div class="wrap">
+      <div class="essence-grid">
+        <div>
+          <span class="kicker">Diferenciais Oceam</span>
+          <h2>Sensibilidade documental, respeito ao altar e <em>lembranças na hora</em></h2>
+          <p style="color:var(--mute);margin:1rem 0 1.75rem">Casamento passa rápido demais para virar uma sessão de fotos engessada. Meu papel é registrar a verdade do que vocês estão vivendo, unindo técnica, discrição e carinho com cada convidado.</p>
+          <a class="btn alt" href="#consultar">Conversar sobre meu casamento</a>
+        </div>
+        <div class="essence-list">
+          <div class="essence-item">
+            <b>Vivência e respeito à celebração religiosa</b>
+            <p>Por ter sido seminarista e atuar há anos na comunicação católica, conheço profundamente cada rito e momento da liturgia — antecipando os gestos essenciais no ângulo certo, sem jamais invadir o espaço do altar ou quebrar o clima de oração.</p>
+          </div>
+          <div class="essence-item">
+            <b>Fotos impressas na hora durante a recepção</b>
+            <p>Um diferencial que emociona noivos e familiares: levo equipamento de revelação térmica profissional para imprimir fotografias selecionadas na hora durante a festa, entregando lembranças físicas com qualidade de laboratório já no grande dia.</p>
+          </div>
+          <div class="essence-item">
+            <b>Entrega rápida em galeria online privada</b>
+            <p>Tratamento cuidadoso de luz e cor com estética natural e atemporal, entregando as fotografias editadas em alta resolução por meio de galeria online organizada para baixar e compartilhar com facilidade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATOS DE COBERTURA -->
+  <section id="formatos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Coberturas</span>
+        <h2>Formatos pensados para o <em>seu momento</em></h2>
+        <p>Cada celebração tem seu próprio ritmo. Montamos propostas sob medida de acordo com a duração do evento e o estilo do casal.</p>
+      </div>
+
+      <div class="packages">
+        <div class="pkg">
+          <div>
+            <span class="pkg-tag">Essencial</span>
+            <h3>Cerimônia &amp; Retratos</h3>
+            <p>Ideal para casamentos íntimos, cerimônia no civil ou celebração religiosa seguida de ensaio do casal.</p>
+            <ul>
+              <li>Cobertura documental completa da cerimônia</li>
+              <li>Fotos protocolares com pais, padrinhos e casal</li>
+              <li>Galeria online privada em alta resolução</li>
+            </ul>
+          </div>
+          <a class="btn alt sm" href="#consultar">Solicitar valores</a>
+        </div>
+
+        <div class="pkg featured">
+          <div>
+            <span class="pkg-tag">Mais Procurado</span>
+            <h3>Cobertura Completa</h3>
+            <p>Do making of até a recepção, com olhar duplo e lembranças impressas entregues na festa.</p>
+            <ul>
+              <li>Making of, cerimônia e recepção completa</li>
+              <li>Atuação com segundo fotógrafo</li>
+              <li>Fotos reveladas/impressas na hora na recepção</li>
+              <li>Prévia rápida nos primeiros dias + galeria completa</li>
+            </ul>
+          </div>
+          <a class="btn sm" href="#consultar">Consultar disponibilidade</a>
+        </div>
+
+        <div class="pkg">
+          <div>
+            <span class="pkg-tag">Ensaios</span>
+            <h3>Pré-Wedding &amp; Pedido</h3>
+            <p>Registros leves e espontâneos para eternizar o noivado ou preparar o ensaio antes do casamento.</p>
+            <ul>
+              <li>Ensaio em locação externa na região</li>
+              <li>Direção leve para casais que não gostam de posar</li>
+              <li>Ideal para convites, site dos noivos e decoração</li>
+            </ul>
+          </div>
+          <a class="btn alt sm" href="#consultar">Agendar ensaio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTO -->
+  <section>
+    <div class="wrap">
+      <div class="testimonial">
+        <blockquote>“Espaço reservado para o depoimento de um dos casais que você fotografou — sobre como se sentiram à vontade no dia e a emoção ao receber as fotos.”</blockquote>
+        <cite>— Nome dos Noivos · Casamento em Astolfo Dutra</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTA DE DATA -->
+  <section id="consultar">
+    <div class="wrap">
+      <div class="inquiry">
+        <div>
+          <span class="kicker" style="color:#d8be92">Agenda 2026 / 2027</span>
+          <h2>Vamos conversar sobre o <em>grande dia de vocês?</em></h2>
+          <p>Preencha ao lado para verificar se a data está livre e receber uma proposta personalizada diretamente pelo WhatsApp.</p>
+        </div>
+        <div class="form-card">
+          <label for="noivos">Nome do casal</label>
+          <input id="noivos" placeholder="Ex.: Ana e João">
+          <label for="dataCas">Data prevista do casamento</label>
+          <input id="dataCas" placeholder="Ex.: 12/12/2026">
+          <label for="localCas">Cidade e igreja / espaço</label>
+          <input id="localCas" placeholder="Ex.: Matriz de Santo Antônio, Astolfo Dutra">
+          <label for="interesse">O que vocês buscam?</label>
+          <select id="interesse">
+            <option>Cobertura completa (com fotos impressas na recepção)</option>
+            <option>Cerimônia religiosa e retratos</option>
+            <option>Pré-wedding / Pedido de casamento</option>
+            <option>Outro formato personalizado</option>
+          </select>
+          <a class="btn" id="waCas" href="https://wa.me/5532999612204" target="_blank" rel="noopener">Consultar data no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><strong>Oceam</strong> · Márcio Oliveira · Fotografia de Casamento em Astolfo Dutra e região</span>
+    <div class="links">
+      <a href="index.html">Site Principal</a>
+      <a href="https://instagram.com/omarcioafonso" target="_blank" rel="noopener">@omarcioafonso</a>
+      <a href="https://instagram.com/oceamdesign" target="_blank" rel="noopener">@oceamdesign</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var n = document.getElementById('noivos'),
+      d = document.getElementById('dataCas'),
+      l = document.getElementById('localCas'),
+      i = document.getElementById('interesse'),
+      b = document.getElementById('waCas');
+  function up(){
+    var m = 'Olá, Márcio! Somos ' + (n.value.trim() || 'um casal') +
+            ' e gostaríamos de consultar sua disponibilidade para casamento' +
+            (d.value.trim() ? ' no dia ' + d.value.trim() : '') +
+            (l.value.trim() ? ', em ' + l.value.trim() : '') +
+            '. Temos interesse em: ' + i.value + '.';
+    b.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(m);
+  }
+  [n, d, l, i].forEach(function(el){ el.addEventListener('input', up); });
+  up();
+})();
+</script>
+</body>
+</html>

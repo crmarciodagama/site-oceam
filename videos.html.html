@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vídeo, Drone &amp; Transmissões ao Vivo · Márcio Oliveira | Oceam</title>
+<meta name="description" content="Produção de vídeo, imagens aéreas com drone, reels dinâmicos, motion design e transmissões ao vivo (lives multicâmera) em Astolfo Dutra (MG) e região.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070a0f;
+  --bg-elevated: #0d121b;
+  --surface: #121924;
+  --surface-hover: #182130;
+  --ink: #f3f5f8;
+  --mute: #94a0b2;
+  --amber: #e5984b;
+  --amber-soft: rgba(229, 152, 75, 0.14);
+  --cyan: #38bdf8;
+  --grad: linear-gradient(135deg, #e5984b 0%, #f3b778 100%);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-amber: rgba(229, 152, 75, 0.35);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --shadow: 0 22px 45px -15px rgba(0, 0, 0, 0.75);
+}
+
+html { scroll-padding-top: 5rem; scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.68 "Montserrat", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .brand {
+  font-family: "Montserrat", system-ui, sans-serif;
+  line-height: 1.12;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.serif {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-size: 1.16em;
+  color: var(--amber);
+}
+
+a { color: inherit; transition: all 0.25s ease; }
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Header */
+header.top {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(7, 10, 15, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+header.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 4.5rem;
+}
+
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.brand-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--amber);
+  border-left: 1px solid var(--line);
+  padding-left: 0.75rem;
+}
+
+nav { display: flex; gap: 1.75rem; font-size: 0.88rem; font-weight: 500; }
+nav a { text-decoration: none; color: var(--mute); }
+nav a:hover { color: #fff; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.85rem 1.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--grad);
+  color: #140d05;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 46px;
+  box-shadow: 0 8px 22px -6px rgba(229, 152, 75, 0.35);
+}
+
+.btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(229, 152, 75, 0.5);
+}
+
+.btn.alt {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ink);
+  border-color: var(--line-amber);
+  box-shadow: none;
+}
+
+.btn.alt:hover {
+  background: var(--amber-soft);
+  border-color: var(--amber);
+  color: #fff;
+}
+
+.btn.sm { padding: 0.52rem 1.1rem; min-height: 38px; font-size: 0.84rem; }
+
+/* Hero */
+.hero {
+  padding: 5.5rem 0 4.5rem;
+  background:
+    radial-gradient(850px 450px at 85% 5%, rgba(229, 152, 75, 0.14), transparent 65%),
+    radial-gradient(600px 400px at 10% 90%, rgba(56, 189, 248, 0.08), transparent 60%),
+    linear-gradient(180deg, #0b0f17 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  background: var(--amber-soft);
+  border: 1px solid var(--line-amber);
+  color: var(--amber);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.35rem;
+}
+
+.hero h1 { font-size: clamp(2.3rem, 5.2vw, 4rem); font-weight: 800; max-width: 18ch; color: #fff; }
+.hero p.lead { color: var(--mute); max-width: 42rem; font-size: 1.04rem; margin: 1.25rem 0 2.1rem; }
+.btns { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+.specs-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2.25rem;
+  margin: 3.25rem 0 0;
+  padding: 1.35rem 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  color: var(--mute);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.specs-bar li { display: flex; align-items: center; gap: 0.6rem; }
+.specs-bar li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 10px var(--amber);
+}
+
+/* Sections */
+section { padding: 5.25rem 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: none; }
+
+.section-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+  margin-bottom: 0.6rem;
+}
+
+h2 { font-size: clamp(1.85rem, 3.8vw, 2.7rem); font-weight: 800; margin-bottom: 0.85rem; color: #fff; }
+.sub { color: var(--mute); max-width: 44rem; font-size: 1rem; margin: 0 0 2.5rem; }
+
+/* Grid de Vídeos Horizontais (16:9) */
+.video-grid-wide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.video-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-amber);
+  box-shadow: var(--shadow);
+}
+
+.embed-16-9 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.embed-16-9 iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-info {
+  padding: 1.35rem 1.5rem;
+}
+
+.video-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  margin-bottom: 0.35rem;
+}
+
+.video-info h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.35rem;
+}
+
+.video-info p {
+  margin: 0;
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+/* Grid de Reels / Shorts (9:16) */
+.reels-section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reels-section-title span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  background: var(--amber-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+}
+
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.reel-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.reel-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-amber);
+  box-shadow: var(--shadow);
+}
+
+.embed-9-16 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  background: #000;
+}
+
+.embed-9-16 iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Slot extra para futuro Reels */
+.reel-placeholder {
+  aspect-ratio: 9/16;
+  background: linear-gradient(145deg, var(--surface) 0%, var(--bg-elevated) 100%);
+  border: 1px dashed var(--line-amber);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--mute);
+  font-size: 0.88rem;
+}
+
+/* Especialidades (4 Cards) */
+.caps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.35rem;
+}
+
+.cap-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.85rem;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.cap-card:hover {
+  border-color: var(--line-amber);
+  transform: translateY(-2px);
+}
+
+.cap-card .num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.cap-card h3 {
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.cap-card p {
+  margin: 0 0 1rem;
+  color: var(--mute);
+  font-size: 0.93rem;
+}
+
+.cap-card ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--ink);
+  font-size: 0.88rem;
+}
+
+.cap-card ul li { margin-bottom: 0.25rem; }
+
+/* Orçamento Box */
+.quote-box {
+  background: var(--surface);
+  border: 1px solid var(--line-amber);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.form {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+}
+
+label { display: block; font-size: 0.83rem; font-weight: 600; color: var(--ink); margin-bottom: 0.32rem; }
+input, select {
+  width: 100%;
+  font: inherit;
+  font-size: 0.94rem;
+  color: #fff;
+  background: var(--bg);
+  border: 1px solid var(--line-amber);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  min-height: 46px;
+  margin-bottom: 1rem;
+}
+input:focus, select:focus { border-color: var(--amber); outline: none; }
+.form .btn { width: 100%; margin-top: 0.25rem; }
+
+/* Footer */
+footer {
+  background: #040609;
+  border-top: 1px solid var(--line);
+  padding: 3rem 0 2.5rem;
+  font-size: 0.88rem;
+  color: var(--mute);
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+footer .links { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 500; }
+footer .links a:hover { color: var(--amber); }
+
+@media (max-width: 900px) {
+  nav { display: none; }
+  .video-grid-wide, .caps-grid, .quote-box { grid-template-columns: 1fr; }
+  .reels-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+  .quote-box { padding: 1.75rem; }
+  .hero { padding: 3.75rem 0 3.25rem; }
+  section { padding: 3.75rem 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand-group" href="index.html">
+      <span class="brand">oceam</span>
+      <span class="brand-sub">Audiovisual</span>
+    </a>
+    <nav aria-label="Navegação">
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#especialidades">O que produzimos</a>
+      <a href="index.html">← Voltar ao site</a>
+    </nav>
+    <a class="btn sm" href="#orcamento">Orçar vídeo ou live</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Produção Audiovisual · Astolfo Dutra e Região</span>
+      <h1>Vídeos, <span class="serif">imagens aéreas</span> e transmissões ao vivo</h1>
+      <p class="lead">Captação dedicada, takes de drone, edição dinâmica com motion design e estrutura para lives multicâmera. Tudo pensado para valorizar eventos, empresas e momentos marcantes.</p>
+      <div class="btns">
+        <a class="btn" href="#orcamento">Pedir orçamento no WhatsApp</a>
+        <a class="btn alt" href="#trabalhos">Assistir produções</a>
+      </div>
+      <ul class="specs-bar">
+        <li>Captação com áudio e iluminação dedicados</li>
+        <li>Takes aéreos com drone</li>
+        <li>Lives com até 3 câmeras em 1080p</li>
+        <li>Reels dinâmicos e motion design</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRABALHOS / VÍDEOS REAIS -->
+  <section id="trabalhos">
+    <div class="wrap">
+      <span class="section-label">Portfólio em Vídeo</span>
+      <h2>Produções recentes e <span class="serif">transmissões</span></h2>
+      <p class="sub">Assista abaixo a exemplos reais de cobertura de eventos, transmissões ao vivo e conteúdos verticais produzidos para redes sociais.</p>
+
+      <!-- Vídeos Horizontais e Transmissão ao Vivo -->
+      <div class="video-grid-wide">
+        <article class="video-card">
+          <div class="embed-16-9">
+            <iframe src="https://www.youtube.com/embed/d1JPpYbg0OQ" title="Vídeo de Evento · Oceam" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <span class="video-tag">Cobertura de Evento · Edição</span>
+            <h3>Aftermovie &amp; Registro de Evento</h3>
+            <p>Captação dinâmica, enquadramentos fechados e edição ritmada para destacar a atmosfera e os melhores momentos do evento.</p>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="embed-16-9">
+            <iframe src="https://www.youtube.com/embed/m_sdVr1o88U" title="Transmissão Ao Vivo · Missa pro Sponsis" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <span class="video-tag">Transmissão ao Vivo · Multicâmera</span>
+            <h3>Live de Casamento · Missa pro Sponsis</h3>
+            <p>Transmissão ao vivo completa da celebração matrimonial na Matriz Santa Ana, permitindo que familiares distantes acompanhassem cada momento em tempo real.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Reels & Shorts Verticais -->
+      <h3 class="reels-section-title">Reels &amp; Vídeos Verticais <span>Redes Sociais</span></h3>
+      <div class="reels-grid">
+        <article class="reel-card">
+          <div class="embed-9-16">
+            <iframe src="https://www.youtube.com/embed/20yD7Td88Nc" title="Reels Comercial · Oceam" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <span class="video-tag">Reels Comercial · Indústria</span>
+            <h3>Conteúdo Dinâmico para Marca</h3>
+            <p>Captação e edição vertical ágil focada em retenção e posicionamento visual nas redes sociais.</p>
+          </div>
+        </article>
+
+        <article class="reel-card">
+          <div class="embed-9-16">
+            <iframe src="https://www.youtube.com/embed/gN_uzQ4XPvc" title="Reels & Motion · Oceam" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-info">
+            <span class="video-tag">Reels · Ritmo &amp; Visual</span>
+            <h3>Produção Vertical &amp; Edição</h3>
+            <p>Narrativa visual curta com cortes precisos, tratamento de cor e acabamento gráfico para Instagram.</p>
+          </div>
+        </article>
+
+        <!-- Espaço reservado para próximo Reels com Drone -->
+        <div class="reel-placeholder">
+          <strong style="color:#fff;margin-bottom:0.4rem">Takes Aéreos &amp; Drone</strong>
+          <span>Espaço reservado para o próximo compilado vertical com imagens aéreas da região.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES AUDIOVISUAIS -->
+  <section id="especialidades">
+    <div class="wrap">
+      <span class="section-label">Estrutura &amp; Entrega</span>
+      <h2>Soluções audiovisuais <span class="serif">sob medida</span></h2>
+      <p class="sub">Equipamentos dedicados para entregar imagem limpa, áudio claro e agilidade na finalização.</p>
+
+      <div class="caps-grid">
+        <div class="cap-card">
+          <span class="num">01 · PERSPECTIVA AÉREA</span>
+          <h3>Imagens com Drone</h3>
+          <p>Tomadas aéreas estáveis e cinematográficas que dão escala e valorizam o cenário do seu projeto ou evento.</p>
+          <ul>
+            <li>Cobertura de eventos ao ar livre, sítios e cerimônias</li>
+            <li>Vídeos institucionais para empresas, indústrias e imóveis</li>
+            <li>Acompanhamento de obras, agronegócio e turismo local</li>
+          </ul>
+        </div>
+
+        <div class="cap-card">
+          <span class="num">02 · AO VIVO</span>
+          <h3>Lives de Pequeno Porte</h3>
+          <p>Transmissão profissional com troca de ângulos em tempo real para eventos que precisam alcançar quem está longe.</p>
+          <ul>
+            <li>Operação com até 3 câmeras (2 DSLRs + 1 câmera móvel)</li>
+            <li>Qualidade Full HD 1080p e captação de áudio limpa</li>
+            <li>Transmissão simultânea em até 2 plataformas (YouTube e Instagram/Facebook)</li>
+          </ul>
+        </div>
+
+        <div class="cap-card">
+          <span class="num">03 · REDES SOCIAIS</span>
+          <h3>Reels &amp; Vídeos Comerciais</h3>
+          <p>Vídeos curtos pensados para prender a atenção nos primeiros segundos e gerar autoridade para sua marca ou evento.</p>
+          <ul>
+            <li>Captação com iluminação portátil e microfone sem fio</li>
+            <li>Edição dinâmica no formato vertical (9:16)</li>
+            <li>Ideal para empresas, profissionais liberais e divulgação de eventos</li>
+          </ul>
+        </div>
+
+        <div class="cap-card">
+          <span class="num">04 · ACABAMENTO GRÁFICO</span>
+          <h3>Motion Design &amp; Identidade em Vídeo</h3>
+          <p>Elementos gráficos animados integrados à edição para deixar o vídeo mais informativo e profissional.</p>
+          <ul>
+            <li>Tarjas de identificação (GCs), títulos animados e vinhetas</li>
+            <li>Animação de logotipos e chamadas visuais para campanhas</li>
+            <li>Integração direta com o design gráfico da sua marca</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORÇAMENTO -->
+  <section id="orcamento">
+    <div class="wrap">
+      <div class="quote-box">
+        <div>
+          <span class="section-label">Contato rápido</span>
+          <h2>Vamos tirar o seu <span class="serif">vídeo do papel?</span></h2>
+          <p class="sub" style="margin-bottom:0">Escolha o tipo de produção ao lado e abra a conversa no WhatsApp já com os detalhes prontos para receber seu orçamento.</p>
+        </div>
+        <div class="form">
+          <label for="tipoVid">Tipo de produção</label>
+          <select id="tipoVid">
+            <option>Vídeo de evento / Aftermovie</option>
+            <option>Imagens aéreas com drone</option>
+            <option>Transmissão ao vivo (Live multicâmera)</option>
+            <option>Reels / Vídeo comercial para empresa</option>
+            <option>Vídeo completo (Captação + Drone + Edição)</option>
+          </select>
+          <label for="dataVid">Data prevista (se já souber)</label>
+          <input id="dataVid" placeholder="Ex.: 20/12">
+          <label for="locVid">Cidade ou local</label>
+          <input id="locVid" placeholder="Ex.: Astolfo Dutra">
+          <a class="btn" id="waVid" href="https://wa.me/5532999612204" target="_blank" rel="noopener">Solicitar orçamento no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><strong>Oceam</strong> · Márcio Oliveira · Produção Audiovisual, Drone e Lives em Astolfo Dutra e região</span>
+    <div class="links">
+      <a href="index.html">Site Principal</a>
+      <a href="casamentos.html">Casamentos</a>
+      <a href="https://instagram.com/oceamdesign" target="_blank" rel="noopener">@oceamdesign</a>
+      <a href="https://instagram.com/omarcioafonso" target="_blank" rel="noopener">@omarcioafonso</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t = document.getElementById('tipoVid'),
+      d = document.getElementById('dataVid'),
+      l = document.getElementById('locVid'),
+      b = document.getElementById('waVid');
+  function up(){
+    var m = 'Olá, Márcio! Vi o portfólio audiovisual da Oceam e quero um orçamento para: ' + t.value +
+            (d.value.trim() ? ' (data: ' + d.value.trim() + ')' : '') +
+            (l.value.trim() ? ', em ' + l.value.trim() : '') + '.';
+    b.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(m);
+  }
+  [t, d, l].forEach(function(el){ el.addEventListener('input', up); });
+  up();
+})();
+</script>
+</body>
+</html>
