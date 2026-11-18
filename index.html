@@ -68,32 +68,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Luz radial que acompanha o mouse */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background: radial-gradient(
-    650px circle at var(--mouse-x, 50vw) var(--mouse-y, 20vh),
-    rgba(45, 212, 191, 0.11),
-    rgba(56, 189, 248, 0.04) 40%,
-    transparent 75%
-  );
-  transition: opacity 0.4s ease;
-}
-
-/* Garante que o conteúdo fique acima da camada de luz */
-header.top, main, footer {
-  position: relative;
-  z-index: 2;
-}
-
-@media (hover: none) {
-  body::before { display: none; }
-}
-  
 h1, h2, h3, .brand {
   font-family: "Montserrat", system-ui, sans-serif;
   line-height: 1.12;
@@ -200,13 +174,39 @@ nav a:hover { color: #fff; }
 
 .btn.sm { padding: 0.5rem 1.1rem; min-height: 40px; font-size: 0.86rem; }
 
-/* Hero */
+/* Hero (Parte Principal com luz interativa no cursor) */
 .hero {
+  position: relative;
+  overflow: hidden;
   padding: 5.5rem 0 4.5rem;
   background:
-    radial-gradient(800px 450px at 85% 0%, rgba(45, 212, 191, 0.14), transparent 65%),
+    radial-gradient(800px 450px at 85% 0%, rgba(45, 212, 191, 0.12), transparent 65%),
     linear-gradient(180deg, #06151d 0%, var(--bg) 100%);
   border-bottom: 1px solid var(--line);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    600px circle at var(--hero-x, 75%) var(--hero-y, 25%),
+    rgba(45, 212, 191, 0.16),
+    rgba(56, 189, 248, 0.05) 42%,
+    transparent 75%
+  );
+  transition: opacity 0.35s ease;
+}
+
+.hero .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+@media (hover: none) {
+  .hero::before { display: none; }
 }
 
 .eyebrow {
@@ -582,7 +582,7 @@ footer .links a:hover { color: var(--accent-teal); }
 </header>
 
 <main id="inicio">
-  <div class="hero">
+  <div class="hero" id="hero-area">
     <div class="wrap">
       <span class="eyebrow">Astolfo Dutra &amp; Região · MG</span>
       <h1>Fotografia, vídeo, lives e design em <span class="serif">Astolfo Dutra e região</span></h1>
@@ -825,6 +825,7 @@ footer .links a:hover { color: var(--accent-teal); }
 
 <script>
 (function(){
+  // 1. Formulário inteligente do WhatsApp
   var s = document.getElementById('serv'),
       d = document.getElementById('dia'),
       c = document.getElementById('cid'),
@@ -837,24 +838,25 @@ footer .links a:hover { color: var(--accent-teal); }
   }
   [s, d, c].forEach(function(e){ e.addEventListener('input', up); });
   up();
+
+  // 2. Luz radial exclusiva na parte principal (.hero)
+  var hero = document.getElementById('hero-area');
+  if (hero) {
+    var ticking = false;
+    hero.addEventListener('mousemove', function(e) {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          var rect = hero.getBoundingClientRect();
+          hero.style.setProperty('--hero-x', (e.clientX - rect.left) + 'px');
+          hero.style.setProperty('--hero-y', (e.clientY - rect.top) + 'px');
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
 })();
 </script>
 
-<script>
-(function(){
-  var ticking = false;
-  window.addEventListener('mousemove', function(e) {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        document.body.style.setProperty('--mouse-x', e.clientX + 'px');
-        document.body.style.setProperty('--mouse-y', e.clientY + 'px');
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-})();
-</script>
-  
 </body>
 </html>
