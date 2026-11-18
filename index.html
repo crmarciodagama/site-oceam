@@ -841,11 +841,14 @@ footer .links a:hover { color: var(--accent-teal); }
 
 <script>
 (function(){
-  // 1. Formulário inteligente do WhatsApp
+  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyUKU369Osmphzg7CDpt5NqL5L5oxaeU3uV8djUz8Y3rU8PQdH2r6KLP_5TpcFtnTXh/exec';
+
+  // 1. Formulário inteligente do WhatsApp + Captura silenciosa de Lead
   var s = document.getElementById('serv'),
       d = document.getElementById('dia'),
       c = document.getElementById('cid'),
       g = document.getElementById('go');
+
   function up(){
     var m = 'Olá, Márcio! Vim pelo site da Oceam e quero um orçamento de ' + s.value +
             (d.value.trim() ? ' para o dia ' + d.value.trim() : '') +
@@ -854,6 +857,26 @@ footer .links a:hover { color: var(--accent-teal); }
   }
   [s, d, c].forEach(function(e){ e.addEventListener('input', up); });
   up();
+
+  g.addEventListener('click', function() {
+    var payload = {
+      tipo: 'lead',
+      nome: 'Visitante (Home)',
+      servico: s.value,
+      dataEvento: d.value.trim() || 'Não informada',
+      local: c.value.trim() || 'Não informado',
+      origem: 'Home (oceam.com.br)'
+    };
+    try {
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {}
+  });
 
   // 2. Luz radial exclusiva na parte principal (.hero)
   var hero = document.getElementById('hero-area');
@@ -872,7 +895,7 @@ footer .links a:hover { color: var(--accent-teal); }
     }, { passive: true });
   }
 
-  // 3. Animação suave de entrada das seções na rolagem (Fade-in + Slide-up)
+  // 3. Animação suave de entrada das seções na rolagem
   var sections = document.querySelectorAll('.reveal-section');
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries, obs) {
