@@ -54,6 +54,17 @@ h1 em, h2 em, h3 em {
 a { color: inherit; transition: all 0.25s ease; }
 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
 
+/* Animação suave de entrada na rolagem */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Header Editorial */
 header.top {
   position: sticky;
@@ -423,13 +434,19 @@ footer .links a:hover { color: var(--olive); }
   .g-span-4 { aspect-ratio: 4/5; max-width: 440px; width: 100%; margin: 0 auto; }
   .inquiry { padding: 1.85rem; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand-group" href="index.html">
+    <a class="brand-group" href="/">
       <span class="brand">oceam</span>
       <span class="brand-sub">Casamentos</span>
     </a>
@@ -437,7 +454,7 @@ footer .links a:hover { color: var(--olive); }
       <a href="#galeria">Galeria</a>
       <a href="#olhar">Diferenciais</a>
       <a href="#formatos">Formatos</a>
-      <a href="index.html">← Voltar ao site</a>
+      <a href="/">← Voltar ao site</a>
     </nav>
     <a class="btn sm" href="#consultar">Consultar data</a>
   </div>
@@ -467,7 +484,7 @@ footer .links a:hover { color: var(--olive); }
   </div>
 
   <!-- GALERIA CURADA ÚNICA -->
-  <section id="galeria">
+  <section id="galeria" class="reveal">
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Portfólio Selecionado</span>
@@ -526,7 +543,7 @@ footer .links a:hover { color: var(--olive); }
   </section>
 
   <!-- DIFERENCIAL / ESSÊNCIA -->
-  <section class="essence" id="olhar">
+  <section class="essence reveal" id="olhar">
     <div class="wrap">
       <div class="essence-grid">
         <div>
@@ -560,7 +577,7 @@ footer .links a:hover { color: var(--olive); }
   </section>
 
   <!-- FORMATOS DE COBERTURA -->
-  <section id="formatos">
+  <section id="formatos" class="reveal">
     <div class="wrap">
       <div class="section-head">
         <span class="kicker">Coberturas</span>
@@ -616,7 +633,7 @@ footer .links a:hover { color: var(--olive); }
   </section>
 
   <!-- DEPOIMENTO -->
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="testimonial">
         <blockquote>“Espaço reservado para o depoimento de um dos casais que você fotografou — sobre como se sentiram à vontade no dia e a emoção ao receber as fotos.”</blockquote>
@@ -625,8 +642,8 @@ footer .links a:hover { color: var(--olive); }
     </div>
   </section>
 
-  <!-- CONSULTA DE DATA -->
-  <section id="consultar">
+  <!-- CONSULTA DE DATA + CAPTURA DE LEAD -->
+  <section id="consultar" class="reveal">
     <div class="wrap">
       <div class="inquiry">
         <div>
@@ -659,7 +676,7 @@ footer .links a:hover { color: var(--olive); }
   <div class="wrap">
     <span><strong>Oceam</strong> · Márcio Oliveira · Fotografia de Casamento em Astolfo Dutra e região</span>
     <div class="links">
-      <a href="index.html">Site Principal</a>
+      <a href="/">Site Principal</a>
       <a href="https://instagram.com/omarcioafonso" target="_blank" rel="noopener">@omarcioafonso</a>
       <a href="https://instagram.com/oceamdesign" target="_blank" rel="noopener">@oceamdesign</a>
     </div>
@@ -668,11 +685,15 @@ footer .links a:hover { color: var(--olive); }
 
 <script>
 (function(){
+  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyUKU369Osmphzg7CDpt5NqL5L5oxaeU3uV8djUz8Y3rU8PQdH2r6KLP_5TpcFtnTXh/exec';
+
+  // 1. Formulário WhatsApp + Captura silenciosa de Lead
   var n = document.getElementById('noivos'),
       d = document.getElementById('dataCas'),
       l = document.getElementById('localCas'),
       i = document.getElementById('interesse'),
       b = document.getElementById('waCas');
+
   function up(){
     var m = 'Olá, Márcio! Somos ' + (n.value.trim() || 'um casal') +
             ' e gostaríamos de consultar sua disponibilidade para casamento' +
@@ -681,8 +702,59 @@ footer .links a:hover { color: var(--olive); }
             '. Temos interesse em: ' + i.value + '.';
     b.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(m);
   }
-  [n, d, l, i].forEach(function(el){ el.addEventListener('input', up); });
+  [n, d, l, i].forEach(function(el){
+    if (el) {
+      el.addEventListener('input', up);
+      el.addEventListener('change', up);
+    }
+  });
   up();
+
+  function enviarLeadSilencioso() {
+    var payload = JSON.stringify({
+      tipo: 'lead',
+      nome: n.value.trim() || 'Casal (Página Casamentos)',
+      servico: 'Casamento · ' + i.value,
+      dataEvento: d.value.trim() || 'Não informada',
+      local: l.value.trim() || 'Não informado',
+      origem: 'Página Casamentos'
+    });
+
+    try {
+      if (navigator.sendBeacon) {
+        var blob = new Blob([payload], { type: 'text/plain;charset=utf-8' });
+        navigator.sendBeacon(WEBHOOK_URL, blob);
+      } else {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: payload
+        });
+      }
+    } catch (err) {}
+  }
+
+  if (b) {
+    b.addEventListener('click', enviarLeadSilencioso);
+  }
+
+  // 2. Animação suave de entrada na rolagem
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    items.forEach(function(el) { obs.observe(el); });
+  } else {
+    items.forEach(function(el) { el.classList.add('is-visible'); });
+  }
 })();
 </script>
 </body>
