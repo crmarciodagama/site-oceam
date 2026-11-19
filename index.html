@@ -3,12 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Oceam · Fotografia, Vídeo, Lives &amp; Design | Márcio Afonso</title>
-<meta name="description" content="Produtora audiovisual e fotografia documental em Astolfo Dutra, Cataguases e Zona da Mata (MG). Esporte, casamentos, batizados, vídeos comerciais, drone e transmissões ao vivo.">
+<title>Márcio Afonso · Fotografia, Vídeo, Lives e Design em Astolfo Dutra, Cataguases e região | Oceam</title>
+<meta name="description" content="Fotografia e vídeo esportivo, casamentos, batizados, eventos católicos, transmissões ao vivo multicâmera, drone e design comercial em Astolfo Dutra, Cataguases (MG) e região.">
+<meta property="og:title" content="Oceam · Fotografia, Vídeo, Lives e Design | Márcio Afonso">
+<meta property="og:description" content="Presença discreta, olhar atento. Cobertura de esportes, casamentos, batizados, vídeos com drone, lives multicâmera e design comercial.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.oceam.com.br/">
 <link rel="icon" type="image/svg+xml" href="img/a%20simbolo.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Oceam",
+  "url": "https://www.oceam.com.br/",
+  "founder": "Márcio Afonso Oliveira de Paula",
+  "email": "marcioafonso4200@gmail.com",
+  "telephone": "+55 32 99961-2204",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Astolfo Dutra",
+    "addressRegion": "MG",
+    "addressCountry": "BR"
+  },
+  "areaServed": "Astolfo Dutra, Cataguases e região, MG",
+  "description": "Fotografia e vídeo esportivo, casamentos, batizados, celebrações católicas, transmissões ao vivo (lives), imagens aéreas com drone e design comercial.",
+  "sameAs": [
+    "https://instagram.com/oceamdesign",
+    "https://instagram.com/omarcioafonso",
+    "https://www.behance.net/marciodagama"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   /* Núcleo da Marca */
@@ -20,12 +48,13 @@
   --ink: #F5F2EB;
   --mute: #94A3B8;
   --cyan: #06B6D4;
-  --cyan-glow: rgba(6, 182, 212, 0.22);
+  --cyan-light: #38BDF8;
   --grad: linear-gradient(135deg, #06B6D4 0%, #38BDF8 100%);
+  --ink-dark: #04131A;
   --line: rgba(148, 163, 184, 0.14);
   --line-cyan: rgba(6, 182, 212, 0.35);
 
-  /* Cores Temáticas por Frente */
+  /* Temáticas por Frente */
   --sport: #16A34A;
   --sport-light: #4ADE80;
   --video: #F59E0B;
@@ -34,16 +63,21 @@
 
   --radius-sm: 10px;
   --radius-md: 16px;
-  --radius-lg: 22px;
-  --shadow: 0 22px 45px -15px rgba(2, 6, 14, 0.8);
+  --radius-lg: 24px;
+  --shadow: 0 20px 40px -15px rgba(2, 6, 14, 0.72);
 }
 
-html { scroll-padding-top: 5rem; scroll-behavior: smooth; }
+html { scroll-padding-top: 5.5rem; scroll-behavior: smooth; }
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  /* Textura orgânica sutil de profundidade aquática (cáusticas suaves) */
+  background-image:
+    radial-gradient(900px 600px at 12% 28%, rgba(6, 182, 212, 0.045), transparent 70%),
+    radial-gradient(800px 550px at 88% 58%, rgba(56, 189, 248, 0.04), transparent 70%),
+    radial-gradient(900px 600px at 25% 88%, rgba(6, 182, 212, 0.035), transparent 70%);
   color: var(--ink);
   font: 400 1rem/1.68 "Montserrat", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -52,7 +86,7 @@ body {
 
 h1, h2, h3 {
   font-family: "Montserrat", system-ui, sans-serif;
-  line-height: 1.1;
+  line-height: 1.12;
   margin: 0;
   letter-spacing: -0.025em;
 }
@@ -62,17 +96,20 @@ h1, h2, h3 {
   font-style: italic;
   font-weight: 600;
   letter-spacing: 0;
-  font-size: 1.16em;
+}
+
+h1 .serif, h2 .serif {
+  font-size: 1.14em;
   color: var(--cyan);
 }
 
 a { color: inherit; transition: all 0.25s ease; }
-.wrap { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
 /* Animação de entrada na rolagem */
 .reveal-section {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(22px);
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal-section.is-visible {
@@ -111,7 +148,7 @@ header.top .wrap {
   display: block;
 }
 
-nav { display: flex; gap: 1.75rem; font-size: 0.88rem; font-weight: 500; }
+nav { display: flex; gap: 1.75rem; font-weight: 500; font-size: 0.9rem; }
 nav a { text-decoration: none; color: var(--mute); }
 nav a:hover { color: var(--cream); }
 
@@ -122,52 +159,52 @@ nav a:hover { color: var(--cream); }
   justify-content: center;
   gap: 0.5rem;
   font: inherit;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.88rem 1.6rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.85rem 1.55rem;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   background: var(--grad);
-  color: #04131A;
+  color: var(--ink-dark);
   text-decoration: none;
   cursor: pointer;
   min-height: 46px;
-  box-shadow: 0 8px 22px -6px rgba(6, 182, 212, 0.38);
+  box-shadow: 0 8px 20px -6px rgba(6, 182, 212, 0.35);
 }
 
 .btn:hover {
   filter: brightness(1.06);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(6, 182, 212, 0.55);
+  box-shadow: 0 12px 26px -6px rgba(6, 182, 212, 0.5);
 }
 
 .btn.alt {
   background: rgba(245, 242, 235, 0.04);
   color: var(--cream);
   border-color: var(--line-cyan);
-  font-weight: 600;
   box-shadow: none;
 }
 
 .btn.alt:hover {
-  background: rgba(6, 182, 212, 0.12);
+  background: rgba(6, 182, 212, 0.1);
   border-color: var(--cyan);
+  color: #fff;
 }
 
-.btn.sm { padding: 0.52rem 1.15rem; min-height: 38px; font-size: 0.84rem; }
+.btn.sm { padding: 0.5rem 1.1rem; min-height: 40px; font-size: 0.86rem; }
 
-/* HERO COM SÍMBOLO TRANSLÚCIDO E ILUMINAÇÃO INTERATIVA NO MOUSE */
+/* HERO COM SÍMBOLO BEM SUTIL E ONDAS FLUIDAS NO FUNDO */
 .hero {
   position: relative;
-  padding: 6rem 0 5.5rem;
+  padding: 5.5rem 0 6.5rem;
   background:
-    radial-gradient(650px circle at var(--hero-x, 75%) var(--hero-y, 35%), rgba(6, 182, 212, 0.14), transparent 65%),
+    radial-gradient(620px circle at var(--hero-x, 78%) var(--hero-y, 35%), rgba(6, 182, 212, 0.11), transparent 65%),
     linear-gradient(180deg, var(--navy) 0%, var(--bg) 100%);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
 }
 
-.hero-inner {
+.hero-grid {
   position: relative;
   z-index: 2;
   display: grid;
@@ -176,45 +213,43 @@ nav a:hover { color: var(--cream); }
   align-items: center;
 }
 
-/* Container do Símbolo "a" Translúcido */
+/* Símbolo "a" com opacidade bem baixa e brilho suave ao passar o mouse */
 .symbol-stage {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 340px;
+  min-height: 330px;
   user-select: none;
   pointer-events: none;
 }
 
 .symbol-wrapper {
   position: relative;
-  width: 310px;
-  height: 310px;
+  width: 320px;
+  height: 320px;
   transform: translate(var(--parallax-x, 0px), var(--parallax-y, 0px));
-  transition: transform 0.25s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
-/* Camada base translúcida do símbolo */
 .symbol-base {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.12;
-  filter: saturate(0.8);
+  opacity: 0.045;
+  filter: grayscale(0.3);
 }
 
-/* Camada iluminada recortada exatamente no formato do "a simbolo.svg" */
 .symbol-glow {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    240px circle at var(--sym-x, 50%) var(--sym-y, 50%),
-    rgba(6, 182, 212, 0.95) 0%,
-    rgba(56, 189, 248, 0.45) 45%,
-    rgba(6, 182, 212, 0.04) 80%
+    220px circle at var(--sym-x, 50%) var(--sym-y, 50%),
+    rgba(6, 182, 212, 0.42) 0%,
+    rgba(56, 189, 248, 0.16) 45%,
+    rgba(6, 182, 212, 0.0) 78%
   );
   -webkit-mask-image: url("img/a%20simbolo.svg");
   mask-image: url("img/a%20simbolo.svg");
@@ -224,21 +259,36 @@ nav a:hover { color: var(--cream); }
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
   mask-position: center;
-  opacity: 0.85;
-  transition: opacity 0.3s ease;
 }
 
-/* Halo suave atrás do símbolo que acompanha o cursor */
-.symbol-halo {
+/* Ondas fluidas animadas na base da Hero */
+.water-waves {
   position: absolute;
-  inset: -40px;
-  background: radial-gradient(
-    260px circle at var(--sym-x, 50%) var(--sym-y, 50%),
-    rgba(6, 182, 212, 0.22),
-    transparent 70%
-  );
-  filter: blur(22px);
-  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 75px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
+}
+
+.water-waves svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wave-path-1 {
+  animation: waveDrift 16s ease-in-out infinite alternate;
+}
+.wave-path-2 {
+  animation: waveDrift 22s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes waveDrift {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
 }
 
 .eyebrow {
@@ -247,22 +297,55 @@ nav a:hover { color: var(--cream); }
   gap: 0.5rem;
   padding: 0.35rem 0.95rem;
   border-radius: 999px;
-  background: rgba(6, 182, 212, 0.12);
+  background: rgba(6, 182, 212, 0.1);
   border: 1px solid var(--line-cyan);
   color: var(--cyan);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   margin-bottom: 1.35rem;
 }
 
-.hero h1 { font-size: clamp(2.4rem, 5.2vw, 4.15rem); font-weight: 800; max-width: 17ch; color: var(--cream); }
-.hero p.lead { color: var(--mute); max-width: 41rem; font-size: 1.04rem; margin: 1.25rem 0 2.1rem; }
-.btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+.hero h1 { font-size: clamp(2.25rem, 5.2vw, 3.85rem); font-weight: 800; max-width: 18ch; color: var(--cream); }
+
+.hero .tag {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.45rem, 2.8vw, 1.9rem);
+  color: var(--cyan);
+  margin: 1.15rem 0 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+
+.hero p.lead { color: var(--mute); max-width: 40rem; font-size: 1.02rem; margin: 0 0 2.1rem; }
+.btns { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+.proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  margin: 3rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  color: var(--mute);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.proof li { display: flex; align-items: center; gap: 0.6rem; }
+.proof li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
 
 /* Sections */
-section { padding: 5.5rem 0; border-bottom: 1px solid var(--line); }
+section { padding: 5.25rem 0; border-bottom: 1px solid var(--line); position: relative; }
 section:last-of-type { border-bottom: none; }
 
 .section-label {
@@ -275,135 +358,221 @@ section:last-of-type { border-bottom: none; }
   margin-bottom: 0.6rem;
 }
 
-h2 { font-size: clamp(1.9rem, 3.8vw, 2.75rem); font-weight: 800; margin-bottom: 0.85rem; color: var(--cream); }
-.sub { color: var(--mute); max-width: 44rem; font-size: 1rem; margin: 0 0 2.75rem; }
+h2 { font-size: clamp(1.8rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom: 0.9rem; color: var(--cream); }
+.sub { color: var(--mute); max-width: 44rem; font-size: 1rem; margin: 0 0 2.25rem; }
 
-/* Grid das 3 Frentes Temáticas (Esporte, Vídeo/Live, Casamentos/Batizados) */
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.35rem;
-}
+/* Slots de imagem com animação hover */
+.slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
 
-.pillar {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 2rem 1.85rem;
+.slot {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: linear-gradient(145deg, var(--surface) 0%, var(--navy) 100%);
+  border: 1px dashed rgba(6, 182, 212, 0.3);
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--mute);
+  padding: 1.25rem;
+  font-size: 0.86rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease, background 0.3s ease;
+}
+
+.slot:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+  border-style: solid;
+  background: var(--surface-hover);
   box-shadow: var(--shadow);
+  color: var(--cream);
+}
+
+.slot svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--cyan);
+  opacity: 0.65;
+  margin-bottom: 0.55rem;
+  transition: transform 0.35s ease, opacity 0.3s ease;
+}
+
+.slot:hover svg {
+  transform: scale(1.12);
+  opacity: 1;
+}
+
+.slot.wide { grid-column: span 3; aspect-ratio: 16/7; }
+
+.slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+}
+
+.slot:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.06);
+}
+
+/* Split & Lists */
+.split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; }
+
+.ma-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.65rem;
+}
+
+.ma-header img {
+  height: 26px;
+  width: auto;
+  opacity: 0.95;
+}
+
+.highlight-box {
+  background: rgba(176, 141, 87, 0.08);
+  border: 1px solid rgba(176, 141, 87, 0.32);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.65rem;
+}
+.highlight-box b { display: block; color: #E5C58E; font-size: 0.94rem; margin-bottom: 0.3rem; }
+.highlight-box span { color: var(--cream); font-size: 0.92rem; display: block; }
+
+.list { margin: 0 0 1.85rem; padding: 0; list-style: none; display: grid; gap: 0.65rem; }
+.list li { display: flex; align-items: center; gap: 0.75rem; color: var(--cream); font-weight: 500; font-size: 0.95rem; }
+.list li::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(176, 141, 87, 0.18);
+  color: #E5C58E;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.quote {
+  background: var(--surface);
+  border-left: 3px solid var(--sacred);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1.1rem 1.35rem;
+  margin: 1.85rem 0 0;
+  color: var(--cream);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+/* Cards de Vídeo, Lives e Design */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.85rem;
+}
+
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--video);
+  border-radius: var(--radius-md);
+  padding: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.pillar:hover { transform: translateY(-4px); }
-
-/* Temática Esporte */
-.pillar.p-sport { border-top: 3px solid var(--sport); }
-.pillar.p-sport:hover { border-color: var(--sport-light); }
-.pillar.p-sport .p-tag { color: var(--sport-light); background: rgba(22, 163, 74, 0.14); }
-
-/* Temática Vídeo & Lives */
-.pillar.p-video { border-top: 3px solid var(--video); }
-.pillar.p-video:hover { border-color: var(--video-light); }
-.pillar.p-video .p-tag { color: var(--video-light); background: rgba(245, 158, 11, 0.14); }
-
-/* Temática Autoral (Márcio Afonso · Casamentos & Batizados) */
-.pillar.p-sacred {
-  background: linear-gradient(180deg, #15263B 0%, var(--surface) 100%);
-  border-top: 3px solid var(--sacred);
-}
-.pillar.p-sacred:hover { border-color: var(--sacred); }
-.pillar.p-sacred .p-tag { color: #E5C58E; background: rgba(176, 141, 87, 0.16); }
-
-.p-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--video-light);
 }
 
-.p-tag {
+.service-card .pill {
+  align-self: flex-start;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.28rem 0.7rem;
+  padding: 0.24rem 0.68rem;
   border-radius: 6px;
+  background: rgba(245, 158, 11, 0.14);
+  color: var(--video-light);
 }
 
-.ma-badge {
-  height: 24px;
-  width: auto;
-  opacity: 0.92;
-}
+.service-card h3 { font-size: 1.22rem; color: var(--cream); font-weight: 700; }
+.service-card p { margin: 0; color: var(--mute); font-size: 0.91rem; }
+.service-card ul { margin: 0.45rem 0 0; padding-left: 1.15rem; color: var(--cream); font-size: 0.88rem; }
+.service-card ul li { margin-bottom: 0.28rem; }
 
-.pillar h3 { font-size: 1.38rem; font-weight: 800; color: var(--cream); margin-bottom: 0.6rem; }
-.pillar p { margin: 0; color: var(--mute); font-size: 0.92rem; }
-
-.p-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
-}
-
-/* Sobre / Diferenciais */
-.about-grid {
+/* Steps */
+.steps {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  counter-reset: s;
+  padding: 0;
+  list-style: none;
+  margin: 2rem 0 0;
 }
-
-.numbers {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.num-card {
+.steps li {
+  counter-increment: s;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: 1.4rem;
+  padding: 1.65rem 1.45rem;
 }
-
-.num-card b {
-  display: block;
-  font-size: 1.85rem;
-  font-weight: 800;
+.steps li::before {
+  content: "0" counter(s);
+  display: inline-flex;
+  padding: 0.28rem 0.7rem;
+  border-radius: 8px;
+  background: rgba(6, 182, 212, 0.14);
   color: var(--cyan);
-  margin-bottom: 0.2rem;
+  font-weight: 800;
+  font-size: 0.88rem;
+  margin-bottom: 0.9rem;
 }
+.steps b { display: block; font-size: 1.15rem; color: var(--cream); margin-bottom: 0.35rem; font-weight: 700; }
+.steps span { color: var(--mute); font-size: 0.92rem; display: block; }
 
-.num-card span {
-  font-size: 0.85rem;
-  color: var(--mute);
-}
+/* About */
+.about { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3.5rem; align-items: center; }
+.about p { color: var(--mute); font-size: 1rem; margin: 0 0 1.15rem; }
+.about .slot { aspect-ratio: 4/5; border-radius: var(--radius-lg); }
 
-/* Orçamento Rápido */
+/* Quote Form */
 .quote-box {
   background: linear-gradient(135deg, var(--navy) 0%, var(--surface) 100%);
   border: 1px solid var(--line-cyan);
   border-radius: var(--radius-lg);
-  padding: 2.75rem;
+  padding: 2.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
   align-items: center;
-  box-shadow: var(--shadow);
 }
 
 .form {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: 1.75rem;
+  padding: 1.65rem;
 }
 
 label { display: block; font-size: 0.83rem; font-weight: 600; color: var(--cream); margin-bottom: 0.32rem; }
@@ -426,46 +595,65 @@ input:focus, select:focus { border-color: var(--cyan); outline: none; }
 footer {
   background: #040911;
   border-top: 1px solid var(--line);
-  padding: 3rem 0 2.5rem;
-  font-size: 0.88rem;
-  color: var(--mute);
+  padding: 4rem 0 2.5rem;
 }
-
-footer .wrap {
+footer h2 { font-size: clamp(1.65rem, 3.4vw, 2.35rem); max-width: 22ch; color: var(--cream); }
+footer .links { display: flex; flex-wrap: wrap; gap: 0.85rem 2rem; margin: 1.5rem 0 2rem; font-weight: 500; font-size: 0.92rem; color: var(--mute); }
+footer .links a:hover { color: var(--cyan); }
+.footer-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 1rem;
+  color: var(--mute);
+  font-size: 0.85rem;
 }
 
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.footer-brand img {
+.footer-logo img {
   height: 24px;
   width: auto;
+  display: block;
 }
 
-footer .links { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 500; }
-footer .links a:hover { color: var(--cyan); }
+/* Floating WhatsApp */
+.wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 40;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+  text-decoration: none;
+}
+.wa-float:hover { transform: scale(1.08); }
 
-@media (max-width: 920px) {
+@media (max-width: 860px) {
   nav { display: none; }
-  .hero-inner, .pillars, .about-grid, .quote-box { grid-template-columns: 1fr; }
+  .hero-grid, .split, .about, .cards-grid, .steps, .quote-box { grid-template-columns: 1fr; }
   .symbol-stage {
     position: absolute;
-    right: -40px;
-    top: 50%;
+    right: -35px;
+    top: 48%;
     transform: translateY(-50%);
-    opacity: 0.55;
     z-index: 1;
   }
-  .symbol-wrapper { width: 240px; height: 240px; }
-  .quote-box { padding: 1.75rem; }
+  .symbol-wrapper { width: 230px; height: 230px; }
+  .quote-box { padding: 1.65rem; }
+  .about .slot { max-width: 320px; }
+  .hero { padding: 3.75rem 0 4.5rem; }
+  section { padding: 3.5rem 0; }
+  .slot.wide { aspect-ratio: 16/9; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -479,157 +667,258 @@ footer .links a:hover { color: var(--cyan); }
 
 <header class="top">
   <div class="wrap">
-    <a class="brand-logo" href="/" aria-label="Oceam Início">
+    <a class="brand-logo" href="#inicio" aria-label="Oceam Início">
       <img src="img/logo-oceam_1.svg" alt="Oceam">
     </a>
-    <nav aria-label="Navegação principal">
-      <a href="#frentes">Especialidades</a>
-      <a href="/esporte">Esporte</a>
-      <a href="/casamentos">Casamentos</a>
-      <a href="/batizados">Batizados</a>
-      <a href="/videos">Vídeo &amp; Lives</a>
+    <nav aria-label="Seções">
+      <a href="#esporte">Esporte</a>
+      <a href="#eventos">Casamentos e Batizados</a>
+      <a href="#audiovisual">Vídeo, Lives e Design</a>
+      <a href="#sobre">Sobre</a>
     </nav>
     <a class="btn sm" href="#orcamento">Pedir orçamento</a>
   </div>
 </header>
 
-<main>
-  <!-- HERO COM SÍMBOLO TRANSLÚCIDO INTERATIVO -->
+<main id="inicio">
   <div class="hero" id="hero-area">
     <div class="wrap">
-      <div class="hero-inner">
+      <div class="hero-grid">
         <div>
-          <span class="eyebrow">Astolfo Dutra, Cataguases &amp; Zona da Mata · MG</span>
-          <h1>Imagem com <span class="serif">propósito</span>, técnica e olhar atento</h1>
-          <p class="lead">Produtora audiovisual e fotografia documental por <strong>Márcio Afonso</strong>. Do ritmo decisivo dos campeonatos esportivos e transmissões ao vivo à reverência dos casamentos e batizados.</p>
+          <span class="eyebrow">Astolfo Dutra, Cataguases &amp; Região · MG</span>
+          <h1>Presença discreta, <span class="serif">olhar atento</span> em cada registro</h1>
+          <p class="tag">Leve a sua comunicação visual para águas mais profundas</p>
+          <p class="lead">Fotografia e vídeo esportivo, casamentos, batizados e celebrações católicas, além de vídeos com drone, transmissões ao vivo multicâmera e design comercial — tudo em um só lugar, com técnica e proximidade.</p>
           <div class="btns">
-            <a class="btn" href="#orcamento">Solicitar orçamento</a>
-            <a class="btn alt" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Fotos Esportivas (Banlek) ↗</a>
+            <a class="btn" href="https://wa.me/5532999612204?text=Ol%C3%A1%2C%20M%C3%A1rcio!%20Vim%20pelo%20site%20da%20Oceam%20e%20quero%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+            <a class="btn alt" href="#esporte">Conhecer trabalhos</a>
           </div>
         </div>
 
-        <!-- Símbolo "a" translúcido que acende conforme o mouse passa -->
+        <!-- Símbolo "a" translúcido (opacidade baixa + brilho suave no mouse) -->
         <div class="symbol-stage" aria-hidden="true">
           <div class="symbol-wrapper" id="symbolWrapper">
-            <div class="symbol-halo"></div>
             <img class="symbol-base" src="img/a%20simbolo.svg" alt="">
             <div class="symbol-glow"></div>
           </div>
         </div>
       </div>
+
+      <ul class="proof">
+        <li>Atuação desde 2018</li>
+        <li>+2.000 fotos vendidas e +100 jogos no Banlek</li>
+        <li>Foto, vídeo, drone, live e design em um só contato</li>
+      </ul>
+    </div>
+
+    <!-- Ondas fluidas sutis no rodapé da Hero -->
+    <div class="water-waves" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path class="wave-path-1" fill="rgba(6, 182, 212, 0.08)" d="M0,45 C320,85 520,5 860,45 C1140,78 1300,25 1440,42 L1440,90 L0,90 Z"/>
+        <path class="wave-path-2" fill="rgba(11, 25, 44, 0.55)" d="M0,60 C280,25 640,88 980,52 C1200,28 1340,65 1440,55 L1440,90 L0,90 Z"/>
+      </svg>
     </div>
   </div>
 
-  <!-- AS 3 FRENTES DA MARCA -->
-  <section id="frentes" class="reveal-section">
+  <!-- 01. ESPORTE -->
+  <section id="esporte" class="reveal-section">
     <div class="wrap">
-      <span class="section-label">O que fazemos</span>
-      <h2>Uma estrutura completa para <span class="serif">cada momento</span></h2>
-      <p class="sub">Unimos a agilidade técnica da <strong>Oceam Audiovisual</strong> com a sensibilidade documental de <strong>Márcio Afonso Fotografia</strong>.</p>
-
-      <div class="pillars">
-        <!-- Frente 1: Esporte -->
-        <article class="pillar p-sport">
-          <div>
-            <div class="p-head">
-              <span class="p-tag">Esporte &amp; Competições</span>
-            </div>
-            <h3>Fotografia e Vídeo Esportivo</h3>
-            <p>Cobertura de futebol amador, campeonatos, atletas e clubes na região. Venda ágil de fotos individuais no Banlek e pacotes completos para ligas e patrocinadores.</p>
-          </div>
-          <div class="p-links">
-            <a class="btn alt sm" href="/esporte">Ver portfólio esporte →</a>
-          </div>
-        </article>
-
-        <!-- Frente 2: Vídeo, Drone & Lives -->
-        <article class="pillar p-video">
-          <div>
-            <div class="p-head">
-              <span class="p-tag">Audiovisual &amp; Lives</span>
-            </div>
-            <h3>Vídeos, Drone &amp; Transmissões</h3>
-            <p>Produção de Reels dinâmicos, vídeos institucionais, imagens aéreas com drone e transmissões ao vivo multicâmera (1080p) para eventos, finais e celebrações.</p>
-          </div>
-          <div class="p-links">
-            <a class="btn alt sm" href="/videos">Conhecer audiovisual →</a>
-          </div>
-        </article>
-
-        <!-- Frente 3: Casamentos & Batizados (Assinatura MA) -->
-        <article class="pillar p-sacred">
-          <div>
-            <div class="p-head">
-              <span class="p-tag">Sacramentos &amp; Famílias</span>
-              <img class="ma-badge" src="img/logo-ma.svg" alt="Márcio Afonso Monograma">
-            </div>
-            <h3>Casamentos &amp; Batizados</h3>
-            <p>Olhar documental, domínio da liturgia católica e respeito absoluto ao altar — com opção de revelação térmica de fotos impressas na hora na recepção.</p>
-          </div>
-          <div class="p-links">
-            <a class="btn alt sm" href="/casamentos">Casamentos</a>
-            <a class="btn alt sm" href="/batizados">Batizados</a>
-          </div>
-        </article>
+      <span class="section-label" style="color:var(--sport-light)">01 · Esporte</span>
+      <h2>Fotografia e vídeo <span class="serif" style="color:var(--sport-light)">esportivo</span></h2>
+      <p class="sub">Cobertura ágil de futebol amador, torneios e campeonatos da região. Atletas encontram e compram suas fotos em alta resolução direto na galeria do Banlek — e clubes, ligas e patrocinadores contam com cobertura completa de foto, vídeo e drone.</p>
+      <div class="slots">
+        <div class="slot wide">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <strong>Foto principal de jogo</strong>
+          <span>Horizontal (16:7)</span>
+        </div>
+        <div class="slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Lance de jogo em ação</span>
+        </div>
+        <div class="slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Comemoração / Gol</span>
+        </div>
+        <div class="slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Torcida ou bastidores</span>
+        </div>
+      </div>
+      <div class="btns" style="margin-top:1.75rem">
+        <a class="btn" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Ver e comprar minhas fotos de jogos</a>
+        <a class="btn alt" href="/esporte">Ver portfólio esporte →</a>
       </div>
     </div>
   </section>
 
-  <!-- TRAJETÓRIA & NÚMEROS -->
+  <!-- 02. CASAMENTOS E BATIZADOS -->
+  <section id="eventos" class="reveal-section">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="ma-header">
+            <img src="img/logo-ma.svg" alt="Márcio Afonso">
+            <span class="section-label" style="color:#E5C58E;margin:0">02 · Sacramentos &amp; Famílias</span>
+          </div>
+          <h2>Casamentos, <span class="serif" style="color:#E5C58E">batizados</span> e celebrações</h2>
+          <p class="sub">Registro cada momento com leveza, silêncio e naturalidade, preservando a verdade da celebração sem atrapalhar a oração ou a festa.</p>
+          <div class="highlight-box">
+            <b>De católico para católico · Respeito à liturgia</b>
+            <span>Por ter sido seminarista e atuar há anos na comunicação católica (Pascom), conheço de perto cada rito e momento litúrgico — antecipando os gestos sagrados sem jamais invadir o altar em casamentos, batizados, missas e festas de padroeiros.</span>
+          </div>
+          <ul class="list">
+            <li>Casamentos e pedidos de casamento (com opção de fotos impressas na recepção)</li>
+            <li>Batizados e celebrações católicas com domínio do rito</li>
+            <li>Aniversários, formaturas e confraternizações familiares</li>
+            <li>Ensaios fotográficos e retratos</li>
+          </ul>
+          <div class="btns">
+            <a class="btn" href="/casamentos">Ver Casamentos</a>
+            <a class="btn alt" href="/batizados">Ver Batizados</a>
+          </div>
+          <p class="quote">“Espaço para depoimento de cliente, com nome e tipo de evento.”</p>
+        </div>
+        <div class="slots">
+          <div class="slot wide">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <strong>Foto principal de casamento ou batizado</strong>
+            <span>Horizontal (16:7)</span>
+          </div>
+          <div class="slot"><span>Momento litúrgico / altar</span></div>
+          <div class="slot"><span>Recepção / fotos impressas na hora</span></div>
+          <div class="slot"><span>Retrato / família</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. VÍDEO, LIVES E DESIGN COMERCIAL -->
+  <section id="audiovisual" class="reveal-section">
+    <div class="wrap">
+      <span class="section-label" style="color:var(--video-light)">03 · Audiovisual &amp; Comunicação</span>
+      <h2>Vídeo, <span class="serif" style="color:var(--video-light)">transmissões ao vivo</span> e design comercial</h2>
+      <p class="sub">Estrutura completa para captar, transmitir e divulgar empresas, paróquias, campeonatos e projetos da região com clareza visual e entrega ágil.</p>
+
+      <div class="cards-grid">
+        <div class="service-card">
+          <span class="pill">Captação &amp; Edição</span>
+          <h3>Vídeo &amp; Imagens Aéreas</h3>
+          <p>Produção de vídeos dinâmicos para empresas, eventos, campanhas e redes sociais (Reels/Aftermovie).</p>
+          <ul>
+            <li>Captação dedicada com iluminação e áudio limpo</li>
+            <li>Takes aéreos com drone para valorizar o cenário</li>
+            <li>Edição ágil com ritmo e acabamento profissional</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <span class="pill">Transmissão ao Vivo</span>
+          <h3>Lives de Pequeno Porte</h3>
+          <p>Transmissão estável para missas, eventos religiosos, finais esportivas, palestras e celebrações.</p>
+          <ul>
+            <li>Operação com até 3 câmeras (2 DSLRs + 1 móvel)</li>
+            <li>Qualidade Full HD 1080p com cortes ao vivo</li>
+            <li>Transmissão simultânea em até 2 plataformas</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <span class="pill">Redes Sociais &amp; Divulgação</span>
+          <h3>Design Comercial</h3>
+          <p>Criação de peças visuais objetivas para destacar seu negócio, evento ou projeto no dia a dia.</p>
+          <ul>
+            <li>Artes para Instagram, stories e divulgação</li>
+            <li>Materiais gráficos promocionais e impressos</li>
+            <li>Integração direta com as fotos e vídeos captados</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="slots">
+        <div class="slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Frame de vídeo / drone (capa)</span>
+        </div>
+        <div class="slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Bastidores de transmissão ao vivo</span>
+        </div>
+        <div class="slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Peça de design comercial / social media</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
   <section class="reveal-section">
     <div class="wrap">
-      <div class="about-grid">
+      <span class="section-label">Processo</span>
+      <h2>Como <span class="serif">funciona</span></h2>
+      <ol class="steps">
+        <li>
+          <b>Você me chama</b>
+          <span>Conta qual serviço precisa, a data e o local do evento ou projeto direto pelo WhatsApp.</span>
+        </li>
+        <li>
+          <b>Recebe uma proposta clara</b>
+          <span>Envio o orçamento detalhado sem letras miúdas e a data fica reservada na agenda mediante a entrada.</span>
+        </li>
+        <li>
+          <b>Recebe memórias reais</b>
+          <span>Material editado com cores naturais e entregue em galeria online organizada dentro do prazo combinado.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="reveal-section">
+    <div class="wrap">
+      <div class="about">
         <div>
-          <span class="section-label">Sobre Márcio Afonso</span>
-          <h2>De 2018 até aqui: técnica de produtora com <span class="serif">proximidade real</span></h2>
-          <p style="color:var(--mute);margin:0 0 1.25rem">Atuando desde 2018 na Zona da Mata Mineira, com passagem por comunicação institucional, indústria e Pastoral da Comunicação (Pascom), construí uma operação preparada para resolver foto, vídeo, drone, live e identidade visual com consistência.</p>
-          <a class="btn alt" href="#orcamento">Falar direto comigo</a>
+          <span class="section-label">Sobre mim</span>
+          <h2>Quem está por trás da <span class="serif">Oceam</span></h2>
+          <p>Sou Márcio Afonso Oliveira de Paula, fotógrafo, videomaker e designer gráfico. Trabalho com produção visual desde 2018 e hoje atuo no marketing de uma indústria, conciliando essa experiência com os projetos da Oceam.</p>
+          <p>Minha trajetória une a prática de agência de marketing, a cobertura de mais de 100 partidas de futebol na região e anos de vivência como seminarista e na Pastoral da Comunicação (Pascom). Essa bagagem me permite unir técnica, agilidade e sensibilidade para registrar o que realmente importa em cada celebração ou projeto.</p>
         </div>
-        <div class="numbers">
-          <div class="num-card">
-            <b>+2.000</b>
-            <span>Fotografias esportivas vendidas no Banlek</span>
-          </div>
-          <div class="num-card">
-            <b>+100</b>
-            <span>Álbuns e coberturas publicados</span>
-          </div>
-          <div class="num-card">
-            <b>1080p</b>
-            <span>Transmissão ao vivo multicâmera simultânea</span>
-          </div>
-          <div class="num-card">
-            <b>Na hora</b>
-            <span>Fotos reveladas na recepção (Selphy)</span>
-          </div>
+        <div class="slot" role="img" aria-label="Espaço para o retrato do Márcio">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <strong>Seu retrato</strong>
+          <span>Vertical (4:5)</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ORÇAMENTO RÁPIDO + CAPTURA DE LEAD -->
+  <!-- ORÇAMENTO -->
   <section id="orcamento" class="reveal-section">
     <div class="wrap">
       <div class="quote-box">
         <div>
-          <span class="section-label">Atendimento Direto</span>
-          <h2>Vamos tirar o seu projeto ou evento <span class="serif">do papel?</span></h2>
-          <p class="sub" style="margin-bottom:0">Escolha o tipo de serviço, informe a data prevista e receba uma proposta clara direto no meu WhatsApp Comercial.</p>
+          <span class="section-label">Contato rápido</span>
+          <h2>Peça seu <span class="serif">orçamento</span></h2>
+          <p class="sub" style="margin-bottom:0">Selecione o que você procura e abra a conversa no WhatsApp já com os dados estruturados para eu te responder mais rápido.</p>
         </div>
         <div class="form">
-          <label for="serv">Qual serviço você procura?</label>
+          <label for="serv">O que você procura?</label>
           <select id="serv">
-            <option>Fotografia de Batizado (de católico para católico)</option>
-            <option>Fotografia de Casamento / Pré-Wedding</option>
-            <option>Fotografia / Vídeo Esportivo (Clube ou Campeonato)</option>
-            <option>Vídeo Comercial, Reels ou Imagens Aéreas (Drone)</option>
-            <option>Transmissão ao Vivo (Live Multicâmera)</option>
-            <option>Design / Identidade Visual</option>
+            <option>cobertura fotográfica/vídeo de jogo ou campeonato</option>
+            <option>cobertura de batizado (de católico para católico)</option>
+            <option>cobertura de casamento</option>
+            <option>cobertura de celebração católica (missa, crisma, festa)</option>
+            <option>aniversário, formatura ou outro evento</option>
+            <option>pedido de casamento ou ensaio fotográfico</option>
+            <option>produção de vídeo / imagens com drone</option>
+            <option>transmissão ao vivo (live multicâmera)</option>
+            <option>design para redes sociais / material comercial</option>
           </select>
-          <label for="dia">Data prevista</label>
-          <input id="dia" placeholder="Ex.: 14/12/2026">
-          <label for="cid">Cidade / Local</label>
-          <input id="cid" placeholder="Ex.: Cataguases ou Astolfo Dutra - MG">
+          <label for="dia">Data (se já souber)</label>
+          <input id="dia" placeholder="Ex.: 12/12">
+          <label for="cid">Cidade ou local</label>
+          <input id="cid" placeholder="Ex.: Astolfo Dutra ou Cataguases">
           <a class="btn" id="go" href="https://wa.me/5532999612204" target="_blank" rel="noopener">Abrir conversa no WhatsApp</a>
         </div>
       </div>
@@ -639,19 +928,29 @@ footer .links a:hover { color: var(--cyan); }
 
 <footer>
   <div class="wrap">
-    <div class="footer-brand">
-      <img src="img/logo-oceam_1.svg" alt="Oceam">
-      <span>· Márcio Afonso · Astolfo Dutra, Cataguases &amp; Região (MG)</span>
-    </div>
+    <h2>Vamos conversar sobre o seu <span class="serif">evento ou projeto?</span></h2>
     <div class="links">
       <a href="/esporte">Esporte</a>
       <a href="/casamentos">Casamentos</a>
       <a href="/batizados">Batizados</a>
-      <a href="/videos">Vídeos</a>
-      <a href="/gestao">Gestão</a>
+      <a href="mailto:marcioafonso4200@gmail.com">marcioafonso4200@gmail.com</a>
+      <a href="https://instagram.com/oceamdesign" target="_blank" rel="noopener">@oceamdesign</a>
+      <a href="https://instagram.com/omarcioafonso" target="_blank" rel="noopener">@omarcioafonso</a>
+      <a href="https://www.behance.net/marciodagama" target="_blank" rel="noopener">Behance</a>
+    </div>
+    <a class="btn" href="https://wa.me/5532999612204?text=Ol%C3%A1%2C%20M%C3%A1rcio!%20Vim%20pelo%20site%20da%20Oceam%20e%20quero%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <div class="footer-bottom">
+      <div class="footer-logo">
+        <img src="img/logo-oceam_1.svg" alt="Oceam">
+      </div>
+      <span>Astolfo Dutra, Cataguases &amp; Região · MG · © 2026 Oceam</span>
     </div>
   </div>
 </footer>
+
+<a class="wa-float" href="https://wa.me/5532999612204?text=Ol%C3%A1%2C%20M%C3%A1rcio!%20Vim%20pelo%20site%20da%20Oceam%20e%20quero%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+</a>
 
 <script>
 (function(){
@@ -704,7 +1003,7 @@ footer .links a:hover { color: var(--cyan); }
     });
   }
 
-  // 2. Efeito de iluminação interativa no símbolo "a" translúcido conforme o mouse passa
+  // 2. Iluminação sutil no símbolo "a" translúcido acompanhando o mouse
   var hero = document.getElementById('hero-area');
   var symbolWrapper = document.getElementById('symbolWrapper');
   if (hero && symbolWrapper) {
@@ -717,14 +1016,11 @@ footer .links a:hover { color: var(--cyan); }
           hero.style.setProperty('--hero-y', (e.clientY - heroRect.top) + 'px');
 
           var symRect = symbolWrapper.getBoundingClientRect();
-          var relX = e.clientX - symRect.left;
-          var relY = e.clientY - symRect.top;
-          symbolWrapper.style.setProperty('--sym-x', relX + 'px');
-          symbolWrapper.style.setProperty('--sym-y', relY + 'px');
+          symbolWrapper.style.setProperty('--sym-x', (e.clientX - symRect.left) + 'px');
+          symbolWrapper.style.setProperty('--sym-y', (e.clientY - symRect.top) + 'px');
 
-          // Paralaxe sutil de até 10px acompanhando o movimento do mouse
-          var normX = ((e.clientX - heroRect.left) / heroRect.width - 0.5) * 16;
-          var normY = ((e.clientY - heroRect.top) / heroRect.height - 0.5) * 16;
+          var normX = ((e.clientX - heroRect.left) / heroRect.width - 0.5) * 14;
+          var normY = ((e.clientY - heroRect.top) / heroRect.height - 0.5) * 14;
           symbolWrapper.style.setProperty('--parallax-x', normX.toFixed(1) + 'px');
           symbolWrapper.style.setProperty('--parallax-y', normY.toFixed(1) + 'px');
 
@@ -745,7 +1041,7 @@ footer .links a:hover { color: var(--cyan); }
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
     sections.forEach(function(sec) { observer.observe(sec); });
   } else {
@@ -753,6 +1049,5 @@ footer .links a:hover { color: var(--cyan); }
   }
 })();
 </script>
-
 </body>
 </html>
