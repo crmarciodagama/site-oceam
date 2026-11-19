@@ -193,7 +193,7 @@ nav a:hover { color: var(--cream); }
 
 .btn.sm { padding: 0.5rem 1.1rem; min-height: 40px; font-size: 0.86rem; }
 
-/* HERO COM SÍMBOLO BEM SUTIL E ONDAS FLUIDAS NO FUNDO */
+/* HERO COM ILUMINAÇÃO NO CURSOR E ONDAS FLUIDAS NO FUNDO */
 .hero {
   position: relative;
   padding: 5.5rem 0 6.5rem;
@@ -207,58 +207,6 @@ nav a:hover { color: var(--cream); }
 .hero-grid {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-/* Símbolo "a" com opacidade bem baixa e brilho suave ao passar o mouse */
-.symbol-stage {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 330px;
-  user-select: none;
-  pointer-events: none;
-}
-
-.symbol-wrapper {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  transform: translate(var(--parallax-x, 0px), var(--parallax-y, 0px));
-  transition: transform 0.3s ease-out;
-}
-
-.symbol-base {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0.045;
-  filter: grayscale(0.3);
-}
-
-.symbol-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    220px circle at var(--sym-x, 50%) var(--sym-y, 50%),
-    rgba(6, 182, 212, 0.42) 0%,
-    rgba(56, 189, 248, 0.16) 45%,
-    rgba(6, 182, 212, 0.0) 78%
-  );
-  -webkit-mask-image: url("img/a%20simbolo.svg");
-  mask-image: url("img/a%20simbolo.svg");
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
 }
 
 /* Ondas fluidas animadas na base da Hero */
@@ -640,15 +588,7 @@ footer .links a:hover { color: var(--cyan); }
 
 @media (max-width: 860px) {
   nav { display: none; }
-  .hero-grid, .split, .about, .cards-grid, .steps, .quote-box { grid-template-columns: 1fr; }
-  .symbol-stage {
-    position: absolute;
-    right: -35px;
-    top: 48%;
-    transform: translateY(-50%);
-    z-index: 1;
-  }
-  .symbol-wrapper { width: 230px; height: 230px; }
+  .split, .about, .cards-grid, .steps, .quote-box { grid-template-columns: 1fr; }
   .quote-box { padding: 1.65rem; }
   .about .slot { max-width: 320px; }
   .hero { padding: 3.75rem 0 4.5rem; }
@@ -692,14 +632,6 @@ footer .links a:hover { color: var(--cyan); }
           <div class="btns">
             <a class="btn" href="https://wa.me/5532999612204?text=Ol%C3%A1%2C%20M%C3%A1rcio!%20Vim%20pelo%20site%20da%20Oceam%20e%20quero%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
             <a class="btn alt" href="#esporte">Conhecer trabalhos</a>
-          </div>
-        </div>
-
-        <!-- Símbolo "a" translúcido (opacidade baixa + brilho suave no mouse) -->
-        <div class="symbol-stage" aria-hidden="true">
-          <div class="symbol-wrapper" id="symbolWrapper">
-            <img class="symbol-base" src="img/a%20simbolo.svg" alt="">
-            <div class="symbol-glow"></div>
           </div>
         </div>
       </div>
@@ -1003,10 +935,9 @@ footer .links a:hover { color: var(--cyan); }
     });
   }
 
-  // 2. Iluminação sutil no símbolo "a" translúcido acompanhando o mouse
+  // 2. Iluminação suave no fundo da Hero acompanhando o mouse
   var hero = document.getElementById('hero-area');
-  var symbolWrapper = document.getElementById('symbolWrapper');
-  if (hero && symbolWrapper) {
+  if (hero) {
     var ticking = false;
     hero.addEventListener('mousemove', function(e) {
       if (!ticking) {
@@ -1014,16 +945,6 @@ footer .links a:hover { color: var(--cyan); }
           var heroRect = hero.getBoundingClientRect();
           hero.style.setProperty('--hero-x', (e.clientX - heroRect.left) + 'px');
           hero.style.setProperty('--hero-y', (e.clientY - heroRect.top) + 'px');
-
-          var symRect = symbolWrapper.getBoundingClientRect();
-          symbolWrapper.style.setProperty('--sym-x', (e.clientX - symRect.left) + 'px');
-          symbolWrapper.style.setProperty('--sym-y', (e.clientY - symRect.top) + 'px');
-
-          var normX = ((e.clientX - heroRect.left) / heroRect.width - 0.5) * 14;
-          var normY = ((e.clientY - heroRect.top) / heroRect.height - 0.5) * 14;
-          symbolWrapper.style.setProperty('--parallax-x', normX.toFixed(1) + 'px');
-          symbolWrapper.style.setProperty('--parallax-y', normY.toFixed(1) + 'px');
-
           ticking = false;
         });
         ticking = true;
