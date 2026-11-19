@@ -3,20 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Casamentos · Fotografia Documental por Márcio Oliveira | Oceam</title>
-<meta name="description" content="Fotografia de casamento em Astolfo Dutra (MG) e região. Olhar documental, respeito à celebração religiosa e fotos impressas na hora na recepção por Márcio Oliveira.">
+<title>Casamentos · Fotografia Documental por Márcio Afonso | Oceam</title>
+<meta name="description" content="Fotografia de casamento em Astolfo Dutra, Cataguases (MG) e região. Olhar documental, respeito à celebração religiosa e fotos impressas na hora na recepção por Márcio Afonso.">
+<link rel="icon" type="image/svg+xml" href="img/a%20simbolo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #faf8f5;
-  --bg-warm: #f2ede6;
+  --bg: #F5F2EB;
+  --bg-warm: #EBE6DC;
   --surface: #ffffff;
   --ink: #222624;
   --mute: #646b67;
   --olive: #27362f;
   --olive-light: #384d43;
+  --navy: #0B192C;
+  --cyan: #06B6D4;
   --gold: #b08d57;
   --gold-soft: rgba(176, 141, 87, 0.14);
   --line: rgba(34, 38, 36, 0.1);
@@ -33,7 +36,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font: 400 1rem/1.75 "Montserrat", system-ui, -apple-system, sans-serif;
+  font: 400 1rem/1.75 "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -70,7 +73,7 @@ header.top {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 248, 245, 0.9);
+  background: rgba(245, 242, 235, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -91,18 +94,17 @@ header.top .wrap {
   text-decoration: none;
 }
 
-.brand {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: -0.03em;
-  color: var(--olive);
+.brand-ma {
+  height: 22px;
+  width: auto;
+  display: block;
 }
 
 .brand-sub {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--gold);
   border-left: 1px solid var(--line);
   padding-left: 0.75rem;
@@ -118,16 +120,16 @@ nav a:hover { color: var(--olive); }
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 600;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 0.95rem 1.75rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--olive);
   background: var(--olive);
-  color: #faf8f5;
+  color: var(--bg);
   text-decoration: none;
   cursor: pointer;
   min-height: 48px;
@@ -170,7 +172,7 @@ nav a:hover { color: var(--olive); }
 .kicker {
   display: inline-block;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--gold);
@@ -283,6 +285,18 @@ section:last-of-type { border-bottom: none; }
   align-items: center;
 }
 
+.essence-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.essence-badge img {
+  height: 22px;
+  width: auto;
+}
+
 .essence-list {
   display: grid;
   gap: 1.35rem;
@@ -371,7 +385,7 @@ section:last-of-type { border-bottom: none; }
 /* Formulário de Disponibilidade */
 .inquiry {
   background: var(--olive);
-  color: #faf8f5;
+  color: var(--bg);
   border-radius: var(--radius-md);
   padding: 3rem;
   display: grid;
@@ -380,8 +394,8 @@ section:last-of-type { border-bottom: none; }
   align-items: center;
 }
 
-.inquiry h2 { color: #faf8f5; font-size: clamp(2rem, 3.8vw, 2.9rem); margin-bottom: 0.85rem; }
-.inquiry p { color: rgba(250, 248, 245, 0.78); font-size: 0.96rem; margin: 0; }
+.inquiry h2 { color: var(--bg); font-size: clamp(2rem, 3.8vw, 2.9rem); margin-bottom: 0.85rem; }
+.inquiry p { color: rgba(245, 242, 235, 0.8); font-size: 0.96rem; margin: 0; }
 
 .form-card {
   background: var(--surface);
@@ -408,11 +422,11 @@ input:focus, select:focus { border-color: var(--olive); outline: none; }
 
 /* Footer */
 footer {
-  background: var(--bg-warm);
-  border-top: 1px solid var(--line);
+  background: var(--navy);
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
   padding: 3rem 0 2.5rem;
   font-size: 0.88rem;
-  color: var(--mute);
+  color: #94A3B8;
 }
 
 footer .wrap {
@@ -423,8 +437,21 @@ footer .wrap {
   gap: 1.25rem;
 }
 
-footer .links { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 500; }
-footer .links a:hover { color: var(--olive); }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+footer .links { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 500; color: var(--cream); }
+footer .links a:hover { color: var(--cyan); }
 
 @media (max-width: 900px) {
   nav { display: none; }
@@ -446,8 +473,8 @@ footer .links a:hover { color: var(--olive); }
 
 <header class="top">
   <div class="wrap">
-    <a class="brand-group" href="/">
-      <span class="brand">oceam</span>
+    <a class="brand-group" href="/" aria-label="Início Oceam">
+      <img class="brand-ma" src="img/logo-ma.svg" alt="Márcio Afonso">
       <span class="brand-sub">Casamentos</span>
     </a>
     <nav aria-label="Navegação">
@@ -466,9 +493,9 @@ footer .links a:hover { color: var(--olive); }
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <span class="kicker">Astolfo Dutra &amp; Região · MG</span>
+          <span class="kicker">Astolfo Dutra, Cataguases &amp; Região · MG</span>
           <h1>Histórias reais contadas com <em>leveza, verdade e respeito</em></h1>
-          <p class="lead">Fotografia documental de casamento para casais que desejam viver cada segundo da celebração sem poses forçadas — com a tranquilidade de quem conhece profundamente o altar, os ritos e a emoção de cada família.</p>
+          <p class="lead">Fotografia documental de casamento para casais que querem viver a celebração sem poses engessadas — com presença discreta, olhar atento e a tranquilidade de quem conhece profundamente o altar, os ritos e a emoção de cada família.</p>
           <div class="btns">
             <a class="btn" href="#consultar">Verificar disponibilidade</a>
             <a class="btn alt" href="#galeria">Ver fotografias</a>
@@ -547,9 +574,12 @@ footer .links a:hover { color: var(--olive); }
     <div class="wrap">
       <div class="essence-grid">
         <div>
-          <span class="kicker">Diferenciais Oceam</span>
+          <div class="essence-badge">
+            <img src="img/logo-ma.svg" alt="Márcio Afonso">
+            <span class="kicker" style="margin:0">Diferenciais Oceam</span>
+          </div>
           <h2>Sensibilidade documental, respeito ao altar e <em>lembranças na hora</em></h2>
-          <p style="color:var(--mute);margin:1rem 0 1.5rem">Casamento passa rápido demais para virar uma sessão de fotos engessada. Meu papel é registrar a verdade do que vocês estão vivendo, unindo técnica, discrição e carinho com cada convidado.</p>
+          <p style="color:var(--mute);margin:1rem 0 1.5rem">Casamento passa rápido demais para virar uma sessão de fotos engessada. Meu cuidado é registrar a verdade do que vocês vivem, unindo técnica, discrição e carinho com cada convidado.</p>
           
           <!-- Foto real da noiva segurando as fotos impressas na recepção -->
           <div class="slot" style="aspect-ratio: 3/2; margin-bottom: 1.5rem; border-style: solid;">
@@ -561,15 +591,15 @@ footer .links a:hover { color: var(--olive); }
         <div class="essence-list">
           <div class="essence-item">
             <b>Vivência e respeito à celebração religiosa</b>
-            <p>Por ter sido seminarista e atuar há anos na comunicação católica, conheço profundamente cada rito e momento da liturgia — antecipando os gestos essenciais no ângulo certo, sem jamais invadir o espaço do altar ou quebrar o clima de oração.</p>
+            <p>Por ter sido seminarista e atuar há anos na comunicação católica (Pascom), conheço profundamente cada rito e momento da liturgia — antecipando os gestos essenciais no ângulo certo, sem jamais invadir o espaço do altar ou quebrar o clima de oração.</p>
           </div>
           <div class="essence-item">
             <b>Fotos impressas na hora durante a recepção</b>
-            <p>Um diferencial que emociona noivos e familiares: levo equipamento de revelação térmica profissional para imprimir fotografias selecionadas na hora durante a festa, entregando lembranças físicas com qualidade de laboratório já no grande dia.</p>
+            <p>Um cuidado que emociona noivos e familiares: levo equipamento de revelação térmica profissional para imprimir fotografias selecionadas na hora durante a recepção, entregando lembranças físicas com qualidade de laboratório já no grande dia.</p>
           </div>
           <div class="essence-item">
-            <b>Entrega rápida em galeria online privada</b>
-            <p>Tratamento cuidadoso de luz e cor com estética natural e atemporal, entregando as fotografias editadas em alta resolução por meio de galeria online organizada para baixar e compartilhar com facilidade.</p>
+            <b>Entrega organizada em galeria online privada</b>
+            <p>Edição com estética natural e atemporal, sem exageros, entregando as fotografias em alta resolução por meio de galeria online privada para baixar e compartilhar com facilidade.</p>
           </div>
         </div>
       </div>
@@ -582,7 +612,7 @@ footer .links a:hover { color: var(--olive); }
       <div class="section-head">
         <span class="kicker">Coberturas</span>
         <h2>Formatos pensados para o <em>seu momento</em></h2>
-        <p>Cada celebração tem seu próprio ritmo. Montamos propostas sob medida de acordo com a duração do evento e o estilo do casal.</p>
+        <p>Cada celebração tem seu próprio ritmo. Montamos propostas claras de acordo com a duração do evento e o estilo do casal.</p>
       </div>
 
       <div class="packages">
@@ -590,7 +620,7 @@ footer .links a:hover { color: var(--olive); }
           <div>
             <span class="pkg-tag">Essencial</span>
             <h3>Cerimônia &amp; Retratos</h3>
-            <p>Ideal para casamentos íntimos, celebrações no civil ou cerimônia religiosa seguida de ensaio do casal.</p>
+            <p>Ideal para casamentos íntimos, celebrações no civil ou cerimônia religiosa seguida de retratos do casal.</p>
             <ul>
               <li>Cobertura documental completa da cerimônia</li>
               <li>Fotos protocolares com pais, padrinhos e casal</li>
@@ -649,7 +679,7 @@ footer .links a:hover { color: var(--olive); }
         <div>
           <span class="kicker" style="color:#d8be92">Agenda 2026 / 2027</span>
           <h2>Vamos conversar sobre o <em>grande dia de vocês?</em></h2>
-          <p>Preencha ao lado para verificar se a data está livre e receber uma proposta personalizada diretamente pelo WhatsApp.</p>
+          <p>Preencha ao lado para verificar se a data está livre e receber uma proposta detalhada diretamente pelo WhatsApp.</p>
         </div>
         <div class="form-card">
           <label for="noivos">Nome do casal</label>
@@ -674,9 +704,13 @@ footer .links a:hover { color: var(--olive); }
 
 <footer>
   <div class="wrap">
-    <span><strong>Oceam</strong> · Márcio Oliveira · Fotografia de Casamento em Astolfo Dutra e região</span>
+    <div class="footer-brand">
+      <img src="img/logo-oceam_1.svg" alt="Oceam">
+      <span>· Márcio Afonso · Fotografia de Casamento em Astolfo Dutra, Cataguases e região</span>
+    </div>
     <div class="links">
       <a href="/">Site Principal</a>
+      <a href="/batizados">Batizados</a>
       <a href="https://instagram.com/omarcioafonso" target="_blank" rel="noopener">@omarcioafonso</a>
       <a href="https://instagram.com/oceamdesign" target="_blank" rel="noopener">@oceamdesign</a>
     </div>
