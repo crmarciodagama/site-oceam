@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agenda Aberta · Reserve sua Data | Oceam &amp; Márcio Afonso</title>
+<meta name="description" content="Agenda aberta para casamentos, batizados, fotografia e vídeo esportivo, drone, lives multicâmera e design em Astolfo Dutra, Cataguases (MG) e região.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/svg+xml" href="img/a%20simbolo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Núcleo da Marca Oceam */
+  --bg: #060E18;
+  --navy: #0B192C;
+  --surface: rgba(17, 34, 54, 0.86);
+  --surface-solid: #112236;
+  --cream: #F5F2EB;
+  --ink: #F5F2EB;
+  --mute: #94A3B8;
+  --cyan: #06B6D4;
+  --cyan-light: #38BDF8;
+  --ink-dark: #04131A;
+  --line: rgba(148, 163, 184, 0.16);
+  --line-cyan: rgba(6, 182, 212, 0.35);
+
+  /* Acento Dinâmico (muda conforme o nicho escolhido) */
+  --niche-accent: #06B6D4;
+  --niche-soft: rgba(6, 182, 212, 0.15);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --shadow: 0 24px 50px -15px rgba(2, 6, 14, 0.85);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.65 "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGEM DE FUNDO ANIMADA LEVE (ACELERADA POR GPU) */
+.bg-stage {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--bg);
+  pointer-events: none;
+}
+
+/* Substitua "img/bg-agenda.webp" pela foto leve que desejar usar no fundo */
+.bg-photo {
+  position: absolute;
+  inset: -6%;
+  width: 112%;
+  height: 112%;
+  background-image: url("img/bg-agenda.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.24;
+  filter: saturate(0.85);
+  will-change: transform;
+  animation: slowDrift 26s ease-in-out infinite alternate;
+}
+
+@keyframes slowDrift {
+  0%   { transform: scale(1) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.06) translate3d(-1.5%, -1%, 0); }
+  100% { transform: scale(1.03) translate3d(1.5%, 1%, 0); }
+}
+
+/* Véu gradiente garantindo legibilidade e atmosfera oceânica */
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px circle at 50% 18%, rgba(6, 182, 212, 0.14), transparent 65%),
+    linear-gradient(180deg, rgba(11, 25, 44, 0.82) 0%, rgba(6, 14, 24, 0.94) 65%, #060E18 100%);
+}
+
+h1, h2, h3 {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  line-height: 1.12;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.serif {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-size: 1.16em;
+  color: var(--cyan);
+}
+
+a { color: inherit; transition: all 0.25s ease; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 1.35rem; width: 100%; }
+
+/* Header Minimalista */
+header.top {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(11, 25, 44, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+header.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.3rem;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.back-link {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--mute);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--cream); }
+
+/* Conteúdo Principal */
+main {
+  flex: 1;
+  padding: 3.75rem 0 4.5rem;
+}
+
+.hero-center {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto 2.75rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid var(--line-cyan);
+  color: var(--cyan);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+h1 {
+  font-size: clamp(2.15rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.lead {
+  color: var(--mute);
+  font-size: 1rem;
+  margin: 0 auto;
+  max-width: 38rem;
+}
+
+/* Grid de Botões por Nicho */
+.niche-prompt {
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  margin-bottom: 1.1rem;
+}
+
+.niche-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.niche-btn {
+  appearance: none;
+  font: inherit;
+  text-align: left;
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.3rem;
+  color: var(--cream);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.45rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.niche-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--btn-color, var(--cyan));
+  background: rgba(22, 43, 68, 0.92);
+}
+
+.niche-btn.is-active {
+  border-color: var(--btn-color, var(--cyan));
+  background: rgba(22, 43, 68, 0.96);
+  box-shadow: 0 0 0 1px var(--btn-color, var(--cyan)), 0 16px 35px -12px rgba(0, 0, 0, 0.7);
+}
+
+.niche-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.niche-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--btn-color, var(--cyan));
+}
+
+.niche-arrow {
+  font-size: 1rem;
+  color: var(--mute);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.niche-btn:hover .niche-arrow,
+.niche-btn.is-active .niche-arrow {
+  color: var(--btn-color, var(--cyan));
+  transform: translateX(3px);
+}
+
+.niche-btn strong {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.niche-btn span.desc {
+  font-size: 0.82rem;
+  color: var(--mute);
+  line-height: 1.45;
+}
+
+/* CARD DO FORMULÁRIO (OCULTO ATÉ CLICAR NO NICHO) */
+.form-drawer {
+  max-width: 620px;
+  margin: 0 auto;
+  display: none;
+}
+
+.form-drawer.is-open {
+  display: block;
+  animation: drawerReveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes drawerReveal {
+  from { opacity: 0; transform: translateY(16px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.form-card {
+  background: var(--surface-solid);
+  border: 1px solid var(--niche-accent);
+  border-top: 3px solid var(--niche-accent);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.form-niche-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: var(--niche-soft);
+  color: var(--niche-accent);
+  margin-bottom: 0.45rem;
+}
+
+.form-header h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--cream);
+}
+
+.form-ma-logo {
+  height: 24px;
+  width: auto;
+  display: none;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.form-ma-logo.visible {
+  display: block;
+}
+
+.g2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.field { margin-bottom: 0.95rem; }
+
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 0.32rem;
+}
+
+input, select {
+  width: 100%;
+  font: inherit;
+  font-size: 0.94rem;
+  color: var(--cream);
+  background: var(--navy);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: var(--radius-sm);
+  padding: 0.72rem 0.9rem;
+  min-height: 46px;
+}
+
+input:focus, select:focus {
+  border-color: var(--niche-accent);
+  outline: none;
+}
+
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.94rem;
+  padding: 0.95rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--niche-accent);
+  color: #04131A;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 50px;
+  margin-top: 0.35rem;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.form-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+
+.form-foot a {
+  color: var(--niche-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.form-foot a:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--line);
+  background: rgba(4, 9, 17, 0.85);
+  padding: 1.75rem 0;
+  font-size: 0.84rem;
+  color: var(--mute);
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 820px) {
+  .niche-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .niche-grid, .g2 { grid-template-columns: 1fr; }
+  .form-card { padding: 1.45rem; }
+  main { padding: 2.75rem 0 3.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .bg-photo { animation: none !important; }
+  .form-drawer.is-open { animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Fundo com imagem animada leve -->
+<div class="bg-stage" aria-hidden="true">
+  <div class="bg-photo"></div>
+  <div class="bg-overlay"></div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand-logo" href="/" aria-label="Oceam Início">
+      <img src="img/logo-oceam_1.svg" alt="Oceam">
+    </a>
+    <a class="back-link" href="/">← Ver site completo</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="hero-center">
+      <span class="eyebrow">Agenda Aberta · Astolfo Dutra, Cataguases &amp; Região</span>
+      <h1>Reserve sua data com <span class="serif">antecedência</span></h1>
+      <p class="lead">Escolha abaixo o tipo de cobertura ou projeto que você está planejando para consultar a disponibilidade na agenda e receber uma proposta direta no WhatsApp.</p>
+    </div>
+
+    <div class="niche-prompt">1. Selecione o que você procura:</div>
+
+    <div class="niche-grid" role="group" aria-label="Escolha o nicho">
+      <!-- Casamentos -->
+      <button type="button" class="niche-btn" data-niche="casamento" style="--btn-color: #E5C58E;">
+        <div class="niche-top">
+          <span class="niche-tag">Sacramentos</span>
+          <span class="niche-arrow">→</span>
+        </div>
+        <strong>Casamentos &amp; Pré-Wedding</strong>
+        <span class="desc">Olhar documental, respeito ao altar e opção de fotos impressas na recepção.</span>
+      </button>
+
+      <!-- Batizados -->
+      <button type="button" class="niche-btn" data-niche="batizado" style="--btn-color: #E5C58E;">
+        <div class="niche-top">
+          <span class="niche-tag">De católico para católico</span>
+          <span class="niche-arrow">→</span>
+        </div>
+        <strong>Batizados &amp; Celebrações</strong>
+        <span class="desc">Domínio do rito batismal, discrição absoluta e retratos com a família.</span>
+      </button>
+
+      <!-- Esporte -->
+      <button type="button" class="niche-btn" data-niche="esporte" style="--btn-color: #4ADE80;">
+        <div class="niche-top">
+          <span class="niche-tag">Competições &amp; Atletas</span>
+          <span class="niche-arrow">→</span>
+        </div>
+        <strong>Fotografia &amp; Vídeo Esportivo</strong>
+        <span class="desc">Cobertura para clubes, campeonatos, patrocinadores ou fotos individuais.</span>
+      </button>
+
+      <!-- Vídeo & Drone -->
+      <button type="button" class="niche-btn" data-niche="video" style="--btn-color: #FB923C;">
+        <div class="niche-top">
+          <span class="niche-tag">Audiovisual</span>
+          <span class="niche-arrow">→</span>
+        </div>
+        <strong>Vídeo Comercial &amp; Drone</strong>
+        <span class="desc">Reels dinâmicos, vídeos institucionais e imagens aéreas em alta definição.</span>
+      </button>
+
+      <!-- Lives -->
+      <button type="button" class="niche-btn" data-niche="live" style="--btn-color: #38BDF8;">
+        <div class="niche-top">
+          <span class="niche-tag">Ao Vivo 1080p</span>
+          <span class="niche-arrow">→</span>
+        </div>
+        <strong>Transmissão ao Vivo (Live)</strong>
+        <span class="desc">Operação multicâmera para missas, festas religiosas, finais e eventos.</span>
+      </button>
+
+      <!-- Design -->
+      <button type="button" class="niche-btn" data-niche="design" style="--btn-color: #06B6D4;">
+        <div class="niche-top">
+          <span class="niche-tag">Comunicação Visual</span>
+          <span class="niche-arrow">→</span>
+        </div>
+        <strong>Design &amp; Identidade Visual</strong>
+        <span class="desc">Marcas, materiais gráficos e peças comerciais para empresas e projetos.</span>
+      </button>
+    </div>
+
+    <!-- CARD DO FORMULÁRIO (ABRE AO CLICAR NO NICHO) -->
+    <div class="form-drawer" id="formDrawer" aria-live="polite">
+      <div class="form-card" id="formCard">
+        <div class="form-header">
+          <div>
+            <span class="form-niche-badge" id="badgeNiche">Nicho selecionado</span>
+            <h2 id="formTitle">Consultar disponibilidade</h2>
+          </div>
+          <img class="form-ma-logo" id="maLogo" src="img/logo-ma.svg" alt="Márcio Afonso">
+        </div>
+
+        <div class="g2">
+          <div class="field">
+            <label for="leadNome" id="lblNome">Seu nome</label>
+            <input id="leadNome" placeholder="Ex.: Mariana">
+          </div>
+          <div class="field">
+            <label for="leadData" id="lblData">Data ou mês previsto</label>
+            <input id="leadData" placeholder="Ex.: 14/12/2026">
+          </div>
+        </div>
+
+        <div class="g2">
+          <div class="field">
+            <label for="leadLocal" id="lblLocal">Cidade / Paróquia ou Local</label>
+            <input id="leadLocal" placeholder="Ex.: Cataguases - MG">
+          </div>
+          <div class="field">
+            <label for="leadDetalhe" id="lblDetalhe">Formato desejado</label>
+            <select id="leadDetalhe"></select>
+          </div>
+        </div>
+
+        <a class="btn-submit" id="btnWa" href="https://wa.me/5532999612204" target="_blank" rel="noopener">
+          Consultar data no WhatsApp ↗
+        </a>
+
+        <div class="form-foot">
+          <span>Resposta direta com Márcio Afonso</span>
+          <a id="linkPaginaNiche" href="/">Ver página completa deste serviço →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><strong>Oceam</strong> · Márcio Afonso · Astolfo Dutra, Cataguases &amp; Região (MG)</span>
+    <span>Atendimento desde 2018</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyUKU369Osmphzg7CDpt5NqL5L5oxaeU3uV8djUz8Y3rU8PQdH2r6KLP_5TpcFtnTXh/exec';
+
+  var NICHOS = {
+    casamento: {
+      badge: 'Casamentos · Márcio Afonso',
+      title: 'Verificar data para o casamento',
+      accent: '#E5C58E',
+      soft: 'rgba(229, 197, 142, 0.16)',
+      showMa: true,
+      lblNome: 'Nome do casal',
+      phNome: 'Ex.: Ana e João',
+      lblData: 'Data prevista do casamento',
+      phData: 'Ex.: 12/12/2026',
+      lblLocal: 'Cidade e igreja / espaço',
+      phLocal: 'Ex.: Matriz de Santo Antônio, Astolfo Dutra',
+      lblDetalhe: 'Formato de interesse',
+      opcoes: [
+        'Cobertura completa (com fotos impressas na recepção)',
+        'Cerimônia religiosa e retratos no altar',
+        'Pré-wedding / Pedido de casamento',
+        'Outro formato personalizado'
+      ],
+      pageUrl: '/casamentos',
+      pageLabel: 'Ver página de Casamentos →',
+      servicoNome: 'Casamento'
+    },
+    batizado: {
+      badge: 'Batizados · De católico para católico',
+      title: 'Verificar data para o batizado',
+      accent: '#E5C58E',
+      soft: 'rgba(229, 197, 142, 0.16)',
+      showMa: true,
+      lblNome: 'Seu nome (mãe, pai ou padrinhos)',
+      phNome: 'Ex.: Mariana',
+      lblData: 'Data ou mês do batizado',
+      phData: 'Ex.: 14/12',
+      lblLocal: 'Cidade e Paróquia / Igreja',
+      phLocal: 'Ex.: Santuário de Santa Rita, Cataguases',
+      lblDetalhe: 'Formato desejado',
+      opcoes: [
+        'Igreja + recepção com fotos impressas na hora',
+        'Igreja + almoço/recepção da família',
+        'Apenas celebração na igreja e retratos no altar',
+        'Ainda estou decidindo, quero ver as opções'
+      ],
+      pageUrl: '/batizados',
+      pageLabel: 'Ver página de Batizados →',
+      servicoNome: 'Batizado'
+    },
+    esporte: {
+      badge: 'Oceam Esporte',
+      title: 'Reservar cobertura esportiva',
+      accent: '#4ADE80',
+      soft: 'rgba(74, 222, 128, 0.15)',
+      showMa: false,
+      lblNome: 'Seu nome, clube ou liga',
+      phNome: 'Ex.: EC Portuense / Atleta',
+      lblData: 'Data do jogo ou campeonato',
+      phData: 'Ex.: Domingo, 13/12',
+      lblLocal: 'Cidade / Estádio',
+      phLocal: 'Ex.: Astolfo Dutra - MG',
+      lblDetalhe: 'O que você precisa?',
+      opcoes: [
+        'Pacote completo (Foto + Vídeo Reels + Drone)',
+        'Cobertura fotográfica de jogo / amistoso',
+        'Cobertura de campeonato / torneio',
+        'Reserva de fotos individuais (Atleta)'
+      ],
+      pageUrl: '/esporte',
+      pageLabel: 'Ver portfólio Esporte →',
+      servicoNome: 'Esporte'
+    },
+    video: {
+      badge: 'Oceam Audiovisual & Drone',
+      title: 'Solicitar orçamento de vídeo / drone',
+      accent: '#FB923C',
+      soft: 'rgba(251, 146, 60, 0.16)',
+      showMa: false,
+      lblNome: 'Seu nome ou empresa',
+      phNome: 'Ex.: Loja / Construtora / Evento',
+      lblData: 'Data ou prazo desejado',
+      phData: 'Ex.: Próxima semana',
+      lblLocal: 'Cidade / Local da gravação',
+      phLocal: 'Ex.: Cataguases ou Astolfo Dutra',
+      lblDetalhe: 'Tipo de produção',
+      opcoes: [
+        'Vídeo comercial / Reels para Instagram',
+        'Imagens aéreas com Drone',
+        'Vídeo institucional ou cobertura de evento',
+        'Pacote mensal de conteúdo'
+      ],
+      pageUrl: '/#audiovisual',
+      pageLabel: 'Ver detalhes de Vídeo & Drone →',
+      servicoNome: 'Vídeo & Drone'
+    },
+    live: {
+      badge: 'Oceam Transmissões ao Vivo',
+      title: 'Agendar transmissão ao vivo (Live)',
+      accent: '#38BDF8',
+      soft: 'rgba(56, 189, 248, 0.16)',
+      showMa: false,
+      lblNome: 'Seu nome, paróquia ou organização',
+      phNome: 'Ex.: Pascom / Liga Esportiva',
+      lblData: 'Data e horário do evento',
+      phData: 'Ex.: 20/12 às 19h',
+      lblLocal: 'Cidade e local da transmissão',
+      phLocal: 'Ex.: Igreja Matriz / Estádio',
+      lblDetalhe: 'Estrutura necessária',
+      opcoes: [
+        'Live multicâmera (até 3 câmeras · 1080p)',
+        'Transmissão de missa / festa religiosa',
+        'Transmissão de final esportiva',
+        'Transmissão simultânea YouTube + Instagram'
+      ],
+      pageUrl: '/#audiovisual',
+      pageLabel: 'Ver detalhes de Lives →',
+      servicoNome: 'Live Multicâmera'
+    },
+    design: {
+      badge: 'Oceam Design & Marca',
+      title: 'Iniciar projeto de design',
+      accent: '#06B6D4',
+      soft: 'rgba(6, 182, 212, 0.16)',
+      showMa: false,
+      lblNome: 'Seu nome ou marca',
+      phNome: 'Ex.: Nome da empresa ou projeto',
+      lblData: 'Previsão de início',
+      phData: 'Ex.: Este mês',
+      lblLocal: 'Cidade / Segmento',
+      phLocal: 'Ex.: Zona da Mata - MG',
+      lblDetalhe: 'O que vamos criar?',
+      opcoes: [
+        'Identidade visual / Logotipo',
+        'Artes comerciais / Social Media',
+        'Material impresso / Catálogo / Embalagem',
+        'Landing Page / Site comercial'
+      ],
+      pageUrl: '/#audiovisual',
+      pageLabel: 'Ver detalhes de Design →',
+      servicoNome: 'Design & Marca'
+    }
+  };
+
+  var currentNicheKey = null;
+  var drawer = document.getElementById('formDrawer');
+  var card = document.getElementById('formCard');
+  var inpNome = document.getElementById('leadNome');
+  var inpData = document.getElementById('leadData');
+  var inpLocal = document.getElementById('leadLocal');
+  var selDetalhe = document.getElementById('leadDetalhe');
+  var btnWa = document.getElementById('btnWa');
+
+  function updateWhatsAppLink() {
+    if (!currentNicheKey) return;
+    var cfg = NICHOS[currentNicheKey];
+    var nome = inpNome.value.trim();
+    var data = inpData.value.trim();
+    var local = inpLocal.value.trim();
+    var detalhe = selDetalhe.value;
+
+    var msg = 'Olá, Márcio! Vim pelo post de Agenda Aberta' +
+              (nome ? ' (' + nome + ')' : '') +
+              ' e gostaria de consultar sua disponibilidade para *' + cfg.servicoNome + '*' +
+              (data ? ' na data ' + data : '') +
+              (local ? ', em ' + local : '') +
+              '. Interesse: ' + detalhe + '.';
+
+    btnWa.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(msg);
+  }
+
+  function selectNiche(key) {
+    var cfg = NICHOS[key];
+    if (!cfg) return;
+    currentNicheKey = key;
+
+    // Atualiza estado ativo dos botões
+    document.querySelectorAll('.niche-btn').forEach(function(b) {
+      b.classList.toggle('is-active', b.dataset.niche === key);
+    });
+
+    // Aplica cores temáticas do nicho no card
+    card.style.setProperty('--niche-accent', cfg.accent);
+    card.style.setProperty('--niche-soft', cfg.soft);
+
+    document.getElementById('badgeNiche').textContent = cfg.badge;
+    document.getElementById('formTitle').textContent = cfg.title;
+    document.getElementById('maLogo').classList.toggle('visible', cfg.showMa);
+
+    document.getElementById('lblNome').textContent = cfg.lblNome;
+    inpNome.placeholder = cfg.phNome;
+
+    document.getElementById('lblData').textContent = cfg.lblData;
+    inpData.placeholder = cfg.phData;
+
+    document.getElementById('lblLocal').textContent = cfg.lblLocal;
+    inpLocal.placeholder = cfg.phLocal;
+
+    document.getElementById('lblDetalhe').textContent = cfg.lblDetalhe;
+    selDetalhe.innerHTML = cfg.opcoes.map(function(op) {
+      return '<option>' + op + '</option>';
+    }).join('');
+
+    var pageLink = document.getElementById('linkPaginaNiche');
+    pageLink.href = cfg.pageUrl;
+    pageLink.textContent = cfg.pageLabel;
+
+    updateWhatsAppLink();
+
+    // Revela o card do formulário com animação e rola suavemente até ele
+    var wasClosed = !drawer.classList.contains('is-open');
+    drawer.classList.remove('is-open');
+    void drawer.offsetWidth;
+    drawer.classList.add('is-open');
+
+    setTimeout(function() {
+      drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (wasClosed) inpNome.focus({ preventScroll: true });
+    }, 80);
+  }
+
+  document.querySelectorAll('.niche-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      selectNiche(btn.dataset.niche);
+    });
+  });
+
+  [inpNome, inpData, inpLocal, selDetalhe].forEach(function(el) {
+    el.addEventListener('input', updateWhatsAppLink);
+    el.addEventListener('change', updateWhatsAppLink);
+  });
+
+  // Envio silencioso de Lead para a planilha Controle OCEAM
+  btnWa.addEventListener('click', function() {
+    if (!currentNicheKey) return;
+    var cfg = NICHOS[currentNicheKey];
+    var payload = JSON.stringify({
+      tipo: 'lead',
+      nome: inpNome.value.trim() || 'Lead Agenda Aberta',
+      servico: cfg.servicoNome + ' · ' + selDetalhe.value,
+      dataEvento: inpData.value.trim() || 'Não informada',
+      local: inpLocal.value.trim() || 'Não informado',
+      origem: 'LP Agenda Aberta (' + cfg.servicoNome + ')'
+    });
+
+    try {
+      if (navigator.sendBeacon) {
+        var blob = new Blob([payload], { type: 'text/plain;charset=utf-8' });
+        navigator.sendBeacon(WEBHOOK_URL, blob);
+      } else {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: payload
+        });
+      }
+    } catch (err) {}
+  });
+})();
+</script>
+</body>
+</html>
