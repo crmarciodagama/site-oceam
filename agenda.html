@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Agenda Aberta · Reserve sua Data | Oceam &amp; Márcio Afonso</title>
-<meta name="description" content="Agenda aberta para casamentos, batizados, fotografia e vídeo esportivo, drone, lives multicâmera e design em Astolfo Dutra, Cataguases (MG) e região.">
+<meta name="description" content="Agenda aberta para fotografia e vídeo esportivo, casamentos, batizados, drone, lives multicâmera e design em Astolfo Dutra, Cataguases (MG) e região.">
 <meta name="robots" content="noindex, follow">
 <link rel="icon" type="image/svg+xml" href="img/a%20simbolo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 22px;
-  --shadow: 0 24px 50px -15px rgba(2, 6, 14, 0.85);
+  --shadow: 0 28px 60px -15px rgba(2, 6, 14, 0.92);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -49,6 +49,10 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 /* IMAGEM DE FUNDO ANIMADA LEVE (ACELERADA POR GPU) */
@@ -82,7 +86,6 @@ body {
   100% { transform: scale(1.03) translate3d(1.5%, 1%, 0); }
 }
 
-/* Véu gradiente garantindo legibilidade e atmosfera oceânica */
 .bg-overlay {
   position: absolute;
   inset: 0;
@@ -114,7 +117,7 @@ a { color: inherit; transition: all 0.25s ease; }
 header.top {
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: 30;
   background: rgba(11, 25, 44, 0.78);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -151,7 +154,7 @@ header.top .wrap {
 /* Conteúdo Principal */
 main {
   flex: 1;
-  padding: 3.75rem 0 4.5rem;
+  padding: 4rem 0 4.5rem;
 }
 
 .hero-center {
@@ -207,14 +210,13 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--cyan);
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.15rem;
 }
 
 .niche-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.9rem;
-  margin-bottom: 2rem;
+  gap: 0.95rem;
 }
 
 .niche-btn {
@@ -226,7 +228,7 @@ h1 {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: 1.25rem 1.3rem;
+  padding: 1.3rem 1.35rem;
   color: var(--cream);
   cursor: pointer;
   display: flex;
@@ -239,13 +241,8 @@ h1 {
 .niche-btn:hover {
   transform: translateY(-3px);
   border-color: var(--btn-color, var(--cyan));
-  background: rgba(22, 43, 68, 0.92);
-}
-
-.niche-btn.is-active {
-  border-color: var(--btn-color, var(--cyan));
-  background: rgba(22, 43, 68, 0.96);
-  box-shadow: 0 0 0 1px var(--btn-color, var(--cyan)), 0 16px 35px -12px rgba(0, 0, 0, 0.7);
+  background: rgba(22, 43, 68, 0.94);
+  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.65);
 }
 
 .niche-top {
@@ -269,8 +266,7 @@ h1 {
   transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.niche-btn:hover .niche-arrow,
-.niche-btn.is-active .niche-arrow {
+.niche-btn:hover .niche-arrow {
   color: var(--btn-color, var(--cyan));
   transform: translateX(3px);
 }
@@ -287,30 +283,73 @@ h1 {
   line-height: 1.45;
 }
 
-/* CARD DO FORMULÁRIO (OCULTO ATÉ CLICAR NO NICHO) */
-.form-drawer {
-  max-width: 620px;
-  margin: 0 auto;
+/* CARD FLUTUANTE (MODAL SOBRE A PÁGINA) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(3, 8, 15, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  overflow-y: auto;
 }
 
-.form-drawer.is-open {
-  display: block;
-  animation: drawerReveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.modal-backdrop.is-open {
+  display: flex;
+  animation: fadeBackdrop 0.25s ease forwards;
 }
 
-@keyframes drawerReveal {
-  from { opacity: 0; transform: translateY(16px) scale(0.985); }
+@keyframes fadeBackdrop {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.floating-card {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  background: var(--surface-solid);
+  border: 1px solid var(--niche-accent);
+  border-top: 4px solid var(--niche-accent);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.85rem 1.85rem;
+  box-shadow: var(--shadow);
+  margin: auto;
+  animation: modalPop 0.34s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.form-card {
-  background: var(--surface-solid);
-  border: 1px solid var(--niche-accent);
-  border-top: 3px solid var(--niche-accent);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow);
+.btn-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(245, 242, 235, 0.05);
+  color: var(--mute);
+  font-size: 1.25rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-close:hover {
+  background: rgba(245, 242, 235, 0.14);
+  color: var(--cream);
+  border-color: var(--niche-accent);
 }
 
 .form-header {
@@ -319,6 +358,7 @@ h1 {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1.35rem;
+  padding-right: 2.2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--line);
 }
@@ -337,17 +377,17 @@ h1 {
 }
 
 .form-header h2 {
-  font-size: 1.45rem;
+  font-size: 1.42rem;
   font-weight: 800;
   color: var(--cream);
 }
 
 .form-ma-logo {
-  height: 24px;
+  height: 22px;
   width: auto;
   display: none;
   flex-shrink: 0;
-  margin-top: 0.25rem;
+  margin-top: 0.3rem;
 }
 
 .form-ma-logo.visible {
@@ -454,14 +494,13 @@ footer .wrap {
 
 @media (max-width: 560px) {
   .niche-grid, .g2 { grid-template-columns: 1fr; }
-  .form-card { padding: 1.45rem; }
+  .floating-card { padding: 1.55rem 1.25rem 1.35rem; }
   main { padding: 2.75rem 0 3.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .bg-photo { animation: none !important; }
-  .form-drawer.is-open { animation: none !important; }
+  .bg-photo, .modal-backdrop.is-open, .floating-card { animation: none !important; }
 }
 </style>
 </head>
@@ -487,33 +526,13 @@ footer .wrap {
     <div class="hero-center">
       <span class="eyebrow">Agenda Aberta · Astolfo Dutra, Cataguases &amp; Região</span>
       <h1>Reserve sua data com <span class="serif">antecedência</span></h1>
-      <p class="lead">Escolha abaixo o tipo de cobertura ou projeto que você está planejando para consultar a disponibilidade na agenda e receber uma proposta direta no WhatsApp.</p>
+      <p class="lead">Escolha abaixo o tipo de cobertura ou projeto que você está planejando para abrir o formulário rápido e consultar a disponibilidade direto no WhatsApp.</p>
     </div>
 
-    <div class="niche-prompt">1. Selecione o que você procura:</div>
+    <div class="niche-prompt">1. Escolha o nicho para abrir o formulário:</div>
 
     <div class="niche-grid" role="group" aria-label="Escolha o nicho">
-      <!-- Casamentos -->
-      <button type="button" class="niche-btn" data-niche="casamento" style="--btn-color: #E5C58E;">
-        <div class="niche-top">
-          <span class="niche-tag">Sacramentos</span>
-          <span class="niche-arrow">→</span>
-        </div>
-        <strong>Casamentos &amp; Pré-Wedding</strong>
-        <span class="desc">Olhar documental, respeito ao altar e opção de fotos impressas na recepção.</span>
-      </button>
-
-      <!-- Batizados -->
-      <button type="button" class="niche-btn" data-niche="batizado" style="--btn-color: #E5C58E;">
-        <div class="niche-top">
-          <span class="niche-tag">De católico para católico</span>
-          <span class="niche-arrow">→</span>
-        </div>
-        <strong>Batizados &amp; Celebrações</strong>
-        <span class="desc">Domínio do rito batismal, discrição absoluta e retratos com a família.</span>
-      </button>
-
-      <!-- Esporte -->
+      <!-- 1. Esporte (Primeira linha) -->
       <button type="button" class="niche-btn" data-niche="esporte" style="--btn-color: #4ADE80;">
         <div class="niche-top">
           <span class="niche-tag">Competições &amp; Atletas</span>
@@ -523,7 +542,27 @@ footer .wrap {
         <span class="desc">Cobertura para clubes, campeonatos, patrocinadores ou fotos individuais.</span>
       </button>
 
-      <!-- Vídeo & Drone -->
+      <!-- 2. Casamentos (Primeira linha) -->
+      <button type="button" class="niche-btn" data-niche="casamento" style="--btn-color: #E5C58E;">
+        <div class="niche-top">
+          <span class="niche-tag">Sacramentos</span>
+          <span class="niche-arrow">→</span>
+        </div>
+        <strong>Casamentos &amp; Pré-Wedding</strong>
+        <span class="desc">Olhar documental, respeito ao altar e opção de fotos impressas na recepção.</span>
+      </button>
+
+      <!-- 3. Batizados (Primeira linha) -->
+      <button type="button" class="niche-btn" data-niche="batizado" style="--btn-color: #E5C58E;">
+        <div class="niche-top">
+          <span class="niche-tag">De católico para católico</span>
+          <span class="niche-arrow">→</span>
+        </div>
+        <strong>Batizados &amp; Celebrações</strong>
+        <span class="desc">Domínio do rito batismal, discrição absoluta e retratos com a família.</span>
+      </button>
+
+      <!-- 4. Vídeo & Drone (Segunda linha) -->
       <button type="button" class="niche-btn" data-niche="video" style="--btn-color: #FB923C;">
         <div class="niche-top">
           <span class="niche-tag">Audiovisual</span>
@@ -533,7 +572,7 @@ footer .wrap {
         <span class="desc">Reels dinâmicos, vídeos institucionais e imagens aéreas em alta definição.</span>
       </button>
 
-      <!-- Lives -->
+      <!-- 5. Lives (Segunda linha) -->
       <button type="button" class="niche-btn" data-niche="live" style="--btn-color: #38BDF8;">
         <div class="niche-top">
           <span class="niche-tag">Ao Vivo 1080p</span>
@@ -543,7 +582,7 @@ footer .wrap {
         <span class="desc">Operação multicâmera para missas, festas religiosas, finais e eventos.</span>
       </button>
 
-      <!-- Design -->
+      <!-- 6. Design (Segunda linha) -->
       <button type="button" class="niche-btn" data-niche="design" style="--btn-color: #06B6D4;">
         <div class="niche-top">
           <span class="niche-tag">Comunicação Visual</span>
@@ -553,52 +592,54 @@ footer .wrap {
         <span class="desc">Marcas, materiais gráficos e peças comerciais para empresas e projetos.</span>
       </button>
     </div>
-
-    <!-- CARD DO FORMULÁRIO (ABRE AO CLICAR NO NICHO) -->
-    <div class="form-drawer" id="formDrawer" aria-live="polite">
-      <div class="form-card" id="formCard">
-        <div class="form-header">
-          <div>
-            <span class="form-niche-badge" id="badgeNiche">Nicho selecionado</span>
-            <h2 id="formTitle">Consultar disponibilidade</h2>
-          </div>
-          <img class="form-ma-logo" id="maLogo" src="img/logo-ma.svg" alt="Márcio Afonso">
-        </div>
-
-        <div class="g2">
-          <div class="field">
-            <label for="leadNome" id="lblNome">Seu nome</label>
-            <input id="leadNome" placeholder="Ex.: Mariana">
-          </div>
-          <div class="field">
-            <label for="leadData" id="lblData">Data ou mês previsto</label>
-            <input id="leadData" placeholder="Ex.: 14/12/2026">
-          </div>
-        </div>
-
-        <div class="g2">
-          <div class="field">
-            <label for="leadLocal" id="lblLocal">Cidade / Paróquia ou Local</label>
-            <input id="leadLocal" placeholder="Ex.: Cataguases - MG">
-          </div>
-          <div class="field">
-            <label for="leadDetalhe" id="lblDetalhe">Formato desejado</label>
-            <select id="leadDetalhe"></select>
-          </div>
-        </div>
-
-        <a class="btn-submit" id="btnWa" href="https://wa.me/5532999612204" target="_blank" rel="noopener">
-          Consultar data no WhatsApp ↗
-        </a>
-
-        <div class="form-foot">
-          <span>Resposta direta com Márcio Afonso</span>
-          <a id="linkPaginaNiche" href="/">Ver página completa deste serviço →</a>
-        </div>
-      </div>
-    </div>
   </div>
 </main>
+
+<!-- CARD FLUTUANTE SOBRE A PÁGINA -->
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+  <div class="floating-card" id="formCard">
+    <button type="button" class="btn-close" id="btnCloseModal" aria-label="Fechar janela">×</button>
+
+    <div class="form-header">
+      <div>
+        <span class="form-niche-badge" id="badgeNiche">Nicho selecionado</span>
+        <h2 id="formTitle">Consultar disponibilidade</h2>
+      </div>
+      <img class="form-ma-logo" id="maLogo" src="img/logo-ma.svg" alt="Márcio Afonso">
+    </div>
+
+    <div class="g2">
+      <div class="field">
+        <label for="leadNome" id="lblNome">Seu nome</label>
+        <input id="leadNome" placeholder="Ex.: Mariana">
+      </div>
+      <div class="field">
+        <label for="leadData" id="lblData">Data ou mês previsto</label>
+        <input id="leadData" placeholder="Ex.: 14/12/2026">
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="field">
+        <label for="leadLocal" id="lblLocal">Cidade / Paróquia ou Local</label>
+        <input id="leadLocal" placeholder="Ex.: Cataguases - MG">
+      </div>
+      <div class="field">
+        <label for="leadDetalhe" id="lblDetalhe">Formato desejado</label>
+        <select id="leadDetalhe"></select>
+      </div>
+    </div>
+
+    <a class="btn-submit" id="btnWa" href="https://wa.me/5532999612204" target="_blank" rel="noopener">
+      Consultar data no WhatsApp ↗
+    </a>
+
+    <div class="form-foot">
+      <span>Atendimento direto com Márcio Afonso</span>
+      <a id="linkPaginaNiche" href="/">Ver página completa →</a>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -612,6 +653,29 @@ footer .wrap {
   var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyUKU369Osmphzg7CDpt5NqL5L5oxaeU3uV8djUz8Y3rU8PQdH2r6KLP_5TpcFtnTXh/exec';
 
   var NICHOS = {
+    esporte: {
+      badge: 'Oceam Esporte',
+      title: 'Reservar cobertura esportiva',
+      accent: '#4ADE80',
+      soft: 'rgba(74, 222, 128, 0.15)',
+      showMa: false,
+      lblNome: 'Seu nome, clube ou liga',
+      phNome: 'Ex.: EC Portuense / Atleta',
+      lblData: 'Data do jogo ou campeonato',
+      phData: 'Ex.: Domingo, 13/12',
+      lblLocal: 'Cidade / Estádio',
+      phLocal: 'Ex.: Astolfo Dutra - MG',
+      lblDetalhe: 'O que você precisa?',
+      opcoes: [
+        'Pacote completo (Foto + Vídeo Reels + Drone)',
+        'Cobertura fotográfica de jogo / amistoso',
+        'Cobertura de campeonato / torneio',
+        'Reserva de fotos individuais (Atleta)'
+      ],
+      pageUrl: '/esporte',
+      pageLabel: 'Ver portfólio Esporte →',
+      servicoNome: 'Esporte'
+    },
     casamento: {
       badge: 'Casamentos · Márcio Afonso',
       title: 'Verificar data para o casamento',
@@ -657,29 +721,6 @@ footer .wrap {
       pageUrl: '/batizados',
       pageLabel: 'Ver página de Batizados →',
       servicoNome: 'Batizado'
-    },
-    esporte: {
-      badge: 'Oceam Esporte',
-      title: 'Reservar cobertura esportiva',
-      accent: '#4ADE80',
-      soft: 'rgba(74, 222, 128, 0.15)',
-      showMa: false,
-      lblNome: 'Seu nome, clube ou liga',
-      phNome: 'Ex.: EC Portuense / Atleta',
-      lblData: 'Data do jogo ou campeonato',
-      phData: 'Ex.: Domingo, 13/12',
-      lblLocal: 'Cidade / Estádio',
-      phLocal: 'Ex.: Astolfo Dutra - MG',
-      lblDetalhe: 'O que você precisa?',
-      opcoes: [
-        'Pacote completo (Foto + Vídeo Reels + Drone)',
-        'Cobertura fotográfica de jogo / amistoso',
-        'Cobertura de campeonato / torneio',
-        'Reserva de fotos individuais (Atleta)'
-      ],
-      pageUrl: '/esporte',
-      pageLabel: 'Ver portfólio Esporte →',
-      servicoNome: 'Esporte'
     },
     video: {
       badge: 'Oceam Audiovisual & Drone',
@@ -753,8 +794,9 @@ footer .wrap {
   };
 
   var currentNicheKey = null;
-  var drawer = document.getElementById('formDrawer');
+  var backdrop = document.getElementById('modalBackdrop');
   var card = document.getElementById('formCard');
+  var btnClose = document.getElementById('btnCloseModal');
   var inpNome = document.getElementById('leadNome');
   var inpData = document.getElementById('leadData');
   var inpLocal = document.getElementById('leadLocal');
@@ -779,17 +821,11 @@ footer .wrap {
     btnWa.href = 'https://wa.me/5532999612204?text=' + encodeURIComponent(msg);
   }
 
-  function selectNiche(key) {
+  function openFloatingCard(key) {
     var cfg = NICHOS[key];
     if (!cfg) return;
     currentNicheKey = key;
 
-    // Atualiza estado ativo dos botões
-    document.querySelectorAll('.niche-btn').forEach(function(b) {
-      b.classList.toggle('is-active', b.dataset.niche === key);
-    });
-
-    // Aplica cores temáticas do nicho no card
     card.style.setProperty('--niche-accent', cfg.accent);
     card.style.setProperty('--niche-soft', cfg.soft);
 
@@ -817,22 +853,34 @@ footer .wrap {
 
     updateWhatsAppLink();
 
-    // Revela o card do formulário com animação e rola suavemente até ele
-    var wasClosed = !drawer.classList.contains('is-open');
-    drawer.classList.remove('is-open');
-    void drawer.offsetWidth;
-    drawer.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    document.body.classList.add('modal-open');
+    setTimeout(function() { inpNome.focus({ preventScroll: true }); }, 60);
+  }
 
-    setTimeout(function() {
-      drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      if (wasClosed) inpNome.focus({ preventScroll: true });
-    }, 80);
+  function closeFloatingCard() {
+    backdrop.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
   }
 
   document.querySelectorAll('.niche-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      selectNiche(btn.dataset.niche);
+      openFloatingCard(btn.dataset.niche);
     });
+  });
+
+  btnClose.addEventListener('click', closeFloatingCard);
+
+  // Fecha ao clicar fora do card flutuante
+  backdrop.addEventListener('click', function(e) {
+    if (e.target === backdrop) closeFloatingCard();
+  });
+
+  // Fecha com a tecla ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
+      closeFloatingCard();
+    }
   });
 
   [inpNome, inpData, inpLocal, selDetalhe].forEach(function(el) {
