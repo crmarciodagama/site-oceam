@@ -12,28 +12,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Núcleo da Marca Oceam */
-  --bg: #060E18;
+  /* Núcleo da Marca (Tema Claro) */
+  --bg: #F5F2EB;
+  --bg-alt: #EBE6DC;
+  --surface: #FFFFFF;
   --navy: #0B192C;
-  --surface: rgba(17, 34, 54, 0.86);
-  --surface-solid: #112236;
-  --cream: #F5F2EB;
-  --ink: #F5F2EB;
-  --mute: #94A3B8;
+  --ink: #0B192C;
+  --mute: #526071;
   --cyan: #06B6D4;
-  --cyan-light: #38BDF8;
-  --ink-dark: #04131A;
-  --line: rgba(148, 163, 184, 0.16);
-  --line-cyan: rgba(6, 182, 212, 0.35);
+  --cyan-deep: #0284C7;
+  --ink-light: #F5F2EB;
+  --line: rgba(11, 25, 44, 0.12);
+  --line-cyan: rgba(6, 182, 212, 0.38);
 
-  /* Acento Dinâmico (muda conforme o nicho escolhido) */
-  --niche-accent: #06B6D4;
-  --niche-soft: rgba(6, 182, 212, 0.15);
+  /* Acento Dinâmico por Nicho */
+  --niche-accent: #0284C7;
+  --niche-soft: rgba(2, 132, 199, 0.12);
 
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 22px;
-  --shadow: 0 28px 60px -15px rgba(2, 6, 14, 0.92);
+  --shadow: 0 18px 36px -16px rgba(11, 25, 44, 0.14);
+  --modal-shadow: 0 28px 64px -16px rgba(11, 25, 44, 0.34);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -65,7 +65,6 @@ body.modal-open {
   pointer-events: none;
 }
 
-/* Substitua "img/bg-agenda.webp" pela foto leve que desejar usar no fundo */
 .bg-photo {
   position: absolute;
   inset: -6%;
@@ -74,8 +73,8 @@ body.modal-open {
   background-image: url("img/bg-agenda.webp");
   background-size: cover;
   background-position: center;
-  opacity: 0.24;
-  filter: saturate(0.85);
+  opacity: 0.16;
+  filter: saturate(0.75);
   will-change: transform;
   animation: slowDrift 26s ease-in-out infinite alternate;
 }
@@ -90,8 +89,8 @@ body.modal-open {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(800px circle at 50% 18%, rgba(6, 182, 212, 0.14), transparent 65%),
-    linear-gradient(180deg, rgba(11, 25, 44, 0.82) 0%, rgba(6, 14, 24, 0.94) 65%, #060E18 100%);
+    radial-gradient(750px circle at 50% 18%, rgba(6, 182, 212, 0.09), transparent 65%),
+    linear-gradient(180deg, rgba(235, 230, 220, 0.86) 0%, rgba(245, 242, 235, 0.95) 70%, #F5F2EB 100%);
 }
 
 h1, h2, h3 {
@@ -99,26 +98,18 @@ h1, h2, h3 {
   line-height: 1.12;
   margin: 0;
   letter-spacing: -0.025em;
-}
-
-.serif {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-weight: 600;
-  letter-spacing: 0;
-  font-size: 1.16em;
-  color: var(--cyan);
+  color: var(--navy);
 }
 
 a { color: inherit; transition: all 0.25s ease; }
 .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.35rem; width: 100%; }
 
-/* Header Minimalista */
+/* Header Claro */
 header.top {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(11, 25, 44, 0.78);
+  background: rgba(245, 242, 235, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
@@ -128,17 +119,20 @@ header.top .wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4.3rem;
+  height: 4.4rem;
 }
 
-.brand-logo {
+.brand-pill {
   display: inline-flex;
   align-items: center;
+  background: var(--navy);
+  padding: 0.36rem 0.75rem;
+  border-radius: 8px;
   text-decoration: none;
 }
 
-.brand-logo img {
-  height: 28px;
+.brand-pill img {
+  height: 21px;
   width: auto;
   display: block;
 }
@@ -149,12 +143,12 @@ header.top .wrap {
   color: var(--mute);
   text-decoration: none;
 }
-.back-link:hover { color: var(--cream); }
+.back-link:hover { color: var(--navy); }
 
 /* Conteúdo Principal */
 main {
   flex: 1;
-  padding: 4rem 0 4.5rem;
+  padding: 4.25rem 0 4.5rem;
 }
 
 .hero-center {
@@ -163,53 +157,37 @@ main {
   margin: 0 auto 2.75rem;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 1rem;
-  border-radius: 999px;
-  background: rgba(6, 182, 212, 0.12);
-  border: 1px solid var(--line-cyan);
-  color: var(--cyan);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
-}
-
 h1 {
-  font-size: clamp(2.15rem, 5vw, 3.5rem);
+  font-size: clamp(2.25rem, 5.2vw, 3.85rem);
   font-weight: 800;
-  color: var(--cream);
-  margin-bottom: 1rem;
+  color: var(--navy);
+  margin: 0 auto;
+  max-width: 17ch;
 }
 
-.lead {
-  color: var(--mute);
-  font-size: 1rem;
-  margin: 0 auto;
-  max-width: 38rem;
+.swap-word {
+  display: inline-block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.16em;
+  color: var(--cyan-deep);
+  transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.swap-word.is-out {
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 /* Grid de Botões por Nicho */
 .niche-prompt {
   text-align: center;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--cyan);
+  letter-spacing: 0.14em;
+  color: var(--mute);
   margin-bottom: 1.15rem;
 }
 
@@ -224,25 +202,23 @@ h1 {
   font: inherit;
   text-align: left;
   background: var(--surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   padding: 1.3rem 1.35rem;
-  color: var(--cream);
+  color: var(--navy);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 0.45rem;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .niche-btn:hover {
   transform: translateY(-3px);
-  border-color: var(--btn-color, var(--cyan));
-  background: rgba(22, 43, 68, 0.94);
-  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.65);
+  border-color: var(--btn-color, var(--cyan-deep));
+  box-shadow: 0 20px 38px -14px rgba(11, 25, 44, 0.2);
 }
 
 .niche-top {
@@ -254,10 +230,10 @@ h1 {
 
 .niche-tag {
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--btn-color, var(--cyan));
+  color: var(--btn-color, var(--cyan-deep));
 }
 
 .niche-arrow {
@@ -267,18 +243,18 @@ h1 {
 }
 
 .niche-btn:hover .niche-arrow {
-  color: var(--btn-color, var(--cyan));
+  color: var(--btn-color, var(--cyan-deep));
   transform: translateX(3px);
 }
 
 .niche-btn strong {
   font-size: 1.08rem;
   font-weight: 700;
-  color: var(--cream);
+  color: var(--navy);
 }
 
 .niche-btn span.desc {
-  font-size: 0.82rem;
+  font-size: 0.83rem;
   color: var(--mute);
   line-height: 1.45;
 }
@@ -288,7 +264,7 @@ h1 {
   position: fixed;
   inset: 0;
   z-index: 90;
-  background: rgba(3, 8, 15, 0.72);
+  background: rgba(11, 25, 44, 0.56);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: none;
@@ -312,12 +288,12 @@ h1 {
   position: relative;
   width: 100%;
   max-width: 580px;
-  background: var(--surface-solid);
-  border: 1px solid var(--niche-accent);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-top: 4px solid var(--niche-accent);
   border-radius: var(--radius-lg);
   padding: 2rem 1.85rem 1.85rem;
-  box-shadow: var(--shadow);
+  box-shadow: var(--modal-shadow);
   margin: auto;
   animation: modalPop 0.34s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -335,7 +311,7 @@ h1 {
   height: 36px;
   border-radius: 50%;
   border: 1px solid var(--line);
-  background: rgba(245, 242, 235, 0.05);
+  background: var(--bg);
   color: var(--mute);
   font-size: 1.25rem;
   line-height: 1;
@@ -347,9 +323,9 @@ h1 {
 }
 
 .btn-close:hover {
-  background: rgba(245, 242, 235, 0.14);
-  color: var(--cream);
-  border-color: var(--niche-accent);
+  background: var(--bg-alt);
+  color: var(--navy);
+  border-color: rgba(11, 25, 44, 0.25);
 }
 
 .form-header {
@@ -366,7 +342,7 @@ h1 {
 .form-niche-badge {
   display: inline-block;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.25rem 0.65rem;
@@ -379,18 +355,26 @@ h1 {
 .form-header h2 {
   font-size: 1.42rem;
   font-weight: 800;
-  color: var(--cream);
+  color: var(--navy);
 }
 
-.form-ma-logo {
-  height: 22px;
-  width: auto;
+.form-ma-pill {
+  background: var(--navy);
+  padding: 0.3rem 0.62rem;
+  border-radius: 6px;
   display: none;
+  align-items: center;
   flex-shrink: 0;
-  margin-top: 0.3rem;
+  margin-top: 0.25rem;
 }
 
-.form-ma-logo.visible {
+.form-ma-pill.visible {
+  display: inline-flex;
+}
+
+.form-ma-pill img {
+  height: 18px;
+  width: auto;
   display: block;
 }
 
@@ -405,8 +389,8 @@ h1 {
 label {
   display: block;
   font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--cream);
+  font-weight: 700;
+  color: var(--navy);
   margin-bottom: 0.32rem;
 }
 
@@ -414,9 +398,9 @@ input, select {
   width: 100%;
   font: inherit;
   font-size: 0.94rem;
-  color: var(--cream);
-  background: var(--navy);
-  border: 1px solid rgba(148, 163, 184, 0.28);
+  color: var(--navy);
+  background: var(--bg);
+  border: 1px solid rgba(11, 25, 44, 0.2);
   border-radius: var(--radius-sm);
   padding: 0.72rem 0.9rem;
   min-height: 46px;
@@ -439,17 +423,17 @@ input:focus, select:focus {
   padding: 0.95rem 1.5rem;
   border-radius: var(--radius-sm);
   border: none;
-  background: var(--niche-accent);
-  color: #04131A;
+  background: var(--navy);
+  color: var(--ink-light);
   text-decoration: none;
   cursor: pointer;
   min-height: 50px;
   margin-top: 0.35rem;
-  transition: filter 0.2s ease, transform 0.2s ease;
+  transition: filter 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
 
 .btn-submit:hover {
-  filter: brightness(1.08);
+  background: #132846;
   transform: translateY(-2px);
 }
 
@@ -466,18 +450,18 @@ input:focus, select:focus {
 
 .form-foot a {
   color: var(--niche-accent);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
 }
 .form-foot a:hover { text-decoration: underline; }
 
-/* Footer */
+/* Footer Escuro como na Home */
 footer {
-  border-top: 1px solid var(--line);
-  background: rgba(4, 9, 17, 0.85);
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+  background: var(--navy);
   padding: 1.75rem 0;
   font-size: 0.84rem;
-  color: var(--mute);
+  color: #94A3B8;
 }
 
 footer .wrap {
@@ -488,6 +472,8 @@ footer .wrap {
   gap: 1rem;
 }
 
+footer strong { color: var(--ink-light); }
+
 @media (max-width: 820px) {
   .niche-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -495,7 +481,7 @@ footer .wrap {
 @media (max-width: 560px) {
   .niche-grid, .g2 { grid-template-columns: 1fr; }
   .floating-card { padding: 1.55rem 1.25rem 1.35rem; }
-  main { padding: 2.75rem 0 3.5rem; }
+  main { padding: 3rem 0 3.75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -514,7 +500,7 @@ footer .wrap {
 
 <header class="top">
   <div class="wrap">
-    <a class="brand-logo" href="/" aria-label="Oceam Início">
+    <a class="brand-pill" href="/" aria-label="Oceam Início">
       <img src="img/logo-oceam_1.svg" alt="Oceam">
     </a>
     <a class="back-link" href="/">← Ver site completo</a>
@@ -524,16 +510,14 @@ footer .wrap {
 <main>
   <div class="wrap">
     <div class="hero-center">
-      <span class="eyebrow">Agenda Aberta · Astolfo Dutra, Cataguases &amp; Região</span>
-      <h1>Reserve sua data com <span class="serif">antecedência</span></h1>
-      <p class="lead">Escolha abaixo o tipo de cobertura ou projeto que você está planejando para abrir o formulário rápido e consultar a disponibilidade direto no WhatsApp.</p>
+      <h1>Leve <span class="swap-word" id="swapWord">sua data</span> para águas mais profundas</h1>
     </div>
 
-    <div class="niche-prompt">1. Escolha o nicho para abrir o formulário:</div>
+    <div class="niche-prompt">Escolha o nicho para abrir o formulário</div>
 
     <div class="niche-grid" role="group" aria-label="Escolha o nicho">
       <!-- 1. Esporte (Primeira linha) -->
-      <button type="button" class="niche-btn" data-niche="esporte" style="--btn-color: #4ADE80;">
+      <button type="button" class="niche-btn" data-niche="esporte" style="--btn-color: #15803D;">
         <div class="niche-top">
           <span class="niche-tag">Competições &amp; Atletas</span>
           <span class="niche-arrow">→</span>
@@ -543,7 +527,7 @@ footer .wrap {
       </button>
 
       <!-- 2. Casamentos (Primeira linha) -->
-      <button type="button" class="niche-btn" data-niche="casamento" style="--btn-color: #E5C58E;">
+      <button type="button" class="niche-btn" data-niche="casamento" style="--btn-color: #9A7435;">
         <div class="niche-top">
           <span class="niche-tag">Sacramentos</span>
           <span class="niche-arrow">→</span>
@@ -553,7 +537,7 @@ footer .wrap {
       </button>
 
       <!-- 3. Batizados (Primeira linha) -->
-      <button type="button" class="niche-btn" data-niche="batizado" style="--btn-color: #E5C58E;">
+      <button type="button" class="niche-btn" data-niche="batizado" style="--btn-color: #9A7435;">
         <div class="niche-top">
           <span class="niche-tag">De católico para católico</span>
           <span class="niche-arrow">→</span>
@@ -563,7 +547,7 @@ footer .wrap {
       </button>
 
       <!-- 4. Vídeo & Drone (Segunda linha) -->
-      <button type="button" class="niche-btn" data-niche="video" style="--btn-color: #FB923C;">
+      <button type="button" class="niche-btn" data-niche="video" style="--btn-color: #B45309;">
         <div class="niche-top">
           <span class="niche-tag">Audiovisual</span>
           <span class="niche-arrow">→</span>
@@ -573,7 +557,7 @@ footer .wrap {
       </button>
 
       <!-- 5. Lives (Segunda linha) -->
-      <button type="button" class="niche-btn" data-niche="live" style="--btn-color: #38BDF8;">
+      <button type="button" class="niche-btn" data-niche="live" style="--btn-color: #0284C7;">
         <div class="niche-top">
           <span class="niche-tag">Ao Vivo 1080p</span>
           <span class="niche-arrow">→</span>
@@ -583,7 +567,7 @@ footer .wrap {
       </button>
 
       <!-- 6. Design (Segunda linha) -->
-      <button type="button" class="niche-btn" data-niche="design" style="--btn-color: #06B6D4;">
+      <button type="button" class="niche-btn" data-niche="design" style="--btn-color: #0E7490;">
         <div class="niche-top">
           <span class="niche-tag">Comunicação Visual</span>
           <span class="niche-arrow">→</span>
@@ -605,7 +589,9 @@ footer .wrap {
         <span class="form-niche-badge" id="badgeNiche">Nicho selecionado</span>
         <h2 id="formTitle">Consultar disponibilidade</h2>
       </div>
-      <img class="form-ma-logo" id="maLogo" src="img/logo-ma.svg" alt="Márcio Afonso">
+      <span class="form-ma-pill" id="maPill">
+        <img src="img/logo-ma.svg" alt="Márcio Afonso">
+      </span>
     </div>
 
     <div class="g2">
@@ -644,7 +630,7 @@ footer .wrap {
 <footer>
   <div class="wrap">
     <span><strong>Oceam</strong> · Márcio Afonso · Astolfo Dutra, Cataguases &amp; Região (MG)</span>
-    <span>Atendimento desde 2018</span>
+    <span>Atendimento desde 2023 · Repertório desde 2018</span>
   </div>
 </footer>
 
@@ -652,12 +638,28 @@ footer .wrap {
 (function(){
   var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyUKU369Osmphzg7CDpt5NqL5L5oxaeU3uV8djUz8Y3rU8PQdH2r6KLP_5TpcFtnTXh/exec';
 
+  // Animação do slogan
+  var swapEl = document.getElementById('swapWord');
+  var words = ['sua data', 'seu jogo', 'seu evento', 'seu vídeo', 'sua marca'];
+  var wordIdx = 0;
+
+  if (swapEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(function() {
+      swapEl.classList.add('is-out');
+      setTimeout(function() {
+        wordIdx = (wordIdx + 1) % words.length;
+        swapEl.textContent = words[wordIdx];
+        swapEl.classList.remove('is-out');
+      }, 320);
+    }, 2500);
+  }
+
   var NICHOS = {
     esporte: {
       badge: 'Oceam Esporte',
       title: 'Reservar cobertura esportiva',
-      accent: '#4ADE80',
-      soft: 'rgba(74, 222, 128, 0.15)',
+      accent: '#15803D',
+      soft: 'rgba(21, 128, 61, 0.12)',
       showMa: false,
       lblNome: 'Seu nome, clube ou liga',
       phNome: 'Ex.: EC Portuense / Atleta',
@@ -679,8 +681,8 @@ footer .wrap {
     casamento: {
       badge: 'Casamentos · Márcio Afonso',
       title: 'Verificar data para o casamento',
-      accent: '#E5C58E',
-      soft: 'rgba(229, 197, 142, 0.16)',
+      accent: '#9A7435',
+      soft: 'rgba(154, 116, 53, 0.13)',
       showMa: true,
       lblNome: 'Nome do casal',
       phNome: 'Ex.: Ana e João',
@@ -702,8 +704,8 @@ footer .wrap {
     batizado: {
       badge: 'Batizados · De católico para católico',
       title: 'Verificar data para o batizado',
-      accent: '#E5C58E',
-      soft: 'rgba(229, 197, 142, 0.16)',
+      accent: '#9A7435',
+      soft: 'rgba(154, 116, 53, 0.13)',
       showMa: true,
       lblNome: 'Seu nome (mãe, pai ou padrinhos)',
       phNome: 'Ex.: Mariana',
@@ -725,8 +727,8 @@ footer .wrap {
     video: {
       badge: 'Oceam Audiovisual & Drone',
       title: 'Solicitar orçamento de vídeo / drone',
-      accent: '#FB923C',
-      soft: 'rgba(251, 146, 60, 0.16)',
+      accent: '#B45309',
+      soft: 'rgba(180, 83, 9, 0.12)',
       showMa: false,
       lblNome: 'Seu nome ou empresa',
       phNome: 'Ex.: Loja / Construtora / Evento',
@@ -748,8 +750,8 @@ footer .wrap {
     live: {
       badge: 'Oceam Transmissões ao Vivo',
       title: 'Agendar transmissão ao vivo (Live)',
-      accent: '#38BDF8',
-      soft: 'rgba(56, 189, 248, 0.16)',
+      accent: '#0284C7',
+      soft: 'rgba(2, 132, 199, 0.12)',
       showMa: false,
       lblNome: 'Seu nome, paróquia ou organização',
       phNome: 'Ex.: Pascom / Liga Esportiva',
@@ -771,8 +773,8 @@ footer .wrap {
     design: {
       badge: 'Oceam Design & Marca',
       title: 'Iniciar projeto de design',
-      accent: '#06B6D4',
-      soft: 'rgba(6, 182, 212, 0.16)',
+      accent: '#0E7490',
+      soft: 'rgba(14, 116, 144, 0.12)',
       showMa: false,
       lblNome: 'Seu nome ou marca',
       phNome: 'Ex.: Nome da empresa ou projeto',
@@ -831,7 +833,7 @@ footer .wrap {
 
     document.getElementById('badgeNiche').textContent = cfg.badge;
     document.getElementById('formTitle').textContent = cfg.title;
-    document.getElementById('maLogo').classList.toggle('visible', cfg.showMa);
+    document.getElementById('maPill').classList.toggle('visible', cfg.showMa);
 
     document.getElementById('lblNome').textContent = cfg.lblNome;
     inpNome.placeholder = cfg.phNome;
@@ -871,12 +873,10 @@ footer .wrap {
 
   btnClose.addEventListener('click', closeFloatingCard);
 
-  // Fecha ao clicar fora do card flutuante
   backdrop.addEventListener('click', function(e) {
     if (e.target === backdrop) closeFloatingCard();
   });
 
-  // Fecha com a tecla ESC
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
       closeFloatingCard();
@@ -888,7 +888,6 @@ footer .wrap {
     el.addEventListener('change', updateWhatsAppLink);
   });
 
-  // Envio silencioso de Lead para a planilha Controle OCEAM
   btnWa.addEventListener('click', function() {
     if (!currentNicheKey) return;
     var cfg = NICHOS[currentNicheKey];
