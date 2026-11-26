@@ -429,6 +429,17 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   gap: 1.1rem;
 }
 
+/* Seção Esporte: 5 cards em linha única no desktop, formato 4:5 */
+#esporte .slots {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.9rem;
+}
+
+#esporte .slot.wide {
+  grid-column: auto;
+  aspect-ratio: 4/5;
+}
+
 .slot {
   position: relative;
   aspect-ratio: 4/5;
@@ -441,8 +452,8 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   justify-content: center;
   text-align: center;
   color: var(--mute);
-  padding: 1.25rem;
-  font-size: 0.86rem;
+  padding: 1.1rem;
+  font-size: 0.82rem;
   overflow: hidden;
   cursor: pointer;
   box-shadow: var(--shadow);
@@ -457,14 +468,27 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
 }
 
 .slot svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   stroke: var(--cyan-deep);
   opacity: 0.75;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
+  flex-shrink: 0;
 }
 
-/* No desktop, o wide ocupa a linha inteira com altura equilibrada */
+.slot code {
+  font-size: 0.72rem;
+  color: var(--cyan-deep);
+  background: rgba(6, 182, 212, 0.09);
+  padding: 0.14rem 0.42rem;
+  border-radius: 5px;
+  margin-top: 0.35rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* No desktop, o wide em seções de 3 colunas ocupa a linha inteira */
 .slot.wide {
   grid-column: span 3;
   aspect-ratio: 16/7;
@@ -473,6 +497,7 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
 .slot img {
   position: absolute;
   inset: 0;
+  z-index: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -485,7 +510,7 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   display: none;
 }
 
-/* Split & Lists (corrigido para evitar corte horizontal no mobile) */
+/* Split & Lists */
 .split {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -781,7 +806,8 @@ footer .links a:hover { color: var(--cyan); }
   .hero { padding: 3.75rem 0 3rem; }
   section { padding: 3.5rem 0; }
 
-  .slots {
+  .slots,
+  #esporte .slots {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
@@ -796,7 +822,9 @@ footer .links a:hover { color: var(--cyan); }
   .slots::-webkit-scrollbar { display: none; }
 
   .slots .slot,
-  .slots .slot.wide {
+  .slots .slot.wide,
+  #esporte .slots .slot,
+  #esporte .slots .slot.wide {
     flex: 0 0 76%;
     max-width: 300px;
     aspect-ratio: 4/5;
@@ -903,7 +931,7 @@ footer .links a:hover { color: var(--cyan); }
     </div>
   </div>
 
-  <!-- 01. ESPORTE -->
+  <!-- 01. ESPORTE (5 CARDS 4:5 COM NOMES PRONTOS PARA SALVAR NA PASTA img/) -->
   <section id="esporte" class="reveal-section">
     <div class="wrap">
       <span class="section-label" style="color:var(--sport)">01 · Esporte</span>
@@ -930,22 +958,39 @@ footer .links a:hover { color: var(--cyan); }
 
       <div class="slots-wrap">
         <div class="slots is-peeking">
-          <div class="slot wide">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <strong>Foto principal de jogo</strong>
-            <span>Formato 4:5 no mobile</span>
-          </div>
           <div class="slot">
+            <img src="img/esporte-01-lance-alto.webp" alt="Atleta dominando a bola no alto durante partida regional" loading="lazy" onerror="this.style.display='none'">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Lance de jogo em ação (4:5)</span>
+            <strong>Lance no alto (4:5)</strong>
+            <code>img/esporte-01-lance-alto.webp</code>
           </div>
+
           <div class="slot">
+            <img src="img/esporte-02-comemoracao.webp" alt="Jogador comemorando com alegria durante jogo na região" loading="lazy" onerror="this.style.display='none'">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Comemoração / Gol (4:5)</span>
+            <strong>Comemoração (4:5)</strong>
+            <code>img/esporte-02-comemoracao.webp</code>
           </div>
+
           <div class="slot">
+            <img src="img/esporte-03-futevolei.webp" alt="Lance acrobático em partida de futvôlei" loading="lazy" onerror="this.style.display='none'">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Torcida ou bastidores (4:5)</span>
+            <strong>Futvôlei / Ação (4:5)</strong>
+            <code>img/esporte-03-futevolei.webp</code>
+          </div>
+
+          <div class="slot">
+            <img src="img/esporte-04-emocao.webp" alt="Emoção e vibração durante competição esportiva" loading="lazy" onerror="this.style.display='none'">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <strong>Emoção / Quadra (4:5)</strong>
+            <code>img/esporte-04-emocao.webp</code>
+          </div>
+
+          <div class="slot">
+            <img src="img/esporte-05-torcida.webp" alt="Torcida vibrando com bandeiras e bateria no estádio" loading="lazy" onerror="this.style.display='none'">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <strong>Torcida (4:5)</strong>
+            <code>img/esporte-05-torcida.webp</code>
           </div>
         </div>
         <span class="swipe-hint" aria-hidden="true">Arraste para o lado para ver mais fotos →</span>
