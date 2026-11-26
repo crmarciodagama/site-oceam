@@ -203,7 +203,7 @@ nav a:hover { color: var(--navy); }
 /* HERO CENTRALIZADA: SLOGAN -> VÍDEO (CRESCE NA ROLAGEM) -> BOTÕES */
 .hero {
   position: relative;
-  padding: 5rem 0 4.5rem;
+  padding: 4.75rem 0 3.75rem;
   background:
     radial-gradient(650px circle at var(--hero-x, 50%) var(--hero-y, 30%), rgba(6, 182, 212, 0.12), transparent 65%),
     linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
@@ -271,7 +271,6 @@ nav a:hover { color: var(--navy); }
   display: block;
 }
 
-/* Placeholder visual enquanto o demoreel.mp4 ainda não foi subido */
 .reel-placeholder {
   position: absolute;
   inset: 0;
@@ -333,37 +332,42 @@ nav a:hover { color: var(--navy); }
 .btns { display: flex; gap: 0.85rem; flex-wrap: wrap; justify-content: center; }
 .section-btns { justify-content: flex-start; margin-top: 1.75rem; }
 
-/* Faixa de Métricas / Prova Social */
-.metrics-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
-  text-align: left;
+/* Faixa discreta e compacta logo abaixo da Hero */
+.proof-strip {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 0;
 }
 
-.metric-item {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 1.15rem 1.25rem;
-  box-shadow: var(--shadow);
-}
-
-.metric-item b {
-  display: block;
-  font-size: 1.55rem;
-  font-weight: 800;
-  color: var(--navy);
-  margin-bottom: 0.15rem;
-}
-
-.metric-item span {
-  font-size: 0.83rem;
+.proof-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 2.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.84rem;
   color: var(--mute);
-  display: block;
+}
+
+.proof-items li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.proof-items svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--cyan-deep);
+  flex-shrink: 0;
+}
+
+.proof-items strong {
+  color: var(--navy);
+  font-weight: 700;
 }
 
 /* Sections */
@@ -709,11 +713,11 @@ footer .links a:hover { color: var(--cyan); }
 @media (max-width: 860px) {
   nav { display: none; }
   .reel-box { width: var(--reel-w, 290px); }
-  .metrics-strip { grid-template-columns: 1fr 1fr; }
+  .proof-items { justify-content: flex-start; gap: 0.6rem 1.25rem; }
   .value-grid, .split, .about, .cards-grid, .steps, .quote-box { grid-template-columns: 1fr; }
   .quote-box { padding: 1.65rem; }
   .about .slot { max-width: 320px; }
-  .hero { padding: 3.75rem 0 3.25rem; }
+  .hero { padding: 3.75rem 0 3rem; }
   section { padding: 3.5rem 0; }
   .slot.wide { aspect-ratio: 16/9; }
 }
@@ -773,26 +777,26 @@ footer .links a:hover { color: var(--cyan); }
           <a class="btn alt" href="#esporte">Ver trabalhos</a>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Faixa de prova rápida -->
-      <div class="metrics-strip">
-        <div class="metric-item">
-          <b>Desde 2018</b>
-          <span>Atuação contínua na região</span>
-        </div>
-        <div class="metric-item">
-          <b>+2.000 vendas</b>
-          <span>Fotos esportivas no Banlek</span>
-        </div>
-        <div class="metric-item">
-          <b>+100 jogos</b>
-          <span>Coberturas em campo e ligas</span>
-        </div>
-        <div class="metric-item">
-          <b>Foto · Vídeo · Live</b>
-          <span>Tudo em um só contato</span>
-        </div>
-      </div>
+  <!-- FAIXA DISCRETA COM ÍCONES LOGO APÓS A HERO -->
+  <div class="proof-strip" aria-label="Destaques da trajetória">
+    <div class="wrap">
+      <ul class="proof-items">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/></svg>
+          <span><strong>Esporte ativo desde 2023</strong> · +100 jogos e +2.000 fotos no Banlek</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          <span><strong>Repertório desde 2018</strong> · Portuense, banda, seminário e atuação comercial</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 10 4-2v8l-4-2"/></svg>
+          <span><strong>Foto, vídeo, drone, live e design</strong> · Em um só contato</span>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -976,8 +980,8 @@ footer .links a:hover { color: var(--cyan); }
         <div>
           <span class="section-label">Sobre mim</span>
           <h2>Quem está por trás da <span class="serif">Oceam</span></h2>
-          <p>Sou Márcio Afonso Oliveira de Paula, fotógrafo, videomaker e designer gráfico. Trabalho com produção visual desde 2018 e hoje atuo no marketing de uma indústria, conciliando essa experiência com os projetos da Oceam.</p>
-          <p>Minha trajetória une a prática de agência de marketing, a cobertura de mais de 100 partidas de futebol na região e anos de vivência como seminarista e na Pastoral da Comunicação (Pascom). Essa bagagem me permite unir técnica, agilidade e sensibilidade para registrar o que realmente importa em cada celebração ou projeto.</p>
+          <p>Sou Márcio Afonso Oliveira de Paula, fotógrafo, videomaker e designer gráfico. Comecei a ter contato com o design e a criação de forma voluntária no Portuense e em projetos musicais, passei pela vivência no seminário e, desde 2023, atuo de forma contínua na fotografia esportiva, na comunicação e no marketing.</p>
+          <p>Minha trajetória une a prática de agência e marketing, a cobertura de mais de 100 partidas de futebol na região e a vivência na Pastoral da Comunicação (Pascom). Essa bagagem me permite unir técnica, agilidade e sensibilidade para registrar o que realmente importa em cada celebração ou projeto.</p>
         </div>
         <div class="slot" role="img" aria-label="Espaço para o retrato do Márcio">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
