@@ -419,6 +419,8 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
 /* Slots de imagem em 4:5 no desktop e carrossel arrastável no mobile */
 .slots-wrap {
   position: relative;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .slots {
@@ -483,14 +485,25 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   display: none;
 }
 
-/* Split & Lists */
-.split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; }
+/* Split & Lists (corrigido para evitar corte horizontal no mobile) */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.split > div {
+  min-width: 0;
+  max-width: 100%;
+}
 
 .ma-header {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.8rem;
+  margin-bottom: 0.7rem;
 }
 
 .ma-pill {
@@ -499,6 +512,7 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   border-radius: 6px;
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
 }
 .ma-pill img { height: 18px; width: auto; display: block; }
 
@@ -508,12 +522,30 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   border-radius: var(--radius-md);
   padding: 1.2rem 1.4rem;
   margin-bottom: 1.6rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 .highlight-box b { display: block; color: #7C5D2B; font-size: 0.94rem; margin-bottom: 0.3rem; }
 .highlight-box span { color: var(--navy); font-size: 0.92rem; display: block; }
 
-.list { margin: 0 0 1.8rem; padding: 0; list-style: none; display: grid; gap: 0.6rem; }
-.list li { display: flex; align-items: center; gap: 0.7rem; color: var(--navy); font-weight: 600; font-size: 0.94rem; }
+.sub,
+.list li {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.list { margin: 0 0 1.8rem; padding: 0; list-style: none; display: grid; gap: 0.65rem; }
+.list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
 .list li::before {
   content: "✓";
   display: inline-flex;
@@ -527,6 +559,7 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   font-size: 0.75rem;
   font-weight: 800;
   flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
 .quote {
@@ -540,6 +573,7 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   font-style: italic;
   font-size: 1.25rem;
   line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 /* Cards de Vídeo, Lives e Design */
@@ -560,6 +594,7 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   flex-direction: column;
   gap: 0.6rem;
   box-shadow: var(--shadow);
+  min-width: 0;
 }
 
 .service-card .pill {
@@ -596,6 +631,7 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
   border-radius: var(--radius-md);
   padding: 1.6rem 1.45rem;
   box-shadow: var(--shadow);
+  min-width: 0;
 }
 .steps li::before {
   content: "0" counter(s);
@@ -613,6 +649,7 @@ h2 { font-size: clamp(1.85rem, 3.8vw, 2.65rem); font-weight: 800; margin-bottom:
 
 /* About */
 .about { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3.5rem; align-items: center; }
+.about > div { min-width: 0; max-width: 100%; }
 .about p { color: var(--mute); font-size: 1rem; margin: 0 0 1.15rem; }
 .about .slot { aspect-ratio: 4/5; border-radius: var(--radius-lg); }
 
@@ -639,10 +676,11 @@ details.faq-item summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
 }
 
 details.faq-item summary::-webkit-details-marker { display: none; }
-details.faq-item summary::after { content: "+"; color: var(--cyan-deep); font-size: 1.25rem; }
+details.faq-item summary::after { content: "+"; color: var(--cyan-deep); font-size: 1.25rem; flex-shrink: 0; }
 details.faq-item[open] summary::after { content: "−"; }
 details.faq-item p { margin: 0.65rem 0 0; color: var(--mute); font-size: 0.9rem; }
 
@@ -658,6 +696,8 @@ details.faq-item p { margin: 0.65rem 0 0; color: var(--mute); font-size: 0.9rem;
   align-items: center;
   box-shadow: var(--shadow);
 }
+
+.quote-box > div { min-width: 0; max-width: 100%; }
 
 .form {
   background: var(--bg);
@@ -729,8 +769,14 @@ footer .links a:hover { color: var(--cyan); }
   nav { display: none; }
   .reel-box { width: var(--reel-w, 290px); }
   .proof-items { justify-content: flex-start; gap: 0.6rem 1.25rem; }
-  .value-grid, .split, .about, .cards-grid, .steps, .quote-box { grid-template-columns: 1fr; }
-  .quote-box { padding: 1.65rem; }
+  .value-grid,
+  .split,
+  .about,
+  .cards-grid,
+  .steps,
+  .quote-box { grid-template-columns: minmax(0, 1fr); }
+  .quote-box { padding: 1.5rem; gap: 1.75rem; }
+  .highlight-box { padding: 1rem 1.1rem; }
   .about .slot { max-width: 320px; }
   .hero { padding: 3.75rem 0 3rem; }
   section { padding: 3.5rem 0; }
@@ -757,7 +803,6 @@ footer .links a:hover { color: var(--cyan); }
     scroll-snap-align: start;
   }
 
-  /* Movimento sutil de "espiada" para indicar que dá para arrastar */
   .slots.is-peeking {
     animation: cardPeekHint 3.2s ease-in-out infinite;
   }
