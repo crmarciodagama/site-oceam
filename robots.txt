@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /gestao.html
+Disallow: /_rascunhos/
+
+Sitemap: https://novo.oceam.com.br/sitemap.xml
