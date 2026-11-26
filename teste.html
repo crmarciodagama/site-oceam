@@ -200,50 +200,29 @@ nav a:hover { color: var(--navy); }
 
 .btn.sm { padding: 0.5rem 1.1rem; min-height: 38px; font-size: 0.84rem; }
 
-/* HERO MINIMALISTA + TEXTO DINÂMICO + DEMOREEL QUE CRESCE NA ROLAGEM */
+/* HERO CENTRALIZADA: SLOGAN -> VÍDEO (CRESCE NA ROLAGEM) -> BOTÕES */
 .hero {
   position: relative;
-  padding: 4.5rem 0 4.5rem;
+  padding: 5rem 0 4.5rem;
   background:
-    radial-gradient(650px circle at var(--hero-x, 80%) var(--hero-y, 30%), rgba(6, 182, 212, 0.12), transparent 65%),
+    radial-gradient(650px circle at var(--hero-x, 50%) var(--hero-y, 30%), rgba(6, 182, 212, 0.12), transparent 65%),
     linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
   border-bottom: 1px solid var(--line);
 }
 
-.hero-top {
+.hero-center {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.hero-copy {
-  flex: 1;
-  max-width: 42rem;
-}
-
-.eyebrow {
-  display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.34rem 0.95rem;
-  border-radius: 999px;
-  background: rgba(6, 182, 212, 0.12);
-  border: 1px solid var(--line-cyan);
-  color: var(--cyan-deep);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(2.35rem, 5.2vw, 3.9rem);
+  font-size: clamp(2.4rem, 5.5vw, 4.1rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.25rem;
+  line-height: 1.12;
+  max-width: 17ch;
+  margin: 0 auto 2.25rem;
 }
 
 /* Palavra alternando dentro do slogan */
@@ -262,20 +241,12 @@ nav a:hover { color: var(--navy); }
   transform: translateY(10px);
 }
 
-.hero p.lead {
-  color: var(--mute);
-  max-width: 34rem;
-  font-size: 1.02rem;
-  margin: 0 0 1.75rem;
-}
-
-.btns { display: flex; gap: 0.85rem; flex-wrap: wrap; }
-
-/* Stage do Demoreel que começa compacto e expande na rolagem */
+/* Stage do Demoreel centralizado, começando pequeno e expandindo na rolagem */
 .reel-stage {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100%;
+  margin-bottom: 2.25rem;
 }
 
 .reel-box {
@@ -359,14 +330,18 @@ nav a:hover { color: var(--navy); }
   pointer-events: none;
 }
 
+.btns { display: flex; gap: 0.85rem; flex-wrap: wrap; justify-content: center; }
+.section-btns { justify-content: flex-start; margin-top: 1.75rem; }
+
 /* Faixa de Métricas / Prova Social */
 .metrics-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  margin-top: 2.75rem;
+  margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--line);
+  text-align: left;
 }
 
 .metric-item {
@@ -733,13 +708,12 @@ footer .links a:hover { color: var(--cyan); }
 
 @media (max-width: 860px) {
   nav { display: none; }
-  .hero-top { flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.75rem; }
   .reel-box { width: var(--reel-w, 290px); }
   .metrics-strip { grid-template-columns: 1fr 1fr; }
   .value-grid, .split, .about, .cards-grid, .steps, .quote-box { grid-template-columns: 1fr; }
   .quote-box { padding: 1.65rem; }
   .about .slot { max-width: 320px; }
-  .hero { padding: 3.5rem 0 3.25rem; }
+  .hero { padding: 3.75rem 0 3.25rem; }
   section { padding: 3.5rem 0; }
   .slot.wide { aspect-ratio: 16/9; }
 }
@@ -772,36 +746,31 @@ footer .links a:hover { color: var(--cyan); }
 <main id="inicio">
   <div class="hero" id="hero-area">
     <div class="wrap">
-      <div class="hero-top">
-        <div class="hero-copy">
-          <span class="eyebrow">Astolfo Dutra, Cataguases &amp; Região · MG</span>
-          <h1>Leve <span class="swap-word" id="swapWord">sua marca</span> para águas mais profundas</h1>
-          <p class="lead">Fotografia, vídeo, drone, transmissões ao vivo e design visual com presença discreta e olhar atento em cada projeto.</p>
-          <div class="btns">
-            <a class="btn cyan" href="https://wa.me/5532999612204?text=Ol%C3%A1%2C%20M%C3%A1rcio!%20Vim%20pelo%20site%20da%20Oceam%20e%20quero%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
-            <a class="btn alt" href="#esporte">Ver trabalhos</a>
+      <div class="hero-center">
+        <h1>Leve <span class="swap-word" id="swapWord">sua marca</span> para águas mais profundas</h1>
+
+        <!-- Demoreel: começa compacto centralizado e expande até 100% na rolagem -->
+        <div class="reel-stage" id="reelStage">
+          <div class="reel-box" id="reelBox">
+            <video id="reelVideo" autoplay muted loop playsinline preload="metadata" poster="img/poster-demoreel.jpg">
+              <source src="video/demoreel.mp4" type="video/mp4">
+            </video>
+
+            <div class="reel-placeholder" id="reelPlaceholder">
+              <div class="reel-play-badge" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <strong>Demoreel Oceam &amp; Márcio Afonso</strong>
+              <span>Espaço reservado para <code>video/demoreel.mp4</code></span>
+            </div>
+
+            <span class="reel-caption">Demoreel · Oceam</span>
           </div>
         </div>
-      </div>
 
-      <!-- Demoreel: começa compacto à direita e expande até 100% na rolagem -->
-      <div class="reel-stage" id="reelStage">
-        <div class="reel-box" id="reelBox">
-          <!-- Suba seu arquivo em video/demoreel.mp4 -->
-          <video id="reelVideo" autoplay muted loop playsinline preload="metadata" poster="img/poster-demoreel.jpg">
-            <source src="video/demoreel.mp4" type="video/mp4">
-          </video>
-
-          <!-- Visual exibido enquanto o arquivo .mp4 ainda não estiver no repositório -->
-          <div class="reel-placeholder" id="reelPlaceholder">
-            <div class="reel-play-badge" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <strong>Demoreel Oceam &amp; Márcio Afonso</strong>
-            <span>Espaço reservado para <code>video/demoreel.mp4</code></span>
-          </div>
-
-          <span class="reel-caption">Demoreel · Oceam</span>
+        <div class="btns">
+          <a class="btn cyan" href="https://wa.me/5532999612204?text=Ol%C3%A1%2C%20M%C3%A1rcio!%20Vim%20pelo%20site%20da%20Oceam%20e%20quero%20pedir%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+          <a class="btn alt" href="#esporte">Ver trabalhos</a>
         </div>
       </div>
 
@@ -871,7 +840,7 @@ footer .links a:hover { color: var(--cyan); }
           <span>Torcida ou bastidores</span>
         </div>
       </div>
-      <div class="btns" style="margin-top:1.75rem">
+      <div class="btns section-btns">
         <a class="btn cyan" href="https://banlek.com/omarcioafonso" target="_blank" rel="noopener">Ver e comprar minhas fotos de jogos</a>
         <a class="btn alt" href="/esporte">Ver portfólio esporte →</a>
       </div>
@@ -899,7 +868,7 @@ footer .links a:hover { color: var(--cyan); }
             <li>Aniversários, formaturas e confraternizações familiares</li>
             <li>Ensaios fotográficos e retratos</li>
           </ul>
-          <div class="btns">
+          <div class="btns section-btns">
             <a class="btn" href="/casamentos">Ver Casamentos</a>
             <a class="btn alt" href="/batizados">Ver Batizados</a>
           </div>
@@ -1143,13 +1112,11 @@ footer .links a:hover { color: var(--cyan); }
       var rect = reelBox.getBoundingClientRect();
       var vh = window.innerHeight || document.documentElement.clientHeight;
 
-      // Progresso: 0 quando o vídeo está na metade inferior da tela, 1 quando chega perto do topo
       var startY = vh * 0.68;
       var endY = vh * 0.16;
       var progress = (startY - rect.top) / (startY - endY);
       progress = Math.max(0, Math.min(1, progress));
 
-      // Curva suave (ease-out)
       var eased = 1 - Math.pow(1 - progress, 2);
       var currentW = minW + (maxW - minW) * eased;
       reelBox.style.setProperty('--reel-w', currentW.toFixed(1) + 'px');
